@@ -1,0 +1,24 @@
+{
+  "name": "rosiebot",
+  "version": "1.0.0",
+  "description": "Twitch Bot",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "^7.0.0",
+    "tmi.js": "^1.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node rosie-bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sorskoot/RosieBot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sorskoot/RosieBot/issues"
+  },
+  "homepage": "https://github.com/sorskoot/RosieBot#readme"
+}
