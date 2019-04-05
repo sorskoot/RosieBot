@@ -11,7 +11,7 @@ Todo:
 Commands:
 ☐ !commands ==> link to commands.md on github
 ☐ !uptime https://api.twitch.tv/helix/streams/
-☐ social links, !twitter, !discord, !youtube, !insta
+☐ social links, !twitter, !discord, !youtube, !insta, !git
 ☐ !toolset
 ☐ !editor
 ☐ code metrics
