@@ -1,12 +1,15 @@
 # RosieBot
 
-Chatbot for Twitch build with Node.js
+## Chatbot for Twitch build with Node.js
 
 Ideas:
- * [x] !dice for rolling dice :P
- * [ ] Rosie quotes
- * [ ] Connect to Azure Machine Learning
- * [ ] request information about the codebase working on, like lines of code or current issue
- 
-![rosie](https://vignette.wikia.nocookie.net/warner-bros-entertainment/images/4/43/Rosie_the_robot_maid.jpg/revision/latest?cb=20160830191815)
 
+[x] !dice for rolling dice :P
+[ ] Rosie quotes, if I can find them
+[ ] Connect to SoundByte, maybe through MIDI
+[ ] Connect to Azure Machine Learning
+[ ] request information about the codebase working on, like lines of code or current issue
+[ ] Do something with hardware/IoT/Arduino
+[ ] !uptime https://api.twitch.tv/helix/streams/
+
+![rosie](https://vignette.wikia.nocookie.net/warner-bros-entertainment/images/4/43/Rosie_the_robot_maid.jpg/revision/latest?cb=20160830191815)
