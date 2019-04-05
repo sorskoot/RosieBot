@@ -9,7 +9,7 @@ Todo:
 ☐ Trigger stuff in the stream, in browser windows in OBS
 
 Commands:
-☐ !commands ==> link to commands.md on github
+✔ !commands ==> link to commands.md on github @done(19-04-05 23:46)
 ☐ !uptime https://api.twitch.tv/helix/streams/
 ☐ social links, !twitter, !discord, !youtube, !insta, !git
 ☐ !toolset

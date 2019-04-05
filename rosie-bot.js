@@ -3,6 +3,7 @@ require('dotenv').config();
 
 const diceCommand = require('./commands/command-dice');
 const rosieCommand = require('./commands/command-rosie');
+const CommandsCommand = require('./commands/command-commands');
 const sfxCommand = require('./commands/command-sfx');
 
 const opts = {
@@ -31,6 +32,7 @@ client.connect()
 const commands = {
     '!dice': diceCommand,
     '!rosie': rosieCommand,
+    '!commands': CommandsCommand,
 
     '!doh': sfxCommand.sfxDoh,
     '!bingit':sfxCommand.sfxBingit,
