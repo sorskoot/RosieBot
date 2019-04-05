@@ -5,7 +5,7 @@
 ### Ideas
 
 [x] !dice for rolling dice :P
-[ ] Rosie quotes, if I can find them (they are hard to find, guess I'll have to watch episodes again)
+[x] Rosie quotes, if I can find them (they are hard to find, guess I'll have to watch episodes again), command !rosie
 [ ] Connect to SoundByte, maybe through MIDI
 [ ] Connect to Azure Machine Learning
 [ ] request information about the codebase working on, like lines of code or current issue

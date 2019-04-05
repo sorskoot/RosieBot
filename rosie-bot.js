@@ -1,6 +1,8 @@
 const tmi = require('tmi.js');
 require('dotenv').config();
-const diceCommand = require('./command-dice');
+
+const diceCommand = require('./commands/command-dice');
+const rosieCommand = require('./commands/command-rosie');
 
 const opts = {
     identity: {
@@ -26,7 +28,8 @@ client.connect()
     });;
 
 const commands = {
-    "!dice": diceCommand
+    '!dice': diceCommand,
+    '!rosie': rosieCommand
 }
 
 function onMessageHandler(target, context, msg, self) {
@@ -40,9 +43,6 @@ function onMessageHandler(target, context, msg, self) {
 
     if (commands.hasOwnProperty(command)) {
         commands[command](client, target, ...splitCommand.splice(1));
-        console.log(`* Executed ${command} command`);
-    } else {
-        console.log(`* Unknown command ${command}`);
     }
 }
 
