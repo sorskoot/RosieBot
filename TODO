@@ -7,6 +7,7 @@ Todo:
 ☐ request information about the codebase working on, like lines of code or current issue
 ☐ Do something with hardware/IoT/Arduino
 ☐ Trigger stuff in the stream, in browser windows in OBS
+☐ Connect to Hue
 
 Commands:
 ✔ !commands ==> link to commands.md on github @done(19-04-05 23:46)
