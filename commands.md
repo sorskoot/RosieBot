@@ -10,6 +10,7 @@ command | description
 !git | link to GitHub
 !discord | link to join the Discord
 !insta | link to instagram
+!light {color name} | change the background lighting by specifying a CSS-color
 
 ## sound fx
 

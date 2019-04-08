@@ -1,5 +1,5 @@
 module.exports =
-    (twitchClient, target, numberOfRolls = 1, numberOfSides = 6) => {
+    (twitchClient, target,context, numberOfRolls = 1, numberOfSides = 6) => {
         if (numberOfRolls < 1) {
             numberOfRolls = 1;
         }

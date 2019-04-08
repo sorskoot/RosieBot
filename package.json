@@ -7,23 +7,21 @@
     "type": "git",
     "url": "git+https://github.com/sorskoot/RosieBot.git"
   },
-  
   "scripts": {
     "start": "node rosie-bot.js"
   },
-
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sorskoot/RosieBot/issues"
   },
   "homepage": "https://github.com/sorskoot/RosieBot#readme",
-
   "dependencies": {
+    "@q42philips/hue-color-converter": "^1.0.0",
     "dotenv": "^7.0.0",
     "jzz": "^0.7.2",
+    "request": "^2.88.0",
     "tmi.js": "^1.4.2"
   },
-
   "devDependencies": {}
 }

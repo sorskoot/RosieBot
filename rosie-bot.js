@@ -6,6 +6,7 @@ const rosieCommand = require('./commands/command-rosie');
 const CommandsCommand = require('./commands/command-commands');
 const sfxCommand = require('./commands/command-sfx');
 const socialCommand = require('./commands/command-social');
+const lightCommand = require('./commands/command-light');
 
 const opts = {
     identity: {
@@ -63,6 +64,8 @@ const commands = {
     '!discord': socialCommand.socialDiscord,
     '!git': socialCommand.socialGit,
     '!insta': socialCommand.socialInsta,
+
+    '!light': lightCommand
 }
 
 function onMessageHandler(target, context, msg, self) {
@@ -75,7 +78,7 @@ function onMessageHandler(target, context, msg, self) {
     const command = splitCommand[0];
 
     if (commands.hasOwnProperty(command)) {
-        commands[command](client, target, ...splitCommand.splice(1));
+        commands[command](client, target, context, ...splitCommand.splice(1));
     }
 }
 
