@@ -1,6 +1,6 @@
 module.exports =
     (twitchClient, target) => {
-        let value = Math.floor(Math.random() * quotes.length -1);
+        let value = Math.floor(Math.random() * quotes.length);
         let quote = quotes[value];
         twitchClient.say(target, quote);
     }
