@@ -5,6 +5,7 @@ const diceCommand = require('./commands/command-dice');
 const rosieCommand = require('./commands/command-rosie');
 const CommandsCommand = require('./commands/command-commands');
 const sfxCommand = require('./commands/command-sfx');
+const socialCommand = require('./commands/command-social');
 
 const opts = {
     identity: {
@@ -56,6 +57,12 @@ const commands = {
     '!laugh':sfxCommand.sfxLaugh,
     '!dingdong':sfxCommand.sfxDingDong,
     '!sonic':sfxCommand.sfxSonic,
+
+    '!twitter': socialCommand.socialTwitter,
+    '!youtube': socialCommand.socialYoutube,
+    '!discord': socialCommand.socialDiscord,
+    '!git': socialCommand.socialGit,
+    '!insta': socialCommand.socialInsta,
 }
 
 function onMessageHandler(target, context, msg, self) {

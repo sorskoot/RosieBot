@@ -11,11 +11,10 @@ Todo:
 ☐ Include webhint status
 ☐ Integrate with Discord --> send message when going live
 
-
 Commands:
 ✔ !commands ==> link to commands.md on github @done(19-04-05 23:46)
 ☐ !uptime https://api.twitch.tv/helix/streams/
-☐ social links, !twitter, !discord, !youtube, !insta, !git
+✔ social links, !twitter, !discord, !youtube, !insta, !git @done(19-04-08 21:53)
 ☐ !toolset
 ☐ !editor
 ☐ code metrics

@@ -2,9 +2,14 @@
 
 command | description
 --- | ---
+!commands | this list
 !dice {NumberOfRolls} {numberOfSides} | roll a dice
 !rose | random rosie quote
-!commands | this list
+!twitter | link to Twitter account
+!youtube | link to YouTube account
+!git | link to GitHub
+!discord | link to join the Discord
+!insta | link to instagram
 
 ## sound fx
 
