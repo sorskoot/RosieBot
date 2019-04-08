@@ -9,6 +9,8 @@ Todo:
 ☐ Trigger stuff in the stream, in browser windows in OBS
 ☐ Connect to Hue
 ☐ Include webhint status
+☐ Integrate with Discord --> send message when going live
+
 
 Commands:
 ✔ !commands ==> link to commands.md on github @done(19-04-05 23:46)
