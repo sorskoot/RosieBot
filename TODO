@@ -8,6 +8,7 @@ Todo:
 ☐ Do something with hardware/IoT/Arduino
 ☐ Trigger stuff in the stream, in browser windows in OBS
 ☐ Connect to Hue
+☐ Include webhint status
 
 Commands:
 ✔ !commands ==> link to commands.md on github @done(19-04-05 23:46)
