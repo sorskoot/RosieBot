@@ -64,6 +64,7 @@ const commands = {
     '!discord': socialCommand.socialDiscord,
     '!git': socialCommand.socialGit,
     '!insta': socialCommand.socialInsta,
+    '!merch': socialCommand.socialMerch,
 
     '!light': lightCommand
 }

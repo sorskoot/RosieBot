@@ -15,5 +15,8 @@ module.exports = {
     socialInsta: (twitchClient, target) => {
         twitchClient.say(target, "Have a look at Sorskoot's 360 tiny planets at https://www.instagram.com/sorskoot360/");
     },
+    socialMerch: (twitchClient, target) => {
+        twitchClient.say(target, "You can buy awesome Sorskoot merch at https://shop.spreadshirt.net/sorskoot/ !");
+    },
 
 }

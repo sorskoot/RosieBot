@@ -11,6 +11,7 @@ command | description
 !discord | link to join the Discord
 !insta | link to instagram
 !light {color name} | change the background lighting by specifying a CSS-color
+!merch | Shows the link the the Sorskoot Shop
 
 ## sound fx
 
