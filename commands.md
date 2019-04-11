@@ -12,6 +12,7 @@ command | description
 !insta | link to instagram
 !light {color name} | change the background lighting by specifying a CSS-color
 !merch | Shows the link the the Sorskoot Shop
+!uptime | Shows the amount of time the stream is live
 
 ## sound fx
 

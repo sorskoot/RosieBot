@@ -7,6 +7,7 @@ const CommandsCommand = require('./commands/command-commands');
 const sfxCommand = require('./commands/command-sfx');
 const socialCommand = require('./commands/command-social');
 const lightCommand = require('./commands/command-light');
+const uptimeCommand  = require('./commands/command-uptime');
 
 const opts = {
     identity: {
@@ -66,7 +67,8 @@ const commands = {
     '!insta': socialCommand.socialInsta,
     '!merch': socialCommand.socialMerch,
 
-    '!light': lightCommand
+    '!light': lightCommand,
+    '!uptime': uptimeCommand
 }
 
 function onMessageHandler(target, context, msg, self) {
