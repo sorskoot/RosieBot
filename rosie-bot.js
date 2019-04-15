@@ -9,6 +9,8 @@ const socialCommand = require('./commands/command-social');
 const lightCommand = require('./commands/command-light');
 const uptimeCommand  = require('./commands/command-uptime');
 
+const newFollowerEvent = require('./events/event-new-follower');
+
 const opts = {
     identity: {
         username: process.env.TWITCH_USERNAME,
@@ -85,6 +87,9 @@ function onMessageHandler(target, context, msg, self) {
     }
 }
 
-function onConnectedHandler(addr, port) {
+function onConnectedHandler(addr, port) {    
+
+    newFollowerEvent(client, process.env.TWITCH_CHANNEL);
+
     console.log(`* Connected to ${addr}:${port}`);
 }

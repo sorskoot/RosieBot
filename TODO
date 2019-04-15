@@ -10,6 +10,7 @@ Todo:
 ✔ Connect to Hue @done(19-04-08 23:13)
 ☐ Include webhint status
 ☐ Integrate with Discord --> send message when going live
+✔ message when people follow @done(19-04-15 22:30)
 
 Commands:
 ✔ !commands ==> link to commands.md on github @done(19-04-05 23:46)
