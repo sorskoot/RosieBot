@@ -3,16 +3,16 @@ const converter = require('@q42philips/hue-color-converter');
 const colors = require('./data/colors');
 
 module.exports =
-    (twitchClient, target, context, color) => {
+    (twitchClient, target, context, color, silent = false) => {
         if(!color){
-            twitchClient.say(target,`Sorry @${context['display-name']}, you have to specify a color.`)
+            if(!silent) twitchClient.say(target,`Sorry @${context['display-name']}, you have to specify a color.`)
         }
         else if (color in colors) {
             changeLightColor(color).then(c => {
-                twitchClient.say(target,`@${context['display-name']} just changed the light to '${color}'.`)
+                if(!silent) twitchClient.say(target,`@${context['display-name']} just changed the light to '${color}'.`)
             })
         }else{
-            twitchClient.say(target,`Sorry @${context['display-name']}, I don't know the color '${color}'.`)
+            if(!silent) twitchClient.say(target,`Sorry @${context['display-name']}, I don't know the color '${color}'.`)
         }
     }
 

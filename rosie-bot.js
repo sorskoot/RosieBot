@@ -9,6 +9,8 @@ const socialCommand = require('./commands/command-social');
 const lightCommand = require('./commands/command-light');
 const uptimeCommand  = require('./commands/command-uptime');
 
+const hypeCommand  = require('./commands/command-hype');
+
 const newFollowerEvent = require('./events/event-new-follower');
 
 const opts = {
@@ -38,6 +40,7 @@ const commands = {
     '!dice': diceCommand,
     '!rosie': rosieCommand,
     '!commands': CommandsCommand,
+    '!hype': hypeCommand,
 
     '!doh': sfxCommand.sfxDoh,
     '!bingit':sfxCommand.sfxBingit,

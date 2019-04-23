@@ -13,6 +13,7 @@ command | description
 !light {color name} | change the background lighting by specifying a CSS-color
 !merch | Shows the link the the Sorskoot Shop
 !uptime | Shows the amount of time the stream is live
+!hype | spam chat with purple love and fire
 
 ## sound fx
 
