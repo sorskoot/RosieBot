@@ -1,4 +1,6 @@
 Todo:
+☐ Fix follow message --> should use Twitch API
+
 ☐ filter on '!' for commands
 ✔ !dice for rolling dice :P @done(19-04-05 23:29)
 ✔ Rosie quotes, if I can find them (they are hard to find, guess I'll have to watch episodes again), command !rosie @done(19-04-05 23:29)
@@ -11,6 +13,7 @@ Todo:
 ☐ Include webhint status
 ☐ Integrate with Discord --> send message when going live
 ✔ message when people follow @done(19-04-15 22:30)
+
 
 Commands:
 ✔ !commands ==> link to commands.md on github @done(19-04-05 23:46)
