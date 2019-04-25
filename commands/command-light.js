@@ -16,27 +16,27 @@ module.exports =
         }
     }
 
-function changeLightColor(color) {
+function changeLightColor(color, transitiontime = 10) {
     let R = parseInt(colors[color].substr(1, 2), 16);
     let G = parseInt(colors[color].substr(3, 2), 16);
     let B = parseInt(colors[color].substr(5, 2), 16);
 
-    let xy = converter.calculateXY(R, G, B);
+    return changeLightRGB(R, G, B, transitiontime);
+}
 
+function changeLightRGB(R, G, B, transitiontime) {
+    let xy = converter.calculateXY(R, G, B);
     const state = {
         on: true,
-        xy: xy
-
-    }
-    return new Promise((res, rej) =>
-        request.put(`${process.env.HUE_URL}/lights/17/state`, {
-                json: state
-            },
-            function (error, response, body) {
-                if(!!error){
-                    rej(error);
-                }
-                res(body);
-            })
-    );
+        xy: xy,
+        transitiontime: transitiontime
+    };
+    return new Promise((res, rej) => request.put(`${process.env.HUE_URL}/lights/17/state`, {
+        json: state
+    }, function (error, response, body) {
+        if (!!error) {
+            rej(error);
+        }
+        res(body);
+    }));
 }

@@ -1,6 +1,7 @@
 Todo:
 ☐ Fix follow message --> should use Twitch API
 
+
 ☐ filter on '!' for commands
 ✔ !dice for rolling dice :P @done(19-04-05 23:29)
 ✔ Rosie quotes, if I can find them (they are hard to find, guess I'll have to watch episodes again), command !rosie @done(19-04-05 23:29)
@@ -21,6 +22,8 @@ Commands:
 ✔ social links, !twitter, !discord, !youtube, !insta, !git @done(19-04-08 21:53)
 ☐ !toolset
 ☐ !editor
+☐ !lurk
+☐ !so {name} - Shout out
 ✔ !hype @done(19-04-23 22:08)
 ☐ code metrics
 ☐ !build for build status
