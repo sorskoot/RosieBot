@@ -11,6 +11,9 @@ command | description
 !discord | link to join the Discord
 !insta | link to instagram
 !light {color name} | change the background lighting by specifying a CSS-color
+!light copmode |
+!light hype |
+!light fire |
 !merch | Shows the link the the Sorskoot Shop
 !uptime | Shows the amount of time the stream is live
 !hype | spam chat with purple love and fire
