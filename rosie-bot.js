@@ -64,6 +64,7 @@ const commands = {
     '!laugh':sfxCommand.sfxLaugh,
     '!dingdong':sfxCommand.sfxDingDong,
     '!sonic':sfxCommand.sfxSonic,
+    '!inconceivable':sfxCommand.sfxInconceivable,
 
     '!twitter': socialCommand.socialTwitter,
     '!youtube': socialCommand.socialYoutube,
