@@ -1,7 +1,6 @@
 Todo:
 ☐ Fix follow message --> should use Twitch API
 
-
 ☐ filter on '!' for commands
 ✔ !dice for rolling dice :P @done(19-04-05 23:29)
 ✔ Rosie quotes, if I can find them (they are hard to find, guess I'll have to watch episodes again), command !rosie @done(19-04-05 23:29)
@@ -13,8 +12,9 @@ Todo:
 ✔ Connect to Hue @done(19-04-08 23:13)
 ☐ Include webhint status
 ☐ Integrate with Discord --> send message when going live
+☐ Integrate with twitch overlay part -> maybe using 
+☐ add blacklist for other 'evil' bots using https://api.twitchinsights.net/v1/bots/all
 ✔ message when people follow @done(19-04-15 22:30)
-
 
 Commands:
 ✔ !commands ==> link to commands.md on github @done(19-04-05 23:46)
@@ -22,7 +22,7 @@ Commands:
 ✔ social links, !twitter, !discord, !youtube, !insta, !git @done(19-04-08 21:53)
 ☐ !toolset
 ☐ !editor
-☐ !lurk
+✔ !lurk @done(19-04-29 21:45)
 ☐ !so {name} - Shout out
 ✔ !hype @done(19-04-23 22:08)
 ☐ code metrics

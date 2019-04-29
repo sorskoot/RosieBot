@@ -17,6 +17,7 @@ command | description
 !merch | Shows the link the the Sorskoot Shop
 !uptime | Shows the amount of time the stream is live
 !hype | spam chat with purple love and fire
+!lurk | Show the community you are lurking
 
 ## sound fx
 

@@ -8,7 +8,7 @@ const sfxCommand = require('./commands/command-sfx');
 const socialCommand = require('./commands/command-social');
 const lightCommand = require('./commands/command-light');
 const uptimeCommand  = require('./commands/command-uptime');
-
+const lurkCommand = require('./commands/command-lurk')
 const hypeCommand  = require('./commands/command-hype');
 
 const newFollowerEvent = require('./events/event-new-follower');
@@ -41,6 +41,7 @@ const commands = {
     '!rosie': rosieCommand,
     '!commands': CommandsCommand,
     '!hype': hypeCommand,
+    '!lurk': lurkCommand,
 
     '!doh': sfxCommand.sfxDoh,
     '!bingit':sfxCommand.sfxBingit,
