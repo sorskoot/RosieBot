@@ -18,6 +18,7 @@ command | description
 !uptime | Shows the amount of time the stream is live
 !hype | spam chat with purple love and fire
 !lurk | Show the community you are lurking
+!so {username} | Give someone a shoutout!
 
 ## sound fx
 

@@ -10,7 +10,7 @@ const lightCommand = require('./commands/command-light');
 const uptimeCommand  = require('./commands/command-uptime');
 const lurkCommand = require('./commands/command-lurk')
 const hypeCommand  = require('./commands/command-hype');
-
+const soCommand = require('./commands/command-so');
 const newFollowerEvent = require('./events/event-new-follower');
 
 const opts = {
@@ -75,7 +75,8 @@ const commands = {
     '!merch': socialCommand.socialMerch,
 
     '!light': lightCommand,
-    '!uptime': uptimeCommand
+    '!uptime': uptimeCommand,
+    '!so':soCommand
 }
 
 function onMessageHandler(target, context, msg, self) {
