@@ -12,6 +12,7 @@ const lurkCommand = require('./commands/command-lurk')
 const hypeCommand  = require('./commands/command-hype');
 const soCommand = require('./commands/command-so');
 const newFollowerEvent = require('./events/event-new-follower');
+const QnAEvent = require('./events/event-QnA');
 
 const opts = {
     identity: {
@@ -79,15 +80,21 @@ const commands = {
     '!so':soCommand
 }
 
-function onMessageHandler(target, context, msg, self) {
+async function onMessageHandler(target, context, msg, self) {
     if (self) {
         return;
     } // Ignore messages from the bot
-    
+    if(msg.trim().endsWith("?")){
+        msg = await QnAEvent(client,target,msg);        
+    };
+
+    handleBangCommand(msg, target, context);
+}
+
+function handleBangCommand(msg, target, context) {
     const chatMessage = msg.trim();
     const splitCommand = chatMessage.split(/\s/gi);
     const command = splitCommand[0];
-
     if (commands.hasOwnProperty(command)) {
         commands[command](client, target, context, ...splitCommand.splice(1));
     }

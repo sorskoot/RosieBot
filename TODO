@@ -5,7 +5,7 @@ Todo:
 ✔ !dice for rolling dice :P @done(19-04-05 23:29)
 ✔ Rosie quotes, if I can find them (they are hard to find, guess I'll have to watch episodes again), command !rosie @done(19-04-05 23:29)
 ✔ Connect to SoundByte, maybe through MIDI @done(19-04-05 23:29)
-☐ Connect to Azure Machine Learning
+✔ Connect to Azure Machine Learning @done(19-05-02 13:15)
 ☐ request information about the codebase working on, like lines of code or current issue
 ☐ Do something with hardware/IoT/Arduino
 ☐ Trigger stuff in the stream, in browser windows in OBS
