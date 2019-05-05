@@ -19,6 +19,7 @@ command | description
 !hype | spam chat with purple love and fire
 !lurk | Show the community you are lurking
 !so {username} | Give someone a shoutout!
+!ide | Gives info on the IDE
 
 ## sound fx
 

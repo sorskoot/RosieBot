@@ -11,6 +11,8 @@ const uptimeCommand  = require('./commands/command-uptime');
 const lurkCommand = require('./commands/command-lurk')
 const hypeCommand  = require('./commands/command-hype');
 const soCommand = require('./commands/command-so');
+const infoCommand = require('./commands/command-info');
+
 const newFollowerEvent = require('./events/event-new-follower');
 const QnAEvent = require('./events/event-QnA');
 
@@ -77,7 +79,9 @@ const commands = {
 
     '!light': lightCommand,
     '!uptime': uptimeCommand,
-    '!so':soCommand
+    '!so':soCommand,
+
+    '!ide':infoCommand.infoIde
 }
 
 async function onMessageHandler(target, context, msg, self) {
