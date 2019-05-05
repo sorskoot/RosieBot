@@ -20,6 +20,7 @@ command | description
 !lurk | Show the community you are lurking
 !so {username} | Give someone a shoutout!
 !ide | Gives info on the IDE
+!song | Shows info on the current song playing
 
 ## sound fx
 
