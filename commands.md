@@ -21,6 +21,7 @@ command | description
 !so {username} | Give someone a shoutout!
 !ide | Gives info on the IDE
 !song | Shows info on the current song playing
+!beer | What beer is Sorskoot drinking today.
 
 ## sound fx
 

@@ -1,5 +1,5 @@
 Todo:
-☐ Fix follow message --> should use Twitch API
+✔ Fix follow message --> should use Twitch API @done(19-05-06 22:11)
 
 ☐ filter on '!' for commands
 ✔ !dice for rolling dice :P @done(19-04-05 23:29)
@@ -15,6 +15,7 @@ Todo:
 ☐ Integrate with twitch overlay part -> maybe using 
 ☐ add blacklist for other 'evil' bots using https://api.twitchinsights.net/v1/bots/all
 ✔ message when people follow @done(19-04-15 22:30)
+☐ Handle casing in light colors
 
 Commands:
 ✔ !commands ==> link to commands.md on github @done(19-04-05 23:46)

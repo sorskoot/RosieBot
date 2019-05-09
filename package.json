@@ -23,7 +23,8 @@
     "moment": "^2.24.0",
     "request": "^2.88.0",
     "tmi.js": "^1.4.2",
-    "ws": "^3.3.3"
+    "ws": "^3.3.3",
+    "socket.io-client": "^2.2.0"
   },
   "devDependencies": {}
 }

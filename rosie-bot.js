@@ -7,13 +7,15 @@ const CommandsCommand = require('./commands/command-commands');
 const sfxCommand = require('./commands/command-sfx');
 const socialCommand = require('./commands/command-social');
 const lightCommand = require('./commands/command-light');
-const uptimeCommand  = require('./commands/command-uptime');
+const uptimeCommand = require('./commands/command-uptime');
 const lurkCommand = require('./commands/command-lurk')
-const hypeCommand  = require('./commands/command-hype');
+const hypeCommand = require('./commands/command-hype');
 const soCommand = require('./commands/command-so');
 const infoCommand = require('./commands/command-info');
 const spotifyCommand = require('./commands/command-spotify');
+const beerCommand = require('./commands/command-beer');
 
+const emotesEvent = require('./events/event-emotes');
 const newFollowerEvent = require('./events/event-new-follower');
 const QnAEvent = require('./events/event-QnA');
 
@@ -48,28 +50,28 @@ const commands = {
     '!lurk': lurkCommand,
 
     '!doh': sfxCommand.sfxDoh,
-    '!bingit':sfxCommand.sfxBingit,
-    '!fup':sfxCommand.sfxFup,
-    '!badumts':sfxCommand.sfxBadumts,
-    '!allright':sfxCommand.sfxAllright,
-    '!duhduh':sfxCommand.sfxDuhDuhDuuuh,
-    '!bye':sfxCommand.sfxBye,
-    '!justdoit':sfxCommand.sfxJustDoIt,
-    '!dundun':sfxCommand.sfxDunDun,
-    '!headshot':sfxCommand.sfxHeadshot,
-    '!drumroll':sfxCommand.sfxDrumroll,
-    '!inception':sfxCommand.sfxInception,
-    '!mclevelup':sfxCommand.sfxMCLevelUp,
-    '!mcvillager':sfxCommand.sfxMCVillager,
-    '!1up':sfxCommand.sfxMario1up,
-    '!finishhim':sfxCommand.sfxFinishHim,
-    '!doitlive':sfxCommand.sfxDoItlive,
-    '!applause':sfxCommand.sfxApplause,
-    '!airhorn':sfxCommand.sfxAirhorn,
-    '!laugh':sfxCommand.sfxLaugh,
-    '!dingdong':sfxCommand.sfxDingDong,
-    '!sonic':sfxCommand.sfxSonic,
-    '!inconceivable':sfxCommand.sfxInconceivable,
+    '!bingit': sfxCommand.sfxBingit,
+    '!fup': sfxCommand.sfxFup,
+    '!badumts': sfxCommand.sfxBadumts,
+    '!allright': sfxCommand.sfxAllright,
+    '!duhduh': sfxCommand.sfxDuhDuhDuuuh,
+    '!bye': sfxCommand.sfxBye,
+    '!justdoit': sfxCommand.sfxJustDoIt,
+    '!dundun': sfxCommand.sfxDunDun,
+    '!headshot': sfxCommand.sfxHeadshot,
+    '!drumroll': sfxCommand.sfxDrumroll,
+    '!inception': sfxCommand.sfxInception,
+    '!mclevelup': sfxCommand.sfxMCLevelUp,
+    '!mcvillager': sfxCommand.sfxMCVillager,
+    '!1up': sfxCommand.sfxMario1up,
+    '!finishhim': sfxCommand.sfxFinishHim,
+    '!doitlive': sfxCommand.sfxDoItlive,
+    '!applause': sfxCommand.sfxApplause,
+    '!airhorn': sfxCommand.sfxAirhorn,
+    '!laugh': sfxCommand.sfxLaugh,
+    '!dingdong': sfxCommand.sfxDingDong,
+    '!sonic': sfxCommand.sfxSonic,
+    '!inconceivable': sfxCommand.sfxInconceivable,
 
     '!twitter': socialCommand.socialTwitter,
     '!youtube': socialCommand.socialYoutube,
@@ -80,19 +82,25 @@ const commands = {
 
     '!light': lightCommand,
     '!uptime': uptimeCommand,
-    '!so':soCommand,
+    '!so': soCommand,
 
-    '!ide':infoCommand.infoIde,
+    '!ide': infoCommand.infoIde,
 
-    '!song':spotifyCommand.spotifySong,
+    '!song': spotifyCommand.spotifySong,
+
+    '!beer': beerCommand
 }
 
+
 async function onMessageHandler(target, context, msg, self) {
+    if (!!context.emotes) {
+        emotesEvent(context.emotes);
+    }
     if (self) {
         return;
     } // Ignore messages from the bot
-    if(msg.trim().endsWith("?")){
-        msg = await QnAEvent(client,target,msg);        
+    if (msg.trim().endsWith("?")) {
+        msg = await QnAEvent(client, target, msg);
     };
 
     handleBangCommand(msg, target, context);
@@ -107,7 +115,7 @@ function handleBangCommand(msg, target, context) {
     }
 }
 
-function onConnectedHandler(addr, port) {    
+function onConnectedHandler(addr, port) {
 
     newFollowerEvent(client, process.env.TWITCH_CHANNEL);
 
