@@ -1,32 +1,39 @@
 Todo:
-✔ Fix follow message --> should use Twitch API @done(19-05-06 22:11)
-
-☐ filter on '!' for commands
-✔ !dice for rolling dice :P @done(19-04-05 23:29)
-✔ Rosie quotes, if I can find them (they are hard to find, guess I'll have to watch episodes again), command !rosie @done(19-04-05 23:29)
-✔ Connect to SoundByte, maybe through MIDI @done(19-04-05 23:29)
-✔ Connect to Azure Machine Learning @done(19-05-02 13:15)
-☐ request information about the codebase working on, like lines of code or current issue
-☐ Do something with hardware/IoT/Arduino
-☐ Trigger stuff in the stream, in browser windows in OBS
-✔ Connect to Hue @done(19-04-08 23:13)
-☐ Include webhint status
-☐ Integrate with Discord --> send message when going live
-☐ Integrate with twitch overlay part -> maybe using 
-☐ add blacklist for other 'evil' bots using https://api.twitchinsights.net/v1/bots/all
-✔ message when people follow @done(19-04-15 22:30)
-☐ Handle casing in light colors
+    ☐ filter on '!' for commands
+    ☐ request information about the codebase working on, like lines of code or current issue
+    ☐ Do something with hardware/IoT/Arduino
+    ☐ Trigger stuff in the stream, in browser windows in OBS
+    ☐ Include webhint status
+    ☐ Integrate with Discord --> send message when going live
+    ☐ Integrate with twitch overlay part -> maybe using 
+    ☐ add blacklist for other 'evil' bots using https://api.twitchinsights.net/v1/bots/all
+    ☐ Handle casing in light colors
+    ☐ connect to Streamlabs API @today (https://dev.streamlabs.com/docs/socket-api)
+    ☐ Add second hue (16) @today
+    ☐ increase threshold for QnA @today
+    ☐ Store everything that's happening in Azure Storage, like !Beer, !project and stream events
 
 Commands:
-✔ !commands ==> link to commands.md on github @done(19-04-05 23:46)
-✔ !uptime https://api.twitch.tv/helix/streams/ @done(19-04-11 22:54)
-✔ social links, !twitter, !discord, !youtube, !insta, !git @done(19-04-08 21:53)
-☐ !toolset
-☐ !editor
-✔ !lurk @done(19-04-29 21:45)
-✔ !so {name} - Shout out @done(19-04-29 22:19)
-✔ !hype @done(19-04-23 22:08)
-☐ code metrics
-☐ !build for build status
-☐ !loc for lines of code
-✔ !merch for link to store @done(19-04-11 21:46)
+    ☐ !toolset
+    ☐ !editor
+    ☐ code metrics
+    ☐ !build for build status
+    ☐ !loc for lines of code
+    ☐ !theme @today 
+    ✔ !project @today @done(19-05-27 22:07)
+
+Archive:
+  ✔ Fix follow message --> should use Twitch API @done(19-05-06 22:11) @project(Todo)
+  ✔ !dice for rolling dice :P @done(19-04-05 23:29) @project(Todo)
+  ✔ Rosie quotes, if I can find them (they are hard to find, guess I'll have to watch episodes again), command !rosie @done(19-04-05 23:29) @project(Todo)
+  ✔ Connect to SoundByte, maybe through MIDI @done(19-04-05 23:29) @project(Todo)
+  ✔ Connect to Azure Machine Learning @done(19-05-02 13:15) @project(Todo)
+  ✔ Connect to Hue @done(19-04-08 23:13) @project(Todo)
+  ✔ message when people follow @done(19-04-15 22:30) @project(Todo)
+  ✔ !commands ==> link to commands.md on github @done(19-04-05 23:46) @project(Commands)
+  ✔ !uptime https://api.twitch.tv/helix/streams/ @done(19-04-11 22:54) @project(Commands)
+  ✔ social links, !twitter, !discord, !youtube, !insta, !git @done(19-04-08 21:53) @project(Commands)
+  ✔ !lurk @done(19-04-29 21:45) @project(Commands)
+  ✔ !so {name} - Shout out @done(19-04-29 22:19) @project(Commands)
+  ✔ !hype @done(19-04-23 22:08) @project(Commands)
+  ✔ !merch for link to store @done(19-04-11 21:46) @project(Commands)

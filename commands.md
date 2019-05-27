@@ -22,6 +22,8 @@ command | description
 !ide | Gives info on the IDE
 !song | Shows info on the current song playing
 !beer | What beer is Sorskoot drinking today
+!project | What is Sorskoot working on today
+
 
 ## sound fx
 

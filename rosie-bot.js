@@ -14,10 +14,12 @@ const soCommand = require('./commands/command-so');
 const infoCommand = require('./commands/command-info');
 const spotifyCommand = require('./commands/command-spotify');
 const beerCommand = require('./commands/command-beer');
+const projectCommand = require('./commands/command-project');
 
 const emotesEvent = require('./events/event-emotes');
 const newFollowerEvent = require('./events/event-new-follower');
 const QnAEvent = require('./events/event-QnA');
+
 
 const opts = {
     identity: {
@@ -88,7 +90,10 @@ const commands = {
 
     '!song': spotifyCommand.spotifySong,
 
-    '!beer': beerCommand
+    '!beer': beerCommand,
+
+    '!project': projectCommand
+
 }
 
 
@@ -109,7 +114,7 @@ async function onMessageHandler(target, context, msg, self) {
 function handleBangCommand(msg, target, context) {
     const chatMessage = msg.trim();
     const splitCommand = chatMessage.split(/\s/gi);
-    const command = splitCommand[0];
+    const command = splitCommand[0].toLowerCase();
     if (commands.hasOwnProperty(command)) {
         commands[command](client, target, context, ...splitCommand.splice(1));
     }
