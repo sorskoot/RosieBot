@@ -10,7 +10,7 @@ Todo:
     ☐ Handle casing in light colors
     ☐ connect to Streamlabs API @today (https://dev.streamlabs.com/docs/socket-api)
     ☐ Add second hue (16) @today
-    ☐ increase threshold for QnA @today
+    ✔ increase threshold for QnA @today @done(19-05-27 22:16)
     ☐ Store everything that's happening in Azure Storage, like !Beer, !project and stream events
 
 Commands:

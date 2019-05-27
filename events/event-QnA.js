@@ -18,7 +18,7 @@ module.exports =
                 res(JSON.parse(body));
             })).then(r=>{
                 if(!!r.answers.length){
-                    if(!r.answers[0].answer.startsWith('!') && r.answers[0].score > 30){
+                    if(!r.answers[0].answer.startsWith('!') && r.answers[0].score > 40){
                        twitchClient.say(target,r.answers[0].answer);
                     }
                     return r.answers[0].answer;
