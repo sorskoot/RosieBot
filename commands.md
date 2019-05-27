@@ -14,6 +14,7 @@ command | description
 !light copmode |
 !light hype |
 !light fire |
+!light flashbang |
 !merch | Shows the link the the Sorskoot Shop
 !uptime | Shows the amount of time the stream is live
 !hype | spam chat with purple love and fire
@@ -52,3 +53,6 @@ command |
 !dingdong |
 !sonic |
 !inconceivable |
+!mighty |
+!kidding |
+!7days

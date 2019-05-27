@@ -75,6 +75,9 @@ const commands = {
     '!dingdong': sfxCommand.sfxDingDong,
     '!sonic': sfxCommand.sfxSonic,
     '!inconceivable': sfxCommand.sfxInconceivable,
+    '!mighty':sfxCommand.sfxMighty,
+    '!kidding':sfxCommand.sfxKidding,
+    '!7days':sfxCommand.sfx7Days,
 
     '!twitter': socialCommand.socialTwitter,
     '!youtube': socialCommand.socialYoutube,

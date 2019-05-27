@@ -9,7 +9,7 @@ Todo:
     ☐ add blacklist for other 'evil' bots using https://api.twitchinsights.net/v1/bots/all
     ☐ Handle casing in light colors
     ☐ connect to Streamlabs API @today (https://dev.streamlabs.com/docs/socket-api)
-    ☐ Add second hue (16) @today
+    ✔ Add second hue (16) @today @done(19-05-27 23:25)
     ✔ increase threshold for QnA @today @done(19-05-27 22:16)
     ☐ Store everything that's happening in Azure Storage, like !Beer, !project and stream events
 
