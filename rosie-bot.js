@@ -15,6 +15,7 @@ const infoCommand = require('./commands/command-info');
 const spotifyCommand = require('./commands/command-spotify');
 const beerCommand = require('./commands/command-beer');
 const projectCommand = require('./commands/command-project');
+const themeCommand = require('./commands/command-theme');
 
 const emotesEvent = require('./events/event-emotes');
 const newFollowerEvent = require('./events/event-new-follower');
@@ -91,8 +92,8 @@ const commands = {
     '!song': spotifyCommand.spotifySong,
 
     '!beer': beerCommand,
-
-    '!project': projectCommand
+    '!project': projectCommand,
+    '!theme':themeCommand
 
 }
 

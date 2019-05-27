@@ -23,7 +23,7 @@ command | description
 !song | Shows info on the current song playing
 !beer | What beer is Sorskoot drinking today
 !project | What is Sorskoot working on today
-
+!theme | Get the link to the theme Sorskoot is using in VsCode
 
 ## sound fx
 
