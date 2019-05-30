@@ -18,7 +18,7 @@ const projectCommand = require('./commands/command-project');
 const themeCommand = require('./commands/command-theme');
 
 const emotesEvent = require('./events/event-emotes');
-const newFollowerEvent = require('./events/event-new-follower');
+const twitchEvents = require('./events/event-twitchEvents');
 const QnAEvent = require('./events/event-QnA');
 
 
@@ -126,7 +126,7 @@ function handleBangCommand(msg, target, context) {
 
 function onConnectedHandler(addr, port) {
 
-    newFollowerEvent(client, process.env.TWITCH_CHANNEL);
+    twitchEvents(client, process.env.TWITCH_CHANNEL);
 
     console.log(`* Connected to ${addr}:${port}`);
 }
