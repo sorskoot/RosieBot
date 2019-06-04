@@ -7,12 +7,15 @@ Todo:
     ☐ Integrate with Discord --> send message when going live
     ☐ Integrate with twitch overlay part -> maybe using 
     ☐ add blacklist for other 'evil' bots using https://api.twitchinsights.net/v1/bots/all
-    ☐ Handle casing in light colors
+    ☐ Handle casing in light colors 
     ✔ connect to Streamlabs API (https://dev.streamlabs.com/docs/socket-api) @done(19-05-30 21:52)
     ✔ Store stream events Azure Storage @done(19-05-30 21:52)
     ☐ store settings like !Beer, !project  on azure and retreive them when started
     ✔ respond to follow in chat @done(19-05-30 21:56)
-    ☐ respond to sub with light
+    ✔ respond to sub with light @done(19-06-03 21:08)
+    ☐ do something with https://www.npmjs.com/package/obs-websocket-js
+    ☐ Create a game in chat (hangman, gamble, Roulette (adding points gamble like roulette)
+    ☐ Integrate with Spotify API
     
 Commands:
     ☐ !toolset
@@ -21,6 +24,13 @@ Commands:
     ☐ !build for build status
     ☐ !loc for lines of code
     ☐ !fbi sfx
+    ☐ !delight sfx (https://www.youtube.com/watch?v=tUqvPJ3cbUQ)
+    ☐ Add more sfx
+    ☐ !attention
+
+
+Thoughts and rough ideas:
+    ☐ Build a game or something where people can send `code` to Rosie and have her execute it to play a game.
 
 Archive:
   ✔ Add second hue (16) @done(19-05-27 23:25) @project(Todo)
