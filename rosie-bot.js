@@ -78,6 +78,8 @@ const commands = {
     '!mighty':sfxCommand.sfxMighty,
     '!kidding':sfxCommand.sfxKidding,
     '!7days':sfxCommand.sfx7Days,
+    '!ding':sfxCommand.sfxDing,
+    '!pushit':sfxCommand.sfxPushIt,
 
     '!twitter': socialCommand.socialTwitter,
     '!youtube': socialCommand.socialYoutube,

@@ -55,4 +55,7 @@ command |
 !inconceivable |
 !mighty |
 !kidding |
-!7days
+!7days |
+!ding |
+!pushit 
+

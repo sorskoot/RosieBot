@@ -27,6 +27,8 @@ module.exports = {
     sfxMighty: () => triggerMidi(SFX.mighty),
     sfxKidding: () => triggerMidi(SFX.kidding),
     sfx7Days: () => triggerMidi(SFX.thering7days),
+    sfxDing: () => triggerMidi(SFX.ding),
+    sfxPushIt: () => triggerMidi(SFX.pushit),
 }
 
 const SFX = {
@@ -55,7 +57,9 @@ const SFX = {
     inconceivable: 79,
     mighty: 80,
     kidding: 81,
-    thering7days: 82
+    thering7days: 82,
+    ding: 83,
+    pushit: 84,
 }
 
 function triggerMidi(note) {
