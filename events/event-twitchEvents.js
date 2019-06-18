@@ -13,4 +13,9 @@ module.exports =
         socket.on('new sub', function(msg){
             light(twitchClient, target,undefined,'yellowhype', true);
         });
+
+        socket.on('new raid', function(msg){
+            twitchClient.say(target, `@${msg.name} is raiding with ${msg.raiders} raiders! Defend the coder-sphere!`);
+            light(twitchClient, target,undefined,'greenhype', true);
+        });
     }

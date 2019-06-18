@@ -73,7 +73,7 @@ function yellowhype() {
 }
 async function greenhype() {
     await changeLightBri(10, 1, 16);
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 13; i++) {
         await changeLightColor("green", 1)
         await delay(500);
         await changeLightOff(1)
