@@ -115,7 +115,6 @@ async function onMessageHandler(target, context, msg, self) {
     if (msg.trim().endsWith("?")) {
         msg = await QnAEvent(client, target, msg);
     };
-    onRaidHandler("sorskoot","foobar", 75)
     handleBangCommand(msg, target, context);
 }
 
