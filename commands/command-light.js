@@ -4,6 +4,7 @@ const colors = require('./data/colors');
 const sfx = require('./command-sfx');
 
 let lastColorSet = "green";
+const maxBrightness = 254;
 
 module.exports =
     (twitchClient, target, context, color, silent = false) => {
@@ -28,6 +29,7 @@ const special = {
     'hype': hype,
     'fire': fire,
     'yellowhype': yellowhype,
+    'greenhype': greenhype,
     'flashbang': flashbang
 }
 
@@ -40,7 +42,7 @@ function copMode() {
             .then(() => delay(200));
     }
     x.then(() => changeLightBri(254))
-        .then(() => changeLightBri(200, 1, 16))
+        .then(() => changeLightBri(maxBrightness, 1, 16))
         .then(() => changeLightColor(lastColorSet));
 }
 
@@ -53,7 +55,7 @@ function hype() {
             .then(() => changeLightOff())
     }
     x.then(() => changeLightOn())
-        .then(() => changeLightBri(200, 1, 16))
+        .then(() => changeLightBri(maxBrightness, 1, 16))
         .then(() => changeLightColor(lastColorSet));
 }
 
@@ -66,8 +68,19 @@ function yellowhype() {
             .then(() => changeLightOff())
     }
     x.then(() => changeLightOn())
-        .then(() => changeLightBri(200, 1, 16))
+        .then(() => changeLightBri(maxBrightness, 1, 16))
         .then(() => changeLightColor(lastColorSet));
+}
+async function greenhype() {
+    await changeLightBri(10, 1, 16);
+    for (let i = 0; i < 10; i++) {
+        await changeLightColor("green", 1)
+        await delay(500);
+        await changeLightOff(1)
+        await delay(500);
+    }   
+    await changeLightBri(maxBrightness, 5, 16);
+    await changeLightColor(lastColorSet,5);
 }
 
 function fire() {
@@ -77,7 +90,7 @@ function fire() {
             .then(() => changeLightRGB(255, ~~(Math.random() * 64) + 128, 1))
     }
     x.then(() => changeLightBri(254))
-        .then(() => changeLightBri(200, 1, 16))
+        .then(() => changeLightBri(maxBrightness, 1, 16))
         .then(() => changeLightColor(lastColorSet));
 }
 
@@ -94,7 +107,7 @@ function flashbang() {
         .then(() => changeLightOff(0, 17))
         .then(() => delay(1000))
         .then(() => changeLightOn(0, 16))
-        .then(() => changeLightBri(200, 1, 16))
+        .then(() => changeLightBri(maxBrightness, 1, 16))
         .then(() => changeLightColor(lastColorSet));
 }
 
@@ -141,6 +154,7 @@ function callLight(state, lightId = 17) {
         json: state
     }, function (error, response, body) {
         if (!!error) {
+            console.error(error.message);
             rej(error);
         }
         res(body);

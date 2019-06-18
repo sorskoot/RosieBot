@@ -57,5 +57,6 @@ command |
 !kidding |
 !7days |
 !ding |
-!pushit 
+!pushit |
+!howl
 

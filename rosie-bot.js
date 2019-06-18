@@ -20,7 +20,7 @@ const themeCommand = require('./commands/command-theme');
 const emotesEvent = require('./events/event-emotes');
 const twitchEvents = require('./events/event-twitchEvents');
 const QnAEvent = require('./events/event-QnA');
-
+const raidEvent = require('./events/event-raid')
 
 const opts = {
     identity: {
@@ -36,6 +36,7 @@ const client = new tmi.client(opts);
 
 client.on('message', onMessageHandler);
 client.on('connected', onConnectedHandler);
+client.on("raided", onRaidHandler);
 
 client.connect()
     .then((data) => {
@@ -44,7 +45,7 @@ client.connect()
     }).catch((err) => {
         console.log(err);
     });;
-
+    
 const commands = {
     '!dice': diceCommand,
     '!rosie': rosieCommand,
@@ -80,6 +81,7 @@ const commands = {
     '!7days':sfxCommand.sfx7Days,
     '!ding':sfxCommand.sfxDing,
     '!pushit':sfxCommand.sfxPushIt,
+    '!howl':sfxCommand.sfxHowl,
 
     '!twitter': socialCommand.socialTwitter,
     '!youtube': socialCommand.socialYoutube,
@@ -113,7 +115,7 @@ async function onMessageHandler(target, context, msg, self) {
     if (msg.trim().endsWith("?")) {
         msg = await QnAEvent(client, target, msg);
     };
-
+    onRaidHandler("sorskoot","foobar", 75)
     handleBangCommand(msg, target, context);
 }
 
@@ -131,4 +133,8 @@ function onConnectedHandler(addr, port) {
     twitchEvents(client, process.env.TWITCH_CHANNEL);
 
     console.log(`* Connected to ${addr}:${port}`);
+}
+
+function onRaidHandler(channel, username, viewers){
+    raidEvent(client, channel,username, viewers)
 }
