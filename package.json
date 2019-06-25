@@ -8,7 +8,7 @@
     "url": "git+https://github.com/sorskoot/RosieBot.git"
   },
   "scripts": {
-    "start": "node rosie-bot.js"
+    "start": "nodemon rosie-bot.js"
   },
   "author": "",
   "license": "ISC",

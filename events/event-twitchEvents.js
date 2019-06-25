@@ -11,10 +11,14 @@ module.exports =
         });
 
         socket.on('new sub', function(msg){
+            socket.emit('player', 'volume', 5);
+            setTimeout(()=>socket.emit('player', 'volume', 100),15000)
             light(twitchClient, target,undefined,'yellowhype', true);
         });
 
         socket.on('new raid', function(msg){
+            socket.emit('player', 'volume', 5);
+            setTimeout(()=>socket.emit('player', 'volume', 100),15000)
             twitchClient.say(target, `@${msg.name} is raiding with ${msg.raiders} raiders! Defend the coder-sphere!`);
             light(twitchClient, target,undefined,'greenhype', true);
         });
