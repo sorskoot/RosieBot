@@ -5,18 +5,13 @@ Todo:
     ☐ Trigger stuff in the stream, in browser windows in OBS
     ☐ Include webhint status
     ☐ Integrate with Discord --> send message when going live
-    ☐ Integrate with twitch overlay part -> maybe using 
     ☐ add blacklist for other 'evil' bots using https://api.twitchinsights.net/v1/bots/all
     ☐ Handle casing in light colors 
-    ✔ connect to Streamlabs API (https://dev.streamlabs.com/docs/socket-api) @done(19-05-30 21:52)
-    ✔ Store stream events Azure Storage @done(19-05-30 21:52)
     ☐ store settings like !Beer, !project  on azure and retreive them when started
-    ✔ respond to follow in chat @done(19-05-30 21:56)
-    ✔ respond to sub with light @done(19-06-03 21:08)
     ☐ do something with https://www.npmjs.com/package/obs-websocket-js
     ☐ Create a game in chat (hangman, gamble, Roulette (adding points gamble like roulette)
-    ☐ Integrate with Spotify API
-    
+    ☐ do a !so when a raid happens
+
 Commands:
     ☐ !toolset
     ☐ !editor
@@ -28,11 +23,16 @@ Commands:
     ☐ Add more sfx
     ☐ !attention
 
-
 Thoughts and rough ideas:
     ☐ Build a game or something where people can send `code` to Rosie and have her execute it to play a game.
 
 Archive:
+  ✔ Integrate with twitch overlay part -> maybe using @done(19-06-28 09:55) @project(Todo)
+  ✔ connect to Streamlabs API (https://dev.streamlabs.com/docs/socket-api) @done(19-05-30 21:52) @project(Todo)
+  ✔ Store stream events Azure Storage @done(19-05-30 21:52) @project(Todo)
+  ✔ respond to follow in chat @done(19-05-30 21:56) @project(Todo)
+  ✔ respond to sub with light @done(19-06-03 21:08) @project(Todo)
+  ✘ Integrate with Spotify API @cancelled(19-06-28 09:55) @project(Todo)
   ✔ Add second hue (16) @done(19-05-27 23:25) @project(Todo)
   ✔ increase threshold for QnA @done(19-05-27 22:16) @project(Todo)
   ✔ !theme @done(19-05-27 22:13) @project(Commands)
