@@ -2,9 +2,11 @@ const request = require('request');
 const converter = require('@q42philips/hue-color-converter');
 const colors = require('./data/colors');
 const sfx = require('./command-sfx');
+const utils = require('../lib/utils');
 
 let lastColorSet = "green";
 const maxBrightness = 254;
+const voiceMeterVolumeLow = 40;
 
 module.exports =
     (twitchClient, target, context, color, silent = false) => {
@@ -61,10 +63,10 @@ function hype() {
 
 function yellowhype() {
     var x = changeLightBri(20, 1, 16);
-    for (let i = 0; i < 20; i++) {
-        x = x.then(() => delay(150))
+    for (let i = 0; i < 13; i++) {
+        x = x.then(() => delay(500))
             .then(() => changeLightColor("yellow", 0))
-            .then(() => delay(150))
+            .then(() => delay(500))
             .then(() => changeLightOff())
     }
     x.then(() => changeLightOn())
@@ -96,6 +98,11 @@ function fire() {
 
 
 function flashbang() {
+    utils.lerp(voiceMeterVolumeLow, 0, 5, 200, v => sfx.triggerMidi(0xB1, 7, ~~v));
+            setTimeout(() => {
+                utils.lerp(0, voiceMeterVolumeLow, 15, 3500, v => sfx.triggerMidi(0xB1, 7, ~~v));
+            }, 2700)
+
     var x = changeLightOff(0, 16)
         .then(() => changeLightOff(0, 17))
         .then(() => sfx.sfx7Days())
@@ -107,7 +114,7 @@ function flashbang() {
         .then(() => changeLightOff(0, 17))
         .then(() => delay(1000))
         .then(() => changeLightOn(0, 16))
-        .then(() => changeLightBri(maxBrightness, 1, 16))
+        .then(() => changeLightBri(maxBrightness, 15, 16))
         .then(() => changeLightColor(lastColorSet));
 }
 

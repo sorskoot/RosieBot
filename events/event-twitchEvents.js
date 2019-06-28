@@ -1,25 +1,44 @@
 const io = require('socket.io-client');
 const fs = require('fs');
 const light = require('../commands/command-light');
+const sfx = require('../commands/command-sfx');
+const utils = require('../lib/utils');
+
+const voiceMeterVolumeHigh = 80;
+const voiceMeterVolumeLow = 40;
 
 module.exports =
     (twitchClient, target) => {
         let socket = io('http://localhost:9385');
 
-        socket.on('new follower', function(msg){
+        socket.on('new follower', function (msg) {
+            socket.emit('player', 'volume', 5);
+            utils.lerp(voiceMeterVolumeLow, voiceMeterVolumeHigh, 10, 1000, v => sfx.triggerMidi(0xB1, 7, ~~v));
+            setTimeout(() => {
+                socket.emit('player', 'volume', 100);
+                utils.lerp(voiceMeterVolumeHigh, voiceMeterVolumeLow, 10, 1500, v => sfx.triggerMidi(0xB1, 7, ~~v));
+            }, 6000)
             twitchClient.say(target, `Hi @${msg.name}! Welcome to the coder-sphere.`);
         });
 
-        socket.on('new sub', function(msg){
+        socket.on('new sub', function (msg) {
             socket.emit('player', 'volume', 5);
-            setTimeout(()=>socket.emit('player', 'volume', 100),15000)
-            light(twitchClient, target,undefined,'yellowhype', true);
+            utils.lerp(voiceMeterVolumeLow, voiceMeterVolumeHigh, 10, 1500, v => sfx.triggerMidi(0xB1, 7, ~~v));
+            setTimeout(() => {
+                socket.emit('player', 'volume', 100);
+                utils.lerp(voiceMeterVolumeHigh, voiceMeterVolumeLow, 10, 1500, v => sfx.triggerMidi(0xB1, 7, ~~v));
+            }, 14500)
+            light(twitchClient, target, undefined, 'yellowhype', true);
         });
 
-        socket.on('new raid', function(msg){
+        socket.on('new raid', function (msg) {
             socket.emit('player', 'volume', 5);
-            setTimeout(()=>socket.emit('player', 'volume', 100),15000)
+            utils.lerp(voiceMeterVolumeLow, voiceMeterVolumeHigh, 10, 1500, v => sfx.triggerMidi(0xB1, 7, ~~v));
+            setTimeout(() => {
+                socket.emit('player', 'volume', 100);
+                utils.lerp(voiceMeterVolumeHigh, voiceMeterVolumeLow, 10, 1500, v => sfx.triggerMidi(0xB1, 7, ~~v));
+            }, 15000)
             twitchClient.say(target, `@${msg.name} is raiding with ${msg.raiders} raiders! Defend the coder-sphere!`);
-            light(twitchClient, target,undefined,'greenhype', true);
+            light(twitchClient, target, undefined, 'greenhype', true);
         });
     }

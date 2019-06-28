@@ -11,8 +11,10 @@ Todo:
     ☐ do something with https://www.npmjs.com/package/obs-websocket-js
     ☐ Create a game in chat (hangman, gamble, Roulette (adding points gamble like roulette)
     ☐ do a !so when a raid happens
-
+    ☐ Check URLs posted and respond with title of page
+    
 Commands:
+    ☐ !muted - Spam chat + SFX - just in case I am muted again.
     ☐ !toolset
     ☐ !editor
     ☐ code metrics
@@ -22,6 +24,7 @@ Commands:
     ☐ !delight sfx (https://www.youtube.com/watch?v=tUqvPJ3cbUQ)
     ☐ Add more sfx
     ☐ !attention
+    ☐ !typing - typing noise.
 
 Thoughts and rough ideas:
     ☐ Build a game or something where people can send `code` to Rosie and have her execute it to play a game.

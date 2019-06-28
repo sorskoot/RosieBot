@@ -1,35 +1,36 @@
 const JZZ = require('jzz');
 
 module.exports = {
-    sfxBadumts: () => triggerMidi(SFX.badumts),
-    sfxBingit: () => triggerMidi(SFX.bingit),
-    sfxFup: () => triggerMidi(SFX.fup),
-    sfxDoh: () => triggerMidi(SFX.doh),
-    sfxAllright: () => triggerMidi(SFX.allright),
-    sfxDuhDuhDuuuh: () => triggerMidi(SFX.duhDuhDuuuh),
-    sfxBye: () => triggerMidi(SFX.bye),
-    sfxJustDoIt: () => triggerMidi(SFX.justDoIt),
-    sfxDunDun: () => triggerMidi(SFX.dunDun),
-    sfxHeadshot: () => triggerMidi(SFX.headshot),
-    sfxDrumroll: () => triggerMidi(SFX.drumroll),
-    sfxInception: () => triggerMidi(SFX.inception),
-    sfxMCLevelUp: () => triggerMidi(SFX.mCLevelUp),
-    sfxMCVillager: () => triggerMidi(SFX.mCVillager),
-    sfxMario1up: () => triggerMidi(SFX.mario1up),
-    sfxFinishHim: () => triggerMidi(SFX.finishHim),
-    sfxDoItlive: () => triggerMidi(SFX.doItlive),
-    sfxApplause: () => triggerMidi(SFX.applause),
-    sfxAirhorn: () => triggerMidi(SFX.airhorn),
-    sfxLaugh: () => triggerMidi(SFX.laugh),
-    sfxDingDong: () => triggerMidi(SFX.dingDong),
-    sfxSonic: () => triggerMidi(SFX.sonic),
-    sfxInconceivable: () => triggerMidi(SFX.inconceivable),
-    sfxMighty: () => triggerMidi(SFX.mighty),
-    sfxKidding: () => triggerMidi(SFX.kidding),
-    sfx7Days: () => triggerMidi(SFX.thering7days),
-    sfxDing: () => triggerMidi(SFX.ding),
-    sfxPushIt: () => triggerMidi(SFX.pushit),
-    sfxHowl: () => triggerMidi(SFX.howl),
+    sfxBadumts: () => triggerMidiNote(SFX.badumts),
+    sfxBingit: () => triggerMidiNote(SFX.bingit),
+    sfxFup: () => triggerMidiNote(SFX.fup),
+    sfxDoh: () => triggerMidiNote(SFX.doh),
+    sfxAllright: () => triggerMidiNote(SFX.allright),
+    sfxDuhDuhDuuuh: () => triggerMidiNote(SFX.duhDuhDuuuh),
+    sfxBye: () => triggerMidiNote(SFX.bye),
+    sfxJustDoIt: () => triggerMidiNote(SFX.justDoIt),
+    sfxDunDun: () => triggerMidiNote(SFX.dunDun),
+    sfxHeadshot: () => triggerMidiNote(SFX.headshot),
+    sfxDrumroll: () => triggerMidiNote(SFX.drumroll),
+    sfxInception: () => triggerMidiNote(SFX.inception),
+    sfxMCLevelUp: () => triggerMidiNote(SFX.mCLevelUp),
+    sfxMCVillager: () => triggerMidiNote(SFX.mCVillager),
+    sfxMario1up: () => triggerMidiNote(SFX.mario1up),
+    sfxFinishHim: () => triggerMidiNote(SFX.finishHim),
+    sfxDoItlive: () => triggerMidiNote(SFX.doItlive),
+    sfxApplause: () => triggerMidiNote(SFX.applause),
+    sfxAirhorn: () => triggerMidiNote(SFX.airhorn),
+    sfxLaugh: () => triggerMidiNote(SFX.laugh),
+    sfxDingDong: () => triggerMidiNote(SFX.dingDong),
+    sfxSonic: () => triggerMidiNote(SFX.sonic),
+    sfxInconceivable: () => triggerMidiNote(SFX.inconceivable),
+    sfxMighty: () => triggerMidiNote(SFX.mighty),
+    sfxKidding: () => triggerMidiNote(SFX.kidding),
+    sfx7Days: () => triggerMidiNote(SFX.thering7days),
+    sfxDing: () => triggerMidiNote(SFX.ding),
+    sfxPushIt: () => triggerMidiNote(SFX.pushit),
+    sfxHowl: () => triggerMidiNote(SFX.howl),
+    triggerMidi:triggerMidi
 }
 
 const SFX = {
@@ -64,8 +65,13 @@ const SFX = {
     howl: 85,
 }
 
-function triggerMidi(note) {
+function triggerMidiNote(note) {
+    triggerMidi(0x90, note, 127);
+}
+
+function triggerMidi(...message) {
     JZZ().or('Cannot start MIDI engine!')
         .openMidiOut(1).or('Cannot open MIDI Out port!')
-        .send([0x90, note, 127]);
+        .send(message);
 }
+
