@@ -10,7 +10,7 @@ Todo:
     ☐ store settings like !Beer, !project  on azure and retreive them when started
     ☐ do something with https://www.npmjs.com/package/obs-websocket-js
     ☐ Create a game in chat (hangman, gamble, Roulette (adding points gamble like roulette)
-    ☐ do a !so when a raid happens
+    ✔ do a !so when a raid happens @done(19-06-28 23:52)
     ☐ Check URLs posted and respond with title of page
     
 Commands:

@@ -3,6 +3,7 @@ const fs = require('fs');
 const light = require('../commands/command-light');
 const sfx = require('../commands/command-sfx');
 const utils = require('../lib/utils');
+const so = require('../commands/command-so');
 
 const voiceMeterVolumeHigh = 80;
 const voiceMeterVolumeLow = 40;
@@ -40,5 +41,8 @@ module.exports =
             }, 15000)
             twitchClient.say(target, `@${msg.name} is raiding with ${msg.raiders} raiders! Defend the coder-sphere!`);
             light(twitchClient, target, undefined, 'greenhype', true);
+            setTimeout(() => {
+                so(twitchClient, target, undefined, msg.name);
+            }, 35000);
         });
     }
