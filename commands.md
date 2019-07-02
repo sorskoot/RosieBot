@@ -25,6 +25,7 @@ command | description
 !beer | What beer is Sorskoot drinking today
 !project | What is Sorskoot working on today
 !theme | Get the link to the theme Sorskoot is using in VsCode
+!command | Add a temporary command. try !command help
 
 ## sound fx
 

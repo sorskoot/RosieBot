@@ -25,6 +25,10 @@ Commands:
     ☐ Add more sfx
     ☐ !attention
     ☐ !typing - typing noise.
+    ✔ !command add !{whatever} with something to add a temporary command @done(19-07-02 23:58)
+        Maybe add placeholders like {name} for the name of the person that executes the command @done(19-07-02 23:58)
+
+
 
 Thoughts and rough ideas:
     ☐ Build a game or something where people can send `code` to Rosie and have her execute it to play a game.

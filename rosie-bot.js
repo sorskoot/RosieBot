@@ -16,6 +16,7 @@ const spotifyCommand = require('./commands/command-spotify');
 const beerCommand = require('./commands/command-beer');
 const projectCommand = require('./commands/command-project');
 const themeCommand = require('./commands/command-theme');
+const commandCommand = require('./commands/command-command');
 
 const emotesEvent = require('./events/event-emotes');
 const twitchEvents = require('./events/event-twitchEvents');
@@ -98,7 +99,9 @@ const commands = {
 
     '!beer': beerCommand,
     '!project': projectCommand,
-    '!theme':themeCommand
+    '!theme':themeCommand,
+
+    '!command':commandCommand.command
 
 }
 
@@ -122,12 +125,16 @@ function handleBangCommand(msg, target, context) {
     const command = splitCommand[0].toLowerCase();
     if (commands.hasOwnProperty(command)) {
         commands[command](client, target, context, ...splitCommand.splice(1));
+    }else{
+        if(commandCommand.hasCommand(command)){
+            commandCommand.execute(client, target, context, command, splitCommand.splice(1).join(' '));
+        }
     }
 }
 
 function onConnectedHandler(addr, port) {
 
     twitchEvents(client, process.env.TWITCH_CHANNEL);
-
+    commandCommand.init(commands);
     console.log(`* Connected to ${addr}:${port}`);
 }
