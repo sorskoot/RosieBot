@@ -21,6 +21,7 @@ const commandCommand = require('./commands/command-command');
 const emotesEvent = require('./events/event-emotes');
 const twitchEvents = require('./events/event-twitchEvents');
 const QnAEvent = require('./events/event-QnA');
+const linkEvent = require('./events/event-link');
 
 const opts = {
     identity: {
@@ -44,7 +45,7 @@ client.connect()
     }).catch((err) => {
         console.log(err);
     });;
-    
+
 const commands = {
     '!dice': diceCommand,
     '!rosie': rosieCommand,
@@ -75,12 +76,12 @@ const commands = {
     '!dingdong': sfxCommand.sfxDingDong,
     '!sonic': sfxCommand.sfxSonic,
     '!inconceivable': sfxCommand.sfxInconceivable,
-    '!mighty':sfxCommand.sfxMighty,
-    '!kidding':sfxCommand.sfxKidding,
-    '!7days':sfxCommand.sfx7Days,
-    '!ding':sfxCommand.sfxDing,
-    '!pushit':sfxCommand.sfxPushIt,
-    '!howl':sfxCommand.sfxHowl,
+    '!mighty': sfxCommand.sfxMighty,
+    '!kidding': sfxCommand.sfxKidding,
+    '!7days': sfxCommand.sfx7Days,
+    '!ding': sfxCommand.sfxDing,
+    '!pushit': sfxCommand.sfxPushIt,
+    '!howl': sfxCommand.sfxHowl,
 
     '!twitter': socialCommand.socialTwitter,
     '!youtube': socialCommand.socialYoutube,
@@ -99,9 +100,9 @@ const commands = {
 
     '!beer': beerCommand,
     '!project': projectCommand,
-    '!theme':themeCommand,
+    '!theme': themeCommand,
 
-    '!command':commandCommand.command
+    '!command': commandCommand.command
 
 }
 
@@ -110,12 +111,19 @@ async function onMessageHandler(target, context, msg, self) {
     if (!!context.emotes) {
         emotesEvent(context.emotes);
     }
+
     if (self) {
-        return;
-    } // Ignore messages from the bot
+        return;// Ignore messages from the bot
+    }
+
+    if (linkEvent.containsLink(msg)) {
+        linkEvent.validateLinks(client, target, context, msg);
+    }
+
     if (msg.trim().endsWith("?")) {
         msg = await QnAEvent(client, target, msg);
     };
+
     handleBangCommand(msg, target, context);
 }
 
@@ -125,8 +133,8 @@ function handleBangCommand(msg, target, context) {
     const command = splitCommand[0].toLowerCase();
     if (commands.hasOwnProperty(command)) {
         commands[command](client, target, context, ...splitCommand.splice(1));
-    }else{
-        if(commandCommand.hasCommand(command)){
+    } else {
+        if (commandCommand.hasCommand(command)) {
             commandCommand.execute(client, target, context, command, splitCommand.splice(1).join(' '));
         }
     }

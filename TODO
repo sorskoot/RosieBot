@@ -8,10 +8,11 @@ Todo:
     ☐ add blacklist for other 'evil' bots using https://api.twitchinsights.net/v1/bots/all
     ☐ Handle casing in light colors 
     ☐ store settings like !Beer, !project  on azure and retreive them when started
+    ☐ if !project is not set, just use current stream title.
     ☐ do something with https://www.npmjs.com/package/obs-websocket-js
     ☐ Create a game in chat (hangman, gamble, Roulette (adding points gamble like roulette)
     ✔ do a !so when a raid happens @done(19-06-28 23:52)
-    ☐ Check URLs posted and respond with title of page
+    ✔ Check URLs posted and respond with title of page @done(19-07-10 17:43)
     
 Commands:
     ☐ !muted - Spam chat + SFX - just in case I am muted again.
@@ -24,11 +25,14 @@ Commands:
     ☐ !delight sfx (https://www.youtube.com/watch?v=tUqvPJ3cbUQ)
     ☐ Add more sfx
     ☐ !attention
-    ☐ !typing - typing noise.
+    ☐ !typing - typing noise. (sfx)
+    ☐ !blame - blame random people for for random stuff - Maybe really random. (!blame random)
+        !blame -> random blame message -> make a list
+        !blame anyone -> pick a random person that is viewing
+        !blame {message} -> write something like... "OK. Let's blame {message}"
+    ☐ ProEvilz: !light rainbow
     ✔ !command add !{whatever} with something to add a temporary command @done(19-07-02 23:58)
         Maybe add placeholders like {name} for the name of the person that executes the command @done(19-07-02 23:58)
-
-
 
 Thoughts and rough ideas:
     ☐ Build a game or something where people can send `code` to Rosie and have her execute it to play a game.
