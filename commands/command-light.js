@@ -32,7 +32,8 @@ const special = {
     'fire': fire,
     'yellowhype': yellowhype,
     'greenhype': greenhype,
-    'flashbang': flashbang
+    'flashbang': flashbang,
+    'rainbow': rainbow
 }
 
 function copMode() {
@@ -116,6 +117,24 @@ function flashbang() {
         .then(() => changeLightOn(0, 16))
         .then(() => changeLightBri(maxBrightness, 15, 16))
         .then(() => changeLightColor(lastColorSet));
+}
+
+async function rainbow(){
+    await changeLightBri(10, 1, 16);
+    
+     const delaytime = 500;
+     const transitiontime = 5;
+     const colors = ["red","orange","yellow","green","blue","purple"]
+  
+    for (let i = 0; i < 5; i++) {
+        for (let c = 0; c < colors.length; c++) {
+            await changeLightColor(colors[c], transitiontime)
+            await delay(delaytime);
+        }
+    }
+
+    await changeLightBri(maxBrightness, 5, 16);
+    await changeLightColor(lastColorSet,5);
 }
 
 function delay(time) {

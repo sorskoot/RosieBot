@@ -13,7 +13,8 @@ Todo:
     ☐ Create a game in chat (hangman, gamble, Roulette (adding points gamble like roulette)
     ✔ do a !so when a raid happens @done(19-06-28 23:52)
     ✔ Check URLs posted and respond with title of page @done(19-07-10 17:43)
-    
+    ☐ Add environment parameters for the light ids
+
 Commands:
     ☐ !muted - Spam chat + SFX - just in case I am muted again.
     ☐ !toolset
@@ -24,16 +25,16 @@ Commands:
     ☐ !fbi sfx
     ☐ !delight sfx (https://www.youtube.com/watch?v=tUqvPJ3cbUQ)
     ☐ Add more sfx
-        ✔ @today It may explode @done(19-07-11 21:49)
-        ✔ @today Time to kick ass @done(19-07-11 21:49)
-        ✔ @today Rewrite the piece of garbage @done(19-07-11 21:49)
+        ✔ It may explode @done(19-07-11 21:49)
+        ✔ Time to kick ass @done(19-07-11 21:49)
+        ✔ Rewrite the piece of garbage @done(19-07-11 21:49)
     ☐ !attention
     ☐ !typing - typing noise. (sfx)
     ☐ @today !blame - blame random people for for random stuff - Maybe really random. (!blame random)
         !blame -> random blame message -> make a list
         !blame anyone -> pick a random person that is viewing
         !blame {target} {reason} -> write something like... "OK. Let's blame {target} for {reason}"
-    ☐ @today ProEvilz: !light rainbow
+    ✔ ProEvilz: !light rainbow @done(19-07-11 22:11)
     ✔ !command add !{whatever} with something to add a temporary command @done(19-07-02 23:58)
         Maybe add placeholders like {name} for the name of the person that executes the command @done(19-07-02 23:58)
 
