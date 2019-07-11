@@ -17,6 +17,7 @@ const beerCommand = require('./commands/command-beer');
 const projectCommand = require('./commands/command-project');
 const themeCommand = require('./commands/command-theme');
 const commandCommand = require('./commands/command-command');
+const blameCommand = require('./commands/command-blame');
 
 const emotesEvent = require('./events/event-emotes');
 const twitchEvents = require('./events/event-twitchEvents');
@@ -105,8 +106,8 @@ const commands = {
     '!project': projectCommand,
     '!theme': themeCommand,
 
-    '!command': commandCommand.command
-
+    '!command': commandCommand.command,
+    '!blame': blameCommand
 }
 
 

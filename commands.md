@@ -27,6 +27,8 @@ command | description
 !project | What is Sorskoot working on today
 !theme | Get the link to the theme Sorskoot is using in VsCode
 !command | Add a temporary command. try !command help
+!blame | blame a random person/thing for something random
+!blame {target} {reason} | Writes a message blaming {target} for {reason}
 
 ## sound fx
 

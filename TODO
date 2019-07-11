@@ -30,7 +30,7 @@ Commands:
         ✔ Rewrite the piece of garbage @done(19-07-11 21:49)
     ☐ !attention
     ☐ !typing - typing noise. (sfx)
-    ☐ @today !blame - blame random people for for random stuff - Maybe really random. (!blame random)
+    ✔ !blame - blame random people for for random stuff - Maybe really random. (!blame random) @done(19-07-11 22:37)
         !blame -> random blame message -> make a list
         !blame anyone -> pick a random person that is viewing
         !blame {target} {reason} -> write something like... "OK. Let's blame {target} for {reason}"

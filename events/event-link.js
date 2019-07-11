@@ -4,7 +4,7 @@
 let cheerio = require('cheerio');
 let request = require('request');
 
-let regex = /(((http|https):\/\/)?((\S+\.)+\S+))/gim;
+let regex = /(((http|https):\/\/)?((\w+\.)+\w+))/gim;
 
 function containsLink(message) {
     regex.lastIndex = 0;
@@ -37,7 +37,7 @@ function GetTitle(url) {
         request(url, function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 const $ = cheerio.load(body);
-                res($("title").text());
+                res($("head>title").text());
             } else {
                 res(undefined); // just ignore... 
             }
