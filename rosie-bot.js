@@ -82,6 +82,9 @@ const commands = {
     '!ding': sfxCommand.sfxDing,
     '!pushit': sfxCommand.sfxPushIt,
     '!howl': sfxCommand.sfxHowl,
+    '!rewrite': sfxCommand.sfxRewrite,
+    '!kickass': sfxCommand.sfxKickAss,
+    '!explode': sfxCommand.sfxExplode,
 
     '!twitter': socialCommand.socialTwitter,
     '!youtube': socialCommand.socialYoutube,

@@ -24,13 +24,16 @@ Commands:
     ☐ !fbi sfx
     ☐ !delight sfx (https://www.youtube.com/watch?v=tUqvPJ3cbUQ)
     ☐ Add more sfx
+        ✔ @today It may explode @done(19-07-11 21:49)
+        ✔ @today Time to kick ass @done(19-07-11 21:49)
+        ✔ @today Rewrite the piece of garbage @done(19-07-11 21:49)
     ☐ !attention
     ☐ !typing - typing noise. (sfx)
-    ☐ !blame - blame random people for for random stuff - Maybe really random. (!blame random)
+    ☐ @today !blame - blame random people for for random stuff - Maybe really random. (!blame random)
         !blame -> random blame message -> make a list
         !blame anyone -> pick a random person that is viewing
-        !blame {message} -> write something like... "OK. Let's blame {message}"
-    ☐ ProEvilz: !light rainbow
+        !blame {target} {reason} -> write something like... "OK. Let's blame {target} for {reason}"
+    ☐ @today ProEvilz: !light rainbow
     ✔ !command add !{whatever} with something to add a temporary command @done(19-07-02 23:58)
         Maybe add placeholders like {name} for the name of the person that executes the command @done(19-07-02 23:58)
 

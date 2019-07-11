@@ -59,5 +59,8 @@ command |
 !7days |
 !ding |
 !pushit |
-!howl
+!howl |
+!rewrite |
+!kickass |
+!explode
 

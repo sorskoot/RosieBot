@@ -30,6 +30,9 @@ module.exports = {
     sfxDing: () => triggerMidiNote(SFX.ding),
     sfxPushIt: () => triggerMidiNote(SFX.pushit),
     sfxHowl: () => triggerMidiNote(SFX.howl),
+    sfxRewrite: () => triggerMidiNote(SFX.rewrite),
+    sfxKickAss: () => triggerMidiNote(SFX.kickass),
+    sfxExplode: () => triggerMidiNote(SFX.explode),
     triggerMidi:triggerMidi
 }
 
@@ -63,6 +66,9 @@ const SFX = {
     ding: 83,
     pushit: 84,
     howl: 85,
+    rewrite: 86,
+    kickass: 87,
+    explode: 88
 }
 
 function triggerMidiNote(note) {
