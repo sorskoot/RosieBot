@@ -23,6 +23,7 @@ const emotesEvent = require('./events/event-emotes');
 const twitchEvents = require('./events/event-twitchEvents');
 const QnAEvent = require('./events/event-QnA');
 const linkEvent = require('./events/event-link');
+const timedMessages = require('./events/event-timedMessages');
 
 const opts = {
     identity: {
@@ -145,8 +146,9 @@ function handleBangCommand(msg, target, context) {
 }
 
 function onConnectedHandler(addr, port) {
-
     twitchEvents(client, process.env.TWITCH_CHANNEL);
+    timedMessages(client, process.env.TWITCH_CHANNEL);
+
     commandCommand.init(commands);
     console.log(`* Connected to ${addr}:${port}`);
 }

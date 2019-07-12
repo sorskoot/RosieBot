@@ -11,12 +11,11 @@ Todo:
     ☐ if !project is not set, just use current stream title.
     ☐ do something with https://www.npmjs.com/package/obs-websocket-js
     ☐ Create a game in chat (hangman, gamble, Roulette (adding points gamble like roulette)
-    ✔ do a !so when a raid happens @done(19-06-28 23:52)
-    ✔ Check URLs posted and respond with title of page @done(19-07-10 17:43)
     ☐ Add environment parameters for the light ids
 
 Commands:
     ☐ !muted - Spam chat + SFX - just in case I am muted again.
+    ☐ !time - show current time in UTC and CET
     ☐ !toolset
     ☐ !editor
     ☐ code metrics
@@ -25,23 +24,25 @@ Commands:
     ☐ !fbi sfx
     ☐ !delight sfx (https://www.youtube.com/watch?v=tUqvPJ3cbUQ)
     ☐ Add more sfx
-        ✔ It may explode @done(19-07-11 21:49)
-        ✔ Time to kick ass @done(19-07-11 21:49)
-        ✔ Rewrite the piece of garbage @done(19-07-11 21:49)
     ☐ !attention
     ☐ !typing - typing noise. (sfx)
-    ✔ !blame - blame random people for for random stuff - Maybe really random. (!blame random) @done(19-07-11 22:37)
-        !blame -> random blame message -> make a list
-        !blame anyone -> pick a random person that is viewing
-        !blame {target} {reason} -> write something like... "OK. Let's blame {target} for {reason}"
-    ✔ ProEvilz: !light rainbow @done(19-07-11 22:11)
-    ✔ !command add !{whatever} with something to add a temporary command @done(19-07-02 23:58)
-        Maybe add placeholders like {name} for the name of the person that executes the command @done(19-07-02 23:58)
 
 Thoughts and rough ideas:
     ☐ Build a game or something where people can send `code` to Rosie and have her execute it to play a game.
 
 Archive:
+  ✔ do a !so when a raid happens @done(19-06-28 23:52) @project(Todo)
+  ✔ Check URLs posted and respond with title of page @done(19-07-10 17:43) @project(Todo)
+  ✔ It may explode @done(19-07-11 21:49) @project(Commands)
+  ✔ Time to kick ass @done(19-07-11 21:49) @project(Commands)
+  ✔ Rewrite the piece of garbage @done(19-07-11 21:49) @project(Commands)
+  ✔ !blame - blame random people for for random stuff - Maybe really random. (!blame random) @done(19-07-11 22:37) @project(Commands)
+    !blame -> random blame message -> make a list
+    !blame anyone -> pick a random person that is viewing
+    !blame {target} {reason} -> write something like... "OK. Let's blame {target} for {reason}"
+  ✔ ProEvilz: !light rainbow @done(19-07-11 22:11) @project(Commands)
+  ✔ !command add !{whatever} with something to add a temporary command @done(19-07-02 23:58) @project(Commands)
+    Maybe add placeholders like {name} for the name of the person that executes the command @done(19-07-02 23:58)
   ✔ Integrate with twitch overlay part -> maybe using @done(19-06-28 09:55) @project(Todo)
   ✔ connect to Streamlabs API (https://dev.streamlabs.com/docs/socket-api) @done(19-05-30 21:52) @project(Todo)
   ✔ Store stream events Azure Storage @done(19-05-30 21:52) @project(Todo)

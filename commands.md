@@ -32,38 +32,13 @@ command | description
 
 ## sound fx
 
-command |
---- |
-!doh |
-!bingit |
-!fup |
-!badumts |
-!allright |
-!duhduh |
-!bye |
-!justdoit |
-!dundun |
-!headshot |
-!drumroll |
-!inception |
-!mclevelup |
-!mcvillager |
-!1up |
-!finishhim |
-!doitlive |
-!applause |
-!airhorn |
-!laugh |
-!dingdong |
-!sonic |
-!inconceivable |
-!mighty |
-!kidding |
-!7days |
-!ding |
-!pushit |
-!howl |
-!rewrite |
-!kickass |
-!explode
-
+| --- | ---  | ---  | --- |
+|:---:|:---:|:---:|:---:|
+!doh | !bingit | !fup | !badumts |
+!allright | !duhduh | !bye | !justdoit |
+!dundun | !headshot | !drumroll | !inception |
+!mclevelup | !mcvillager | !1up | !finishhim |
+!doitlive | !applause | !airhorn | !laugh |
+!dingdong | !sonic | !inconceivable | !mighty |
+!kidding | !7days | !ding | !pushit |
+!howl | !rewrite | !kickass | !explode
