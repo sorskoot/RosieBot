@@ -23,9 +23,11 @@ function getMyStream() {
         }, function (error, response, body) {
             if (!!error) {
                 rej(error);
+                return;
             }
             if (response.statusCode != 200) {
                 rej(`statuscode: ${response.statusCode}`);
+                return;
             }
             res(JSON.parse(body).data[0]);
         });

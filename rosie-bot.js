@@ -18,6 +18,7 @@ const projectCommand = require('./commands/command-project');
 const themeCommand = require('./commands/command-theme');
 const commandCommand = require('./commands/command-command');
 const blameCommand = require('./commands/command-blame');
+const followageCommand = require('./commands/command-followage');
 
 const emotesEvent = require('./events/event-emotes');
 const twitchEvents = require('./events/event-twitchEvents');
@@ -108,7 +109,8 @@ const commands = {
     '!theme': themeCommand,
 
     '!command': commandCommand.command,
-    '!blame': blameCommand
+    '!blame': blameCommand,
+    '!followage':followageCommand
 }
 
 

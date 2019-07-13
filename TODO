@@ -26,6 +26,7 @@ Commands:
     ☐ Add more sfx
     ☐ !attention
     ☐ !typing - typing noise. (sfx)
+    ✔ !followage -> how long is someone following @done(19-07-13 23:17)
 
 Thoughts and rough ideas:
     ☐ Build a game or something where people can send `code` to Rosie and have her execute it to play a game.

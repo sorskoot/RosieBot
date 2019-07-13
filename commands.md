@@ -29,6 +29,7 @@ command | description
 !command | Add a temporary command. try !command help
 !blame | blame a random person/thing for something random
 !blame {target} {reason} | Writes a message blaming {target} for {reason}
+!followage | shows since when you are a member of the fam
 
 ## sound fx
 
