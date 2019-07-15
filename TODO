@@ -24,14 +24,16 @@ Commands:
     ☐ !fbi sfx
     ☐ !delight sfx (https://www.youtube.com/watch?v=tUqvPJ3cbUQ)
     ☐ Add more sfx
+    ☐ !Geekcode - Write my geekcode to chat. Link and ask geekcode to viewers.
     ☐ !attention
     ☐ !typing - typing noise. (sfx)
-    ✔ !followage -> how long is someone following @done(19-07-13 23:17)
+    ☐ !stupid {name} - Random message, You are so stupid, {name}. You {random message} 
 
 Thoughts and rough ideas:
     ☐ Build a game or something where people can send `code` to Rosie and have her execute it to play a game.
 
 Archive:
+  ✔ !followage -> how long is someone following @done(19-07-13 23:17) @project(Commands)
   ✔ do a !so when a raid happens @done(19-06-28 23:52) @project(Todo)
   ✔ Check URLs posted and respond with title of page @done(19-07-10 17:43) @project(Todo)
   ✔ It may explode @done(19-07-11 21:49) @project(Commands)

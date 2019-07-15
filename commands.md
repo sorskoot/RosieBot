@@ -4,7 +4,7 @@ command | description
 --- | ---
 !commands | this list
 !dice {NumberOfRolls} {numberOfSides} | roll a dice
-!rose | random rosie quote
+!rosie | random rosie quote
 !twitter | link to Twitter account
 !youtube | link to YouTube account
 !git | link to GitHub
