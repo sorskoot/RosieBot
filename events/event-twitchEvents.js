@@ -11,7 +11,7 @@ const voiceMeterVolumeLow = 40;
 module.exports =
     (twitchClient, target) => {
         let socket = io('http://localhost:9385');
-
+        
         socket.on('new follower', function (msg) {
             socket.emit('player', 'volume', 5);
             utils.lerp(voiceMeterVolumeLow, voiceMeterVolumeHigh, 10, 1000, v => sfx.triggerMidi(0xB1, 7, ~~v));
