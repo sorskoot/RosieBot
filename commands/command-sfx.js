@@ -33,7 +33,17 @@ module.exports = {
     sfxRewrite: () => triggerMidiNote(SFX.rewrite),
     sfxKickAss: () => triggerMidiNote(SFX.kickass),
     sfxExplode: () => triggerMidiNote(SFX.explode),
-    triggerMidi:triggerMidi
+    sfxLoveBye: () => triggerMidiNote(SFX.lovebye),
+    sfxGoat: () => triggerMidiNote(SFX.goat),
+    sfxFindout: () => triggerMidiNote(SFX.findout),
+    sfxAsIf: () => triggerMidiNote(SFX.asif),
+    sfxUnexceptable: () => triggerMidiNote(SFX.unexceptable),
+    sfxBiteMetal: () => triggerMidiNote(SFX.bitemetal),
+    sfxNasty: () => triggerMidiNote(SFX.nasty),
+    sfxHowDare: () => triggerMidiNote(SFX.howdare),
+    sfxAttention: () => triggerMidiNote(SFX.attention),
+
+    triggerMidi: triggerMidi
 }
 
 const SFX = {
@@ -68,7 +78,16 @@ const SFX = {
     howl: 85,
     rewrite: 86,
     kickass: 87,
-    explode: 88
+    explode: 88,
+    lovebye: 89,
+    goat: 90,
+    findout: 91,
+    asif: 92,
+    unexceptable: 93,
+    bitemetal: 94,
+    nasty: 95,
+    howdare: 96,
+    attention: 97
 }
 
 function triggerMidiNote(note) {

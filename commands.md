@@ -42,4 +42,7 @@ command | description
 !doitlive | !applause | !airhorn | !laugh |
 !dingdong | !sonic | !inconceivable | !mighty |
 !kidding | !7days | !ding | !pushit |
-!howl | !rewrite | !kickass | !explode
+!howl | !rewrite | !kickass | !explode |
+!lovebye | !goat | !findout | !asif |
+!unexceptable | !bitemetal | !nasty | !howdare |
+!attention |

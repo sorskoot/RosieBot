@@ -88,6 +88,15 @@ const commands = {
     '!rewrite': sfxCommand.sfxRewrite,
     '!kickass': sfxCommand.sfxKickAss,
     '!explode': sfxCommand.sfxExplode,
+    '!lovebye': sfxCommand.sfxLoveBye,
+    '!goat': sfxCommand.sfxGoat,
+    '!findout': sfxCommand.sfxFindout,
+    '!asif': sfxCommand.sfxAsIf,
+    '!unexceptable': sfxCommand.sfxUnexceptable,
+    '!bitemetal': sfxCommand.sfxBiteMetal,
+    '!nasty': sfxCommand.sfxNasty,
+    '!howdare': sfxCommand.sfxHowDare,
+    '!attention': sfxCommand.sfxAttention,
 
     '!twitter': socialCommand.socialTwitter,
     '!youtube': socialCommand.socialYoutube,
@@ -110,7 +119,7 @@ const commands = {
 
     '!command': commandCommand.command,
     '!blame': blameCommand,
-    '!followage':followageCommand
+    '!followage': followageCommand
 }
 
 
