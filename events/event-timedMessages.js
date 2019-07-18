@@ -18,14 +18,34 @@ const allMessages = [
     { disabled: true, msg: "Stream Setup Blogpost" }
 ];
 
-module.exports = (twitchClient, target) => {
-    let now = new Date();
-  
-    let messages = allMessages.filter(m => !m.disabled && 
-        (((!!m.startDate && m.startDate < now)  || !m.startDate) && 
-        ((!!m.endDate && m.endDate > now) || !m.endDate)));
-  
-    setInterval(() => {
-        twitchClient.say(target, messages[~~(messages.length * Math.random())].msg);
-    }, 600000)
-}
+let counter = 1;
+let scheduled = false;
+
+const MessageCount = 10;
+
+module.exports =
+    (twitchClient, target) => {
+        if (counter >= MessageCount) {
+            if (scheduled) return;
+            scheduled = true;
+            let now = new Date();
+
+            let messages = allMessages.filter(m => !m.disabled &&
+                (((!!m.startDate && m.startDate < now) || !m.startDate) &&
+                    ((!!m.endDate && m.endDate > now) || !m.endDate)));
+
+            let timer = ~~(Math.random() * 120 + 60);
+
+            let message = messages[~~(messages.length * Math.random())].msg;
+            console.log(`scheduleing message (${timer}s) "${message}"`)
+
+            setTimeout(() => {
+                twitchClient.say(target, message);
+                counter = 1;
+                scheduled = false;
+            }, timer * 1000);
+        } else {
+            counter++;
+        }
+    }
+

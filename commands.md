@@ -30,6 +30,8 @@ command | description
 !blame | blame a random person/thing for something random
 !blame {target} {reason} | Writes a message blaming {target} for {reason}
 !followage | shows since when you are a member of the fam
+!setup | Find out everything about [Sorskoots setup](http://bit.ly/SorskootTwitchSetup)
+!app | Give a link to a clip of the App Sorskoot is building
 
 ## sound fx
 

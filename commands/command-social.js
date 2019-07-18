@@ -18,4 +18,7 @@ module.exports = {
     socialMerch: (twitchClient, target) => {
         twitchClient.say(target, "You can buy awesome Sorskoot merch at https://shop.spreadshirt.net/sorskoot/ !");
     },
+    socialSetup:(twitchClient, target) => {
+        twitchClient.say(target, `You can find out everything about Sorskoots setup at http://bit.ly/SorskootTwitchSetup !`);
+    }
 }

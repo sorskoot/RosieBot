@@ -104,12 +104,14 @@ const commands = {
     '!git': socialCommand.socialGit,
     '!insta': socialCommand.socialInsta,
     '!merch': socialCommand.socialMerch,
+    '!setup': socialCommand.socialSetup,
 
     '!light': lightCommand,
     '!uptime': uptimeCommand,
     '!so': soCommand,
 
     '!ide': infoCommand.infoIde,
+    '!app': infoCommand.infoApp,
 
     '!song': spotifyCommand.spotifySong,
 
@@ -140,6 +142,7 @@ async function onMessageHandler(target, context, msg, self) {
         msg = await QnAEvent(client, target, msg);
     };
 
+    timedMessages(client, target);
     handleBangCommand(msg, target, context);
 }
 
@@ -158,7 +161,6 @@ function handleBangCommand(msg, target, context) {
 
 function onConnectedHandler(addr, port) {
     twitchEvents(client, process.env.TWITCH_CHANNEL);
-    timedMessages(client, process.env.TWITCH_CHANNEL);
 
     commandCommand.init(commands);
     console.log(`* Connected to ${addr}:${port}`);
