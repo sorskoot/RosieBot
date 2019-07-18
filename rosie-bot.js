@@ -112,7 +112,8 @@ const commands = {
 
     '!ide': infoCommand.infoIde,
     '!app': infoCommand.infoApp,
-
+    '!geekcode': infoCommand.infoGeekCode,
+    
     '!song': spotifyCommand.spotifySong,
 
     '!beer': beerCommand,

@@ -24,7 +24,7 @@ Commands:
     ☐ !fbi sfx
     ☐ !delight sfx (https://www.youtube.com/watch?v=tUqvPJ3cbUQ)
     ☐ Add more sfx
-    ☐ !Geekcode - Write my geekcode to chat. Link and ask geekcode to viewers.
+    ✔ !Geekcode - Write my geekcode to chat. Link and ask geekcode to viewers. @done(19-07-18 17:51)
     ☐ !attention
     ☐ !typing - typing noise. (sfx)
     ☐ !stupid {name} - Random message, You are so stupid, {name}. You {random message} 

@@ -32,6 +32,7 @@ command | description
 !followage | shows since when you are a member of the fam
 !setup | Find out everything about [Sorskoots setup](http://bit.ly/SorskootTwitchSetup)
 !app | Give a link to a clip of the App Sorskoot is building
+!geekcode | displays sorskoot's geek code
 
 ## sound fx
 
