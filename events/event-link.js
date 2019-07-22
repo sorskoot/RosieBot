@@ -23,15 +23,17 @@ function validateLinks(twitchClient, target, context, msg) {
         }
     } while (m);
     Promise.all(getTitles).then(titles => {
-        titles=titles.filter(x=>!!x);
-        twitchClient.say(target, `Thank you @${context['display-name']}! You just shared ${titles.length > 1 ? 'links' : 'a link'} to '${titles.join('\' and \'')}' with us.`);
+        titles = titles.filter(x => !!x);
+        if (titles.length > 0) {
+            twitchClient.say(target, `Thank you @${context['display-name']}! You just shared ${titles.length > 1 ? 'links' : 'a link'} to '${titles.join('\' and \'')}' with us.`);
+        }
     }, e => console.log(e))
 
 }
 
 function GetTitle(url) {
-    if(!url.startsWith("http")){
-        url = 'https://'+url;
+    if (!url.startsWith("http")) {
+        url = 'https://' + url;
     }
     return new Promise((res, rej) => {
         request(url, function (error, response, body) {

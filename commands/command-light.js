@@ -10,6 +10,7 @@ const voiceMeterVolumeLow = 40;
 
 module.exports =
     (twitchClient, target, context, color, silent = false) => {
+        color = color.toLowerCase();
         changeLightBri(254);
         if (!color) {
             if (!silent) twitchClient.say(target, `Sorry @${context['display-name']}, you have to specify a color.`)
@@ -19,7 +20,10 @@ module.exports =
                 if (!silent) twitchClient.say(target, `@${context['display-name']} just changed the light to '${color}'.`)
             })
         } else if (color in special) {
-            special[color]();
+            const result = special[color]();
+            if (!silent && result) {
+                twitchClient.say(target, `@${context['display-name']} just changed the light to '${result}'.`)
+            }
         }
         else {
             if (!silent) twitchClient.say(target, `Sorry @${context['display-name']}, I don't know the color '${color}'.`)
@@ -34,7 +38,15 @@ const special = {
     'greenhype': greenhype,
     'redhype': () => hype('red'),
     'flashbang': flashbang,
-    'rainbow': rainbow
+    'rainbow': rainbow,
+    'random': random
+}
+
+function random() {
+    const allColors = Object.keys(colors);
+    const selectedColor = allColors[~~(Math.random() * allColors.length)];
+    changeLightColor(selectedColor);
+    return selectedColor;
 }
 
 function copMode() {
