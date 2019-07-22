@@ -103,7 +103,8 @@ const commands = {
     '!fbi': sfxCommand.sfxFBI,
     '!typing': sfxCommand.sfxTyping,
     '!wholelotta':sfxCommand.sfxWholeLotta,
-
+    '!yourewelcome':sfxCommand.sfxYoureWelcome,
+    
     '!twitter': socialCommand.socialTwitter,
     '!youtube': socialCommand.socialYoutube,
     '!discord': socialCommand.socialDiscord,

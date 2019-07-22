@@ -49,4 +49,5 @@ command | description
 !howl | !rewrite | !kickass | !explode |
 !lovebye | !goat | !findout | !asif |
 !unexceptable | !bitemetal | !nasty | !howdare |
-!attention | !fbi | !typing | !wholelotta
+!attention | !fbi | !typing | !wholelotta |
+!yourewelcome

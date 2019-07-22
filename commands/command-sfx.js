@@ -45,6 +45,7 @@ module.exports = {
     sfxFBI:()=> triggerMidiNote(SFX.FBI),
     sfxTyping:()=>triggerMidiNote(SFX.typing),
     sfxWholeLotta:()=>triggerMidiNote(SFX.wholelotta),
+    sfxYoureWelcome:()=>triggerMidiNote(SFX.yourewelcome),
 
     triggerMidi: triggerMidi
 }
@@ -94,6 +95,7 @@ const SFX = {
     FBI: 98,
     typing: 99,
     wholelotta:100,
+    yourewelcome:101,
 
 }
 
