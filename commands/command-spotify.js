@@ -12,8 +12,14 @@ module.exports = {
             }
         },
         (err,resp,body)=>{
-            console.log(body);
+            if(err){
+                return;
+            }
             let trackinfo = JSON.parse(body);
+            if(trackinfo.error){
+                console.error(trackinfo.error);
+                return;
+            }
             const artists = trackinfo.item.artists.map(a=>a.name).join(', ');
             twitchClient.say(target,`The current song playing is '${ trackinfo.item.name}' by ${artists}.`);
         })

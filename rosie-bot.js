@@ -115,7 +115,7 @@ const commands = {
     '!ide': infoCommand.infoIde,
     '!app': infoCommand.infoApp,
     '!geekcode': infoCommand.infoGeekCode,
-    
+
     '!song': spotifyCommand.spotifySong,
 
     '!beer': beerCommand,
@@ -146,7 +146,13 @@ async function onMessageHandler(target, context, msg, self) {
     };
 
     timedMessages(client, target);
-    handleBangCommand(msg, target, context);
+    
+    try {
+        handleBangCommand(msg, target, context);
+    } catch (err) {
+        console.error(err);
+    }
+
 }
 
 function handleBangCommand(msg, target, context) {
