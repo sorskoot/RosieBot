@@ -12,7 +12,7 @@ Todo:
     ☐ do something with https://www.npmjs.com/package/obs-websocket-js
     ☐ Create a game in chat (hangman, gamble, Roulette (adding points gamble like roulette)
     ☐ Add environment parameters for the light ids
-    ☐ fix !song command - not using spotify but websocket request to layout.
+    ✔ fix !song command - not using spotify but websocket request to layout. @done(19-07-23 01:18)
 
 Commands:
     ✔ @today !muted - Spam chat + SFX - just in case I am muted again. @done(19-07-22 21:55)

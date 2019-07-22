@@ -12,7 +12,7 @@ const lurkCommand = require('./commands/command-lurk')
 const hypeCommand = require('./commands/command-hype');
 const soCommand = require('./commands/command-so');
 const infoCommand = require('./commands/command-info');
-const spotifyCommand = require('./commands/command-spotify');
+const songCommand = require('./commands/command-song');
 const beerCommand = require('./commands/command-beer');
 const projectCommand = require('./commands/command-project');
 const themeCommand = require('./commands/command-theme');
@@ -104,7 +104,7 @@ const commands = {
     '!typing': sfxCommand.sfxTyping,
     '!wholelotta':sfxCommand.sfxWholeLotta,
     '!yourewelcome':sfxCommand.sfxYoureWelcome,
-    
+
     '!twitter': socialCommand.socialTwitter,
     '!youtube': socialCommand.socialYoutube,
     '!discord': socialCommand.socialDiscord,
@@ -121,7 +121,7 @@ const commands = {
     '!app': infoCommand.infoApp,
     '!geekcode': infoCommand.infoGeekCode,
 
-    '!song': spotifyCommand.spotifySong,
+    '!song': songCommand,
 
     '!beer': beerCommand,
     '!project': projectCommand,
