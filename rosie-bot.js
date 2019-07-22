@@ -101,6 +101,7 @@ const commands = {
     '!howdare': sfxCommand.sfxHowDare,
     '!attention': sfxCommand.sfxAttention,
     '!fbi': sfxCommand.sfxFBI,
+    '!typing': sfxCommand.sfxTyping,
 
     '!twitter': socialCommand.socialTwitter,
     '!youtube': socialCommand.socialYoutube,
