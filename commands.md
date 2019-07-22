@@ -22,7 +22,7 @@ command | description
 !lurk | Show the community you are lurking
 !so {username} | Give someone a shoutout!
 !ide | Gives info on the IDE
-!song | Shows info on the current song playing
+!song | {broken} Shows info on the current song playing
 !beer | What beer is Sorskoot drinking today
 !project | What is Sorskoot working on today
 !theme | Get the link to the theme Sorskoot is using in VsCode
@@ -33,6 +33,7 @@ command | description
 !setup | Find out everything about [Sorskoots setup](http://bit.ly/SorskootTwitchSetup)
 !app | Give a link to a clip of the App Sorskoot is building
 !geekcode | displays sorskoot's geek code
+!muted | Trigger SFX, Light and message to let Sorskoot know he's muted!
 
 ## sound fx
 

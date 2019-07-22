@@ -19,6 +19,7 @@ const themeCommand = require('./commands/command-theme');
 const commandCommand = require('./commands/command-command');
 const blameCommand = require('./commands/command-blame');
 const followageCommand = require('./commands/command-followage');
+const mutedCommand = require('./commands/command-muted');
 
 const emotesEvent = require('./events/event-emotes');
 const twitchEvents = require('./events/event-twitchEvents');
@@ -55,6 +56,7 @@ const commands = {
     '!commands': CommandsCommand,
     '!hype': hypeCommand,
     '!lurk': lurkCommand,
+    '!muted': mutedCommand,
 
     '!doh': sfxCommand.sfxDoh,
     '!bingit': sfxCommand.sfxBingit,

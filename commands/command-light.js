@@ -32,6 +32,7 @@ const special = {
     'fire': fire,
     'yellowhype': yellowhype,
     'greenhype': greenhype,
+    'redhype': () => hype('red'),
     'flashbang': flashbang,
     'rainbow': rainbow
 }
@@ -49,12 +50,12 @@ function copMode() {
         .then(() => changeLightColor(lastColorSet));
 }
 
-function hype() {
+function hype(color = 'purple') {
     var x = changeLightBri(20, 1, 16);
-    for (let i = 0; i < 20; i++) {
-        x = x.then(() => delay(150))
-            .then(() => changeLightColor("purple", 0))
-            .then(() => delay(150))
+    for (let i = 0; i < 13; i++) {
+        x = x.then(() => delay(500))
+            .then(() => changeLightColor(color, 0))
+            .then(() => delay(500))
             .then(() => changeLightOff())
     }
     x.then(() => changeLightOn())
@@ -74,6 +75,7 @@ function yellowhype() {
         .then(() => changeLightBri(maxBrightness, 1, 16))
         .then(() => changeLightColor(lastColorSet));
 }
+
 async function greenhype() {
     await changeLightBri(10, 1, 16);
     for (let i = 0; i < 13; i++) {
@@ -81,9 +83,9 @@ async function greenhype() {
         await delay(500);
         await changeLightOff(1)
         await delay(500);
-    }   
+    }
     await changeLightBri(maxBrightness, 5, 16);
-    await changeLightColor(lastColorSet,5);
+    await changeLightColor(lastColorSet, 5);
 }
 
 function fire() {
@@ -100,9 +102,9 @@ function fire() {
 
 function flashbang() {
     utils.lerp(voiceMeterVolumeLow, 0, 5, 200, v => sfx.triggerMidi(0xB1, 7, ~~v));
-            setTimeout(() => {
-                utils.lerp(0, voiceMeterVolumeLow, 15, 3500, v => sfx.triggerMidi(0xB1, 7, ~~v));
-            }, 2700)
+    setTimeout(() => {
+        utils.lerp(0, voiceMeterVolumeLow, 15, 3500, v => sfx.triggerMidi(0xB1, 7, ~~v));
+    }, 2700)
 
     var x = changeLightOff(0, 16)
         .then(() => changeLightOff(0, 17))
@@ -119,13 +121,13 @@ function flashbang() {
         .then(() => changeLightColor(lastColorSet));
 }
 
-async function rainbow(){
+async function rainbow() {
     await changeLightBri(10, 1, 16);
-    
-     const delaytime = 500;
-     const transitiontime = 5;
-     const colors = ["red","orange","yellow","green","blue","purple"]
-  
+
+    const delaytime = 500;
+    const transitiontime = 5;
+    const colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+
     for (let i = 0; i < 5; i++) {
         for (let c = 0; c < colors.length; c++) {
             await changeLightColor(colors[c], transitiontime)
@@ -134,7 +136,7 @@ async function rainbow(){
     }
 
     await changeLightBri(maxBrightness, 5, 16);
-    await changeLightColor(lastColorSet,5);
+    await changeLightColor(lastColorSet, 5);
 }
 
 function delay(time) {
