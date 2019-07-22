@@ -26,6 +26,7 @@ const twitchEvents = require('./events/event-twitchEvents');
 const QnAEvent = require('./events/event-QnA');
 const linkEvent = require('./events/event-link');
 const timedMessages = require('./events/event-timedMessages');
+const voteEvent = require('./events/event-vote');
 
 const opts = {
     identity: {
@@ -99,6 +100,7 @@ const commands = {
     '!nasty': sfxCommand.sfxNasty,
     '!howdare': sfxCommand.sfxHowDare,
     '!attention': sfxCommand.sfxAttention,
+    '!fbi': sfxCommand.sfxFBI,
 
     '!twitter': socialCommand.socialTwitter,
     '!youtube': socialCommand.socialYoutube,
@@ -124,7 +126,9 @@ const commands = {
 
     '!command': commandCommand.command,
     '!blame': blameCommand,
-    '!followage': followageCommand
+    '!followage': followageCommand,
+
+    '!vote': voteEvent.command
 }
 
 
@@ -141,12 +145,16 @@ async function onMessageHandler(target, context, msg, self) {
         linkEvent.validateLinks(client, target, context, msg);
     }
 
+    if (voteEvent.getIsRunning()) {
+        voteEvent.handleVote(msg, context['user-id']);
+    }
+
     if (msg.trim().endsWith("?")) {
         msg = await QnAEvent(client, target, msg);
     };
 
     timedMessages(client, target);
-    
+
     try {
         handleBangCommand(msg, target, context);
     } catch (err) {

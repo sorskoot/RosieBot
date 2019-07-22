@@ -42,6 +42,7 @@ module.exports = {
     sfxNasty: () => triggerMidiNote(SFX.nasty),
     sfxHowDare: () => triggerMidiNote(SFX.howdare),
     sfxAttention: () => triggerMidiNote(SFX.attention),
+    sfxFBI:()=> triggerMidiNote(SFX.FBI),
 
     triggerMidi: triggerMidi
 }
@@ -87,7 +88,8 @@ const SFX = {
     bitemetal: 94,
     nasty: 95,
     howdare: 96,
-    attention: 97
+    attention: 97,
+    FBI: 98
 }
 
 function triggerMidiNote(note) {

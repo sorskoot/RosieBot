@@ -22,19 +22,19 @@ Commands:
     ☐ code metrics
     ☐ !build for build status
     ☐ !loc for lines of code
-    ☐ @today !fbi sfx - (https://www.youtube.com/watch?v=6fB8QiPTadY)
+    ✔ @today !fbi sfx - (https://www.youtube.com/watch?v=6fB8QiPTadY) @done(19-07-22 22:14)
     ☐ !delight sfx (https://www.youtube.com/watch?v=tUqvPJ3cbUQ) 
     ☐ Add more sfx
         ~ https://www.youtube.com/watch?v=-1E10Tbsw68
     ☐ Add hosts to credits
-    ☐ @today !yourewelcome sfx - Moana
-    ☐ !wholelotta sfx - https://www.youtube.com/watch?v=XdWdLDaGoGs
+    ☐ !yourewelcome sfx - Moana
+    ☐ @today !wholelotta sfx - https://www.youtube.com/watch?v=XdWdLDaGoGs
     ✘ !attention @cancelled(19-07-20 20:25)
     ☐ @today !typing - typing noise. (sfx) (https://www.youtube.com/watch?v=2BUNHd7ENZk)
     ☐ !stupid {name} - Random message, You are so stupid, {name}. You {random message} 
-    ☐ @today !vote -> for voting system like beanPoll - Maybe even with overlays
+    ✔ @today !vote -> for voting system like beanPoll - Maybe even with overlays @done(19-07-22 23:50)
         ~ !vote start and !vote end are broadcaster only
-        ~ !vote start {option1} {option2} ... {options X}
+        ~ !vote start {seconds} {option1} {option2} ... {options X}
         ~ you don't have to type !vote to vote, just type the word
         ~ !vote end 
         ~ another option, !vote start, without options counts the number of 1,2 etc in chat.
