@@ -102,6 +102,7 @@ const commands = {
     '!attention': sfxCommand.sfxAttention,
     '!fbi': sfxCommand.sfxFBI,
     '!typing': sfxCommand.sfxTyping,
+    '!wholelotta':sfxCommand.sfxWholeLotta,
 
     '!twitter': socialCommand.socialTwitter,
     '!youtube': socialCommand.socialYoutube,

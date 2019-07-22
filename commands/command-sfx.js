@@ -44,6 +44,8 @@ module.exports = {
     sfxAttention: () => triggerMidiNote(SFX.attention),
     sfxFBI:()=> triggerMidiNote(SFX.FBI),
     sfxTyping:()=>triggerMidiNote(SFX.typing),
+    sfxWholeLotta:()=>triggerMidiNote(SFX.wholelotta),
+
     triggerMidi: triggerMidi
 }
 
@@ -91,6 +93,7 @@ const SFX = {
     attention: 97,
     FBI: 98,
     typing: 99,
+    wholelotta:100,
 
 }
 
