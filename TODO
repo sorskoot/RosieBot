@@ -17,6 +17,7 @@ Todo:
 Commands:
     ✔ @today !muted - Spam chat + SFX - just in case I am muted again. @done(19-07-22 21:55)
     ☐ !time - show current time in UTC and CET
+    ☐ !sfx 
     ☐ !toolset
     ☐ !editor
     ☐ code metrics
