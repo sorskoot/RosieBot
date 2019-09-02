@@ -1,44 +1,29 @@
 Todo:
-    ✘ filter on '!' for commands @cancelled(19-07-20 20:23)
     ☐ request information about the codebase working on, like lines of code or current issue
     ☐ Do something with hardware/IoT/Arduino
     ☐ Trigger stuff in the stream, in browser windows in OBS
     ☐ Include webhint status
     ☐ Integrate with Discord --> send message when going live
     ☐ add blacklist for other 'evil' bots using https://api.twitchinsights.net/v1/bots/all
-    ✔ @today Handle casing in light colors @done(19-07-22 23:54)
     ☐ store settings like !Beer, !project  on azure and retreive them when started
     ☐ if !project is not set, just use current stream title.
     ☐ do something with https://www.npmjs.com/package/obs-websocket-js
     ☐ Create a game in chat (hangman, gamble, Roulette (adding points gamble like roulette)
     ☐ Add environment parameters for the light ids
-    ✔ fix !song command - not using spotify but websocket request to layout. @done(19-07-23 01:18)
 
 Commands:
-    ✔ @today !muted - Spam chat + SFX - just in case I am muted again. @done(19-07-22 21:55)
     ☐ !time - show current time in UTC and CET
-    ☐ !sfx 
+    ☐ !sfx - link to https://github.com/sorskoot/RosieBot/blob/master/commands.md#sound-fx
     ☐ !toolset
     ☐ !editor
     ☐ code metrics
     ☐ !build for build status
     ☐ !loc for lines of code
-    ✔ @today !fbi sfx - (https://www.youtube.com/watch?v=6fB8QiPTadY) @done(19-07-22 22:14)
     ☐ !delight sfx (https://www.youtube.com/watch?v=tUqvPJ3cbUQ) 
     ☐ Add more sfx
         ~ https://www.youtube.com/watch?v=-1E10Tbsw68
     ☐ Add hosts to credits
-    ✔ @today !yourewelcome sfx - Moana @done(19-07-23 01:02)
-    ✔ @today !wholelotta sfx - https://www.youtube.com/watch?v=XdWdLDaGoGs @done(19-07-23 00:43)
-    ✘ !attention @cancelled(19-07-20 20:25)
-    ✔ @today !typing - typing noise. (sfx) (https://www.youtube.com/watch?v=2BUNHd7ENZk) @done(19-07-23 00:32)
     ☐ !stupid {name} - Random message, You are so stupid, {name}. You {random message} 
-    ✔ @today !vote -> for voting system like beanPoll - Maybe even with overlays @done(19-07-22 23:50)
-        ~ !vote start and !vote end are broadcaster only
-        ~ !vote start {seconds} {option1} {option2} ... {options X}
-        ~ you don't have to type !vote to vote, just type the word
-        ~ !vote end 
-        ~ another option, !vote start, without options counts the number of 1,2 etc in chat.
     ☐ !pun - drop a random joke - (http://pun.me/pages/funny-jokes.php)
     ☐ sfx back to the future
 
@@ -46,6 +31,21 @@ Thoughts and rough ideas:
     ☐ Build a game or something where people can send `code` to Rosie and have her execute it to play a game.
 
 Archive:
+  ✘ filter on '!' for commands @cancelled(19-07-20 20:23) @project(Todo)
+  ✔ @today Handle casing in light colors @done(19-07-22 23:54) @project(Todo)
+  ✔ fix !song command - not using spotify but websocket request to layout. @done(19-07-23 01:18) @project(Todo)
+  ✔ @today !muted - Spam chat + SFX - just in case I am muted again. @done(19-07-22 21:55) @project(Commands)
+  ✔ @today !fbi sfx - (https://www.youtube.com/watch?v=6fB8QiPTadY) @done(19-07-22 22:14) @project(Commands)
+  ✔ @today !yourewelcome sfx - Moana @done(19-07-23 01:02) @project(Commands)
+  ✔ @today !wholelotta sfx - https://www.youtube.com/watch?v=XdWdLDaGoGs @done(19-07-23 00:43) @project(Commands)
+  ✘ !attention @cancelled(19-07-20 20:25) @project(Commands)
+  ✔ @today !typing - typing noise. (sfx) (https://www.youtube.com/watch?v=2BUNHd7ENZk) @done(19-07-23 00:32) @project(Commands)
+  ✔ @today !vote -> for voting system like beanPoll - Maybe even with overlays @done(19-07-22 23:50) @project(Commands)
+    ~ !vote start and !vote end are broadcaster only
+    ~ !vote start {seconds} {option1} {option2} ... {options X}
+    ~ you don't have to type !vote to vote, just type the word
+    ~ !vote end 
+    ~ another option, !vote start, without options counts the number of 1,2 etc in chat.
   ✔ !Geekcode - Write my geekcode to chat. Link and ask geekcode to viewers. @done(19-07-18 17:51) @project(Commands)
   ✔ !followage -> how long is someone following @done(19-07-13 23:17) @project(Commands)
   ✔ do a !so when a raid happens @done(19-06-28 23:52) @project(Todo)
