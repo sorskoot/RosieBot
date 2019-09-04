@@ -13,20 +13,20 @@ Todo:
 
 Commands:
     ☐ !time - show current time in UTC and CET
-    ☐ !sfx - link to https://github.com/sorskoot/RosieBot/blob/master/commands.md#sound-fx
+    ✔ !sfx - link to https://github.com/sorskoot/RosieBot/blob/master/commands.md#sound-fx made it into => http://bit.ly/sfxCommands @done(19-09-04 14:00)
     ☐ !toolset
     ☐ !editor
     ☐ code metrics
     ☐ !build for build status
     ☐ !loc for lines of code
-    ☐ !delight sfx (https://www.youtube.com/watch?v=tUqvPJ3cbUQ) 
-    ☐ Add more sfx
-        ~ https://www.youtube.com/watch?v=-1E10Tbsw68
-    ☐ Add hosts to credits
+    ✔ Add hosts to credits @done(19-09-04 14:01)
     ☐ !stupid {name} - Random message, You are so stupid, {name}. You {random message} 
     ☐ !pun - drop a random joke - (http://pun.me/pages/funny-jokes.php)
+Sfx:
+    ☐ !delight sfx (https://www.youtube.com/watch?v=tUqvPJ3cbUQ) 
+    ☐ Add more ~ https://www.youtube.com/watch?v=-1E10Tbsw68
     ☐ sfx back to the future
-
+    
 Thoughts and rough ideas:
     ☐ Build a game or something where people can send `code` to Rosie and have her execute it to play a game.
 

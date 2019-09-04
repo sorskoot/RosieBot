@@ -46,7 +46,6 @@ module.exports = {
     sfxTyping:()=>triggerMidiNote(SFX.typing),
     sfxWholeLotta:()=>triggerMidiNote(SFX.wholelotta),
     sfxYoureWelcome:()=>triggerMidiNote(SFX.yourewelcome),
-
     triggerMidi: triggerMidi
 }
 
