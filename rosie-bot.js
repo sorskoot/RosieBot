@@ -120,7 +120,9 @@ const commands = {
     '!ide': infoCommand.infoIde,
     '!app': infoCommand.infoApp,
     '!geekcode': infoCommand.infoGeekCode,
-
+    '!sfx':infoCommand.infoSfx,
+    '!js13k':infoCommand.infoJs13k,
+    
     '!song': songCommand,
 
     '!beer': beerCommand,
