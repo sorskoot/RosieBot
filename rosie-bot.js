@@ -122,6 +122,7 @@ const commands = {
     '!geekcode': infoCommand.infoGeekCode,
     '!sfx':infoCommand.infoSfx,
     '!js13k':infoCommand.infoJs13k,
+    '!livecoders':infoCommand.infoLiveCoders,
     
     '!song': songCommand,
 

@@ -15,4 +15,7 @@ module.exports = {
     infoJs13k:(twitchClient, target)=>{
         twitchClient.say(target, "Js13k games is a yearly competition where you have to build a JavaScript game in 13KB zipped. Sorskoot is competing in the WebXR category. More info at https://js13kgames.com");
     },
+    infoLiveCoders: (twitchClient, target)=>{
+        twitchClient.say(target, "Sorskoot is part of the LiveCoders team. There are all kinds of great people there that do live coding! Check them out at https://livecoders.dev");
+    }
 }
