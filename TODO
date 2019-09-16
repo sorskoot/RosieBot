@@ -9,6 +9,8 @@ Todo:
     ☐ if !project is not set, just use current stream title.
     ☐ do something with https://www.npmjs.com/package/obs-websocket-js
     ☐ Create a game in chat (hangman, gamble, Roulette (adding points gamble like roulette)
+    ✔ Create Hangman @done(19-09-16 23:20)
+        ☐ Send message to Layouts to show current state as picture.
     ☐ Add environment parameters for the light ids
 
 Commands:
@@ -23,7 +25,15 @@ Commands:
     ☐ !stupid {name} - Random message, You are so stupid, {name}. You {random message} 
     ☐ !pun - drop a random joke - (http://pun.me/pages/funny-jokes.php)
     ✔ !livecoders --> link to livecoders.dev @done(19-09-16 22:00)
-        
+
+loyalty system:
+    - Azure database + functions
+    Points for: 
+        - Watching
+        - Helping
+        - Suggesting
+    - @idea Add privilage when people have certain amount of points
+    - @idea play games, like gambling or slotmachine
 
 Sfx:
     ☐ !delight sfx (https://www.youtube.com/watch?v=tUqvPJ3cbUQ) 

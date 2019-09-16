@@ -20,6 +20,7 @@ const commandCommand = require('./commands/command-command');
 const blameCommand = require('./commands/command-blame');
 const followageCommand = require('./commands/command-followage');
 const mutedCommand = require('./commands/command-muted');
+const hangmanCommand =require('./commands/command-hangman');
 
 const emotesEvent = require('./events/event-emotes');
 const twitchEvents = require('./events/event-twitchEvents');
@@ -27,6 +28,8 @@ const QnAEvent = require('./events/event-QnA');
 const linkEvent = require('./events/event-link');
 const timedMessages = require('./events/event-timedMessages');
 const voteEvent = require('./events/event-vote');
+
+
 
 const opts = {
     identity: {
@@ -113,6 +116,8 @@ const commands = {
     '!merch': socialCommand.socialMerch,
     '!setup': socialCommand.socialSetup,
 
+    '!hangman':hangmanCommand,
+    
     '!light': lightCommand,
     '!uptime': uptimeCommand,
     '!so': soCommand,
@@ -123,7 +128,7 @@ const commands = {
     '!sfx':infoCommand.infoSfx,
     '!js13k':infoCommand.infoJs13k,
     '!livecoders':infoCommand.infoLiveCoders,
-    
+
     '!song': songCommand,
 
     '!beer': beerCommand,
