@@ -34,6 +34,8 @@ command | description
 !app | Give a link to a clip of the App Sorskoot is building
 !geekcode | displays sorskoot's geek code
 !muted | Trigger SFX, Light and message to let Sorskoot know he's muted!
+!hangman / !hangman {letter} | play a game of hangman in the chat
+!livecoders | show a link to the live coders
 
 ## sound fx
 
