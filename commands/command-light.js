@@ -1,3 +1,5 @@
+const colorConvert = require('color-convert');
+const TuyAPI = require('tuyapi');
 const request = require('request');
 const converter = require('@q42philips/hue-color-converter');
 const colors = require('./data/colors');
@@ -7,6 +9,26 @@ const utils = require('../lib/utils');
 let lastColorSet = "green";
 const maxBrightness = 254;
 const voiceMeterVolumeLow = 40;
+
+const tuyaDevice = new TuyAPI({
+    id: process.env.TUYAID,
+    key: process.env.TUYAKEY
+});
+
+
+tuyaDevice.find().then(() => {
+    tuyaDevice.connect();
+});
+let initialized = false;
+
+tuyaDevice.on('data', data => {
+    if (!initialized) {
+        initialized = true;
+        ledStripColor('#0000FF')
+        console.log('ledstrip initialized', initialized);
+        return;
+    }
+});
 
 module.exports =
     (twitchClient, target, context, color, silent = false) => {
@@ -40,6 +62,24 @@ const special = {
     'flashbang': flashbang,
     'rainbow': rainbow,
     'random': random
+}
+
+function ledStripColor(color) {
+    if (!tuyaDevice.isConnected()) {
+        return tuyaDevice.connect().then(s => { if (s) setLedStripColor(color) });
+    } else {
+        return setLedStripColor(color);
+    }
+}
+function setLedStripColor(clr) {
+    let color = colorConvert.hex.hsl(clr);
+    stateHasChanged = true;
+    colorstring = `${color[0].toString(16).padStart(4, 0)}${(~~(color[1] * 10)).toString(16).padStart(4, 0)}${(~~(color[2] * 10)).toString(16).padStart(4, 0)}`;
+    console.log(colorstring);
+    return tuyaDevice.set({
+        dps: 24,
+        set: colorstring
+    }).catch(e => console.log(e))
 }
 
 function random() {
@@ -77,6 +117,7 @@ function hype(color = 'purple') {
 
 function yellowhype() {
     var x = changeLightBri(20, 1, 16);
+    x = x.then(() => ledStripColor(colors["yellow"]));
     for (let i = 0; i < 13; i++) {
         x = x.then(() => delay(500))
             .then(() => changeLightColor("yellow", 0))
@@ -85,10 +126,12 @@ function yellowhype() {
     }
     x.then(() => changeLightOn())
         .then(() => changeLightBri(maxBrightness, 1, 16))
-        .then(() => changeLightColor(lastColorSet));
+        .then(() => changeLightColor(lastColorSet))
+        .then(() => ledStripColor('#0000FF'));
 }
 
 async function greenhype() {
+    await ledStripColor(colors["green"])
     await changeLightBri(10, 1, 16);
     for (let i = 0; i < 13; i++) {
         await changeLightColor("green", 1)
@@ -98,6 +141,7 @@ async function greenhype() {
     }
     await changeLightBri(maxBrightness, 5, 16);
     await changeLightColor(lastColorSet, 5);
+    await ledStripColor('#0000FF');
 }
 
 function fire() {
