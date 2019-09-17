@@ -6,7 +6,7 @@ const colors = require('./data/colors');
 const sfx = require('./command-sfx');
 const utils = require('../lib/utils');
 
-let lastColorSet = "green";
+let lastColorSet = "purple";
 const maxBrightness = 254;
 const voiceMeterVolumeLow = 40;
 
@@ -117,7 +117,7 @@ function hype(color = 'purple') {
 
 function yellowhype() {
     var x = changeLightBri(20, 1, 16);
-    x = x.then(() => ledStripColor(colors["yellow"]));
+    x = x.then(() => ledStripColor(colors["lightyellow"]));
     for (let i = 0; i < 13; i++) {
         x = x.then(() => delay(500))
             .then(() => changeLightColor("yellow", 0))
@@ -131,7 +131,7 @@ function yellowhype() {
 }
 
 async function greenhype() {
-    await ledStripColor(colors["green"])
+    await ledStripColor(colors["lightgreen"])
     await changeLightBri(10, 1, 16);
     for (let i = 0; i < 13; i++) {
         await changeLightColor("green", 1)
