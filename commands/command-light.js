@@ -42,10 +42,7 @@ module.exports =
                 if (!silent) twitchClient.say(target, `@${context['display-name']} just changed the light to '${color}'.`)
             })
         } else if (color in special) {
-            const result = special[color]();
-            if (!silent && result) {
-                twitchClient.say(target, `@${context['display-name']} just changed the light to '${result}'.`)
-            }
+            special[color]();
         }
         else {
             if (!silent) twitchClient.say(target, `Sorry @${context['display-name']}, I don't know the color '${color}'.`)
