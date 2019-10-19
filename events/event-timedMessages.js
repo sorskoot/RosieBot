@@ -13,8 +13,8 @@ const allMessages = [
     { msg: "If you are enjoing the stream don't forget to hit the follow button ;)" },
     { msg: "Got suggestions? Feel free to drop them in chat and Sorskoot will add them to the notes." },
     { disabled: true, msg: "Clip of the audio app" },
-    { msg: "Cheering Subway Bits give 10% extra now!"},
-    { msg: "It's Subtember! Which means between 3rd-24th of September, subs are 50% off. If you have any active gift subs or Twitch Prime subs, you can also continue your subscriptions for 50% off. Support Sorskoot at https://subs.twitch.tv/Sorskoot !"},
+    { disabled: true,msg: "Cheering Subway Bits give 10% extra now!"},
+    { disabled: true,msg: "It's Subtember! Which means between 3rd-24th of September, subs are 50% off. If you have any active gift subs or Twitch Prime subs, you can also continue your subscriptions for 50% off. Support Sorskoot at https://subs.twitch.tv/Sorskoot !"},
     { disabled: false, msg: "Use code 'SALEJULY' for a 10% discount at the merch store https://shop.spreadshirt.net/sorskoot", startDate: "jul 20 2019", endDate: "jul 23 2019" },
     { disabled: true, msg: "Stream Setup Blogpost" }
 ];

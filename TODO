@@ -12,7 +12,8 @@ Todo:
     ✔ Create Hangman @done(19-09-16 23:20)
         ☐ Send message to Layouts to show current state as picture.
     ☐ Add environment parameters for the light ids
-
+    ☐ Modify the cycling for social media links so that it constantly shows 1
+    ☐ Add latest follower, sub, donation etc to cycling text
 Commands:
     ☐ !time - show current time in UTC and CET
     ✔ !sfx - link to https://github.com/sorskoot/RosieBot/blob/master/commands.md#sound-fx made it into => http://bit.ly/sfxCommands @done(19-09-04 14:00)
@@ -25,20 +26,26 @@ Commands:
     ☐ !stupid {name} - Random message, You are so stupid, {name}. You {random message} 
     ☐ !pun - drop a random joke - (http://pun.me/pages/funny-jokes.php)
     ✔ !livecoders --> link to livecoders.dev @done(19-09-16 22:00)
+    ☐ !reminder {minutes} {message} - Set a reminder that automatically responds after X minutes
+    ☐ !marker {message} - add a stream marker with that message
 
 loyalty system:
     - Azure database + functions
+    - loc
     Points for: 
         - Watching
         - Helping
         - Suggesting
     - @idea Add privilage when people have certain amount of points
     - @idea play games, like gambling or slotmachine
+    - @idea easter eggs with extra points, for example blowing the airhorn 
+            (or change the effect and make it a secret bonus sound effect)
 
 Sfx:
     ☐ !delight sfx (https://www.youtube.com/watch?v=tUqvPJ3cbUQ) 
     ☐ Add more ~ https://www.youtube.com/watch?v=-1E10Tbsw68
     ☐ sfx back to the future
+    ☐ Hamsterdance
     
 Thoughts and rough ideas:
     ☐ Build a game or something where people can send `code` to Rosie and have her execute it to play a game.

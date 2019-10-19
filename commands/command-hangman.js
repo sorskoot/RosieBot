@@ -70,5 +70,5 @@ function generateState() {
 }
 
 function randomWord(){
-    return words[~~Math.random()*words.length].toUpperCase();
+    return words[~~(Math.random()*words.length)].toUpperCase();
 }
