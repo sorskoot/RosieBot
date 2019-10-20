@@ -15,7 +15,8 @@ Todo:
     ☐ Modify the cycling for social media links so that it constantly shows 1
     ☐ Add latest follower, sub, donation etc to cycling text
     ☐ Add tts shoutouts for live coders and VIPS
-    
+    ☐ Make Rosie respond to voice commands, like 'Hey Rosie!'
+
 Commands:
     ☐ !time - show current time in UTC and CET
     ✔ !sfx - link to https://github.com/sorskoot/RosieBot/blob/master/commands.md#sound-fx made it into => http://bit.ly/sfxCommands @done(19-09-04 14:00)
