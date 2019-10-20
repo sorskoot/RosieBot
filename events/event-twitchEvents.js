@@ -18,6 +18,7 @@ module.exports =
             setTimeout(() => {
                 socket.emit('player', 'volume', 100);
                 utils.lerp(voiceMeterVolumeHigh, voiceMeterVolumeLow, 10, 1500, v => sfx.triggerMidi(0xB1, 7, ~~v));
+                socket.emit('speak', 'text', `Hi, ${msg.name}! Welcome to the coder-sphere!`);
             }, 6000)
             twitchClient.say(target, `Hi @${msg.name}! Welcome to the coder-sphere.`);
         });
@@ -28,6 +29,7 @@ module.exports =
             setTimeout(() => {
                 socket.emit('player', 'volume', 100);
                 utils.lerp(voiceMeterVolumeHigh, voiceMeterVolumeLow, 10, 1500, v => sfx.triggerMidi(0xB1, 7, ~~v));
+                socket.emit('speak', 'text', `${msg.name}, welcome to our group!`);
             }, 14500)
             light(twitchClient, target, undefined, 'yellowhype', true);
         });
@@ -45,4 +47,15 @@ module.exports =
                 so(twitchClient, target, undefined, msg.name);
             }, 35000);
         });
+        
+        function speak(text){
+            console.log(`speak:${text}`)
+            socket.emit('speak', 'text',text);
+        }
+
+        return {
+            speak:speak
+        }
     }
+
+

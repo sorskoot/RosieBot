@@ -29,7 +29,7 @@ const linkEvent = require('./events/event-link');
 const timedMessages = require('./events/event-timedMessages');
 const voteEvent = require('./events/event-vote');
 
-
+let socketCommands;
 
 const opts = {
     identity: {
@@ -143,6 +143,7 @@ const commands = {
 }
 
 
+
 async function onMessageHandler(target, context, msg, self) {
     if (!!context.emotes) {
         emotesEvent(context.emotes);
@@ -171,7 +172,6 @@ async function onMessageHandler(target, context, msg, self) {
     } catch (err) {
         console.error(err);
     }
-
 }
 
 function handleBangCommand(msg, target, context) {
@@ -188,8 +188,9 @@ function handleBangCommand(msg, target, context) {
 }
 
 function onConnectedHandler(addr, port) {
-    twitchEvents(client, process.env.TWITCH_CHANNEL);
-
+    socketCommands = twitchEvents(client, process.env.TWITCH_CHANNEL);
     commandCommand.init(commands);
     console.log(`* Connected to ${addr}:${port}`);
+    socketCommands.speak('Hello World! We are good to go.')
+
 }

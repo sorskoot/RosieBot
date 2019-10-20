@@ -19,15 +19,17 @@
   "dependencies": {
     "@q42philips/hue-color-converter": "^1.0.0",
     "cheerio": "^1.0.0-rc.3",
+    "color-convert": "^2.0.1",
     "dotenv": "^7.0.0",
     "jzz": "^0.7.2",
     "moment": "^2.24.0",
     "request": "^2.88.0",
     "socket.io-client": "^2.2.0",
     "tmi.js": "^1.4.2",
-    "ws": "^3.3.3",
     "tuyapi": "5.1.2",
-    "color-convert": "^2.0.1"
+    "vocoder": "^0.1.1",
+    "webaudio-buffer-loader": "^1.0.1",
+    "ws": "^3.3.3"
   },
   "devDependencies": {}
 }

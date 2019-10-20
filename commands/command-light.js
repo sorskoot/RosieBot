@@ -14,11 +14,17 @@ const tuyaDevice = new TuyAPI({
     id: process.env.TUYAID,
     key: process.env.TUYAKEY
 });
-
+let tuyaDeviceFound = false;
 
 tuyaDevice.find().then(() => {
+
     tuyaDevice.connect();
+    tuyaDeviceFound=true;
+}).catch(e => {
+    console.log('could not connect to ledstrip.')
+    
 });
+
 let initialized = false;
 
 tuyaDevice.on('data', data => {
@@ -62,6 +68,7 @@ const special = {
 }
 
 function ledStripColor(color) {
+    if (!tuyaDeviceFound) return;
     if (!tuyaDevice.isConnected()) {
         return tuyaDevice.connect().then(s => { if (s) setLedStripColor(color) });
     } else {
@@ -69,6 +76,7 @@ function ledStripColor(color) {
     }
 }
 function setLedStripColor(clr) {
+    if (!tuyaDeviceFound) return;
     let color = colorConvert.hex.hsl(clr);
     stateHasChanged = true;
     colorstring = `${color[0].toString(16).padStart(4, 0)}${(~~(color[1] * 10)).toString(16).padStart(4, 0)}${(~~(color[2] * 10)).toString(16).padStart(4, 0)}`;
