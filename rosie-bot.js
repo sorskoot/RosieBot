@@ -28,7 +28,7 @@ const QnAEvent = require('./events/event-QnA');
 const linkEvent = require('./events/event-link');
 const timedMessages = require('./events/event-timedMessages');
 const voteEvent = require('./events/event-vote');
-
+const shoutOutEvent = require('./events/event-shoutout');
 let socketCommands;
 
 const opts = {
@@ -153,6 +153,11 @@ async function onMessageHandler(target, context, msg, self) {
         return;// Ignore messages from the bot
     }
 
+    let shoutoutMessage = shoutOutEvent.shoutOut(context);
+    if(!!shoutoutMessage){
+        socketCommands.speak(shoutoutMessage);
+    }
+
     if (linkEvent.containsLink(msg)) {
         linkEvent.validateLinks(client, target, context, msg);
     }
@@ -191,6 +196,6 @@ function onConnectedHandler(addr, port) {
     socketCommands = twitchEvents(client, process.env.TWITCH_CHANNEL);
     commandCommand.init(commands);
     console.log(`* Connected to ${addr}:${port}`);
-    socketCommands.speak('Hello World! We are good to go.')
+   // socketCommands.speak('Hello World! We are good to go.')
 
 }

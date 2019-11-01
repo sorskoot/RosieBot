@@ -14,8 +14,23 @@ Todo:
     ☐ Add environment parameters for the light ids
     ☐ Modify the cycling for social media links so that it constantly shows 1
     ☐ Add latest follower, sub, donation etc to cycling text
-    ☐ Add tts shoutouts for live coders and VIPS
     ☐ Make Rosie respond to voice commands, like 'Hey Rosie!'
+
+TTS:
+    ✔ Test volume and sound and adjust accordingly @done(19-10-21 23:27)
+    ☐ when shouting out names, replace underscores with spaces
+    ✔ Add TTS shoutouts for live coders and VIPS @done(19-10-21 23:27)
+    ✔ Make it possible to trigger TTS from Stream Deck (url with param?) @done(19-10-22 00:53)
+        Add quotes from:
+            - HAL 9000 
+            - Master Control Program
+            - V.I.K.I
+    ☐ TTS message with donations, bits, subs
+    ☐ Queue messages and play in order
+    ☐ Test and fix memory leak when stopping at vocode end
+    Add TTS to:
+        ☐ Muted Command
+        ✔ Stream events @done(19-10-21 23:27)
 
 Commands:
     ☐ !time - show current time in UTC and CET
