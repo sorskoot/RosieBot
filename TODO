@@ -15,7 +15,7 @@ Todo:
     ☐ Modify the cycling for social media links so that it constantly shows 1
     ☐ Add latest follower, sub, donation etc to cycling text
     ☐ Make Rosie respond to voice commands, like 'Hey Rosie!'
-
+    ☐ Automatically add stream markers on events like raids
 TTS:
     ✔ Test volume and sound and adjust accordingly @done(19-10-21 23:27)
     ☐ when shouting out names, replace underscores with spaces

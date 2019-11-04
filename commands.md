@@ -52,4 +52,4 @@ command | description
 !lovebye | !goat | !findout | !asif |
 !unexceptable | !bitemetal | !nasty | !howdare |
 !attention | !fbi | !typing | !wholelotta |
-!yourewelcome
+!yourewelcome | !bob | !vbip |

@@ -107,6 +107,8 @@ const commands = {
     '!typing': sfxCommand.sfxTyping,
     '!wholelotta':sfxCommand.sfxWholeLotta,
     '!yourewelcome':sfxCommand.sfxYoureWelcome,
+    '!bob':sfxCommand.sfxBob,
+    '!vbip':sfxCommand.sfxVBIP,
 
     '!twitter': socialCommand.socialTwitter,
     '!youtube': socialCommand.socialYoutube,
