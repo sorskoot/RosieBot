@@ -16,6 +16,7 @@ Todo:
     ☐ Add latest follower, sub, donation etc to cycling text
     ☐ Make Rosie respond to voice commands, like 'Hey Rosie!'
     ☐ Automatically add stream markers on events like raids
+    ☐ The combination ! and ? should ignore the ?
 TTS:
     ✔ Test volume and sound and adjust accordingly @done(19-10-21 23:27)
     ☐ when shouting out names, replace underscores with spaces
@@ -68,6 +69,26 @@ Sfx:
 Thoughts and rough ideas:
     ☐ Build a game or something where people can send `code` to Rosie and have her execute it to play a game.
         Secretmud: Maybe make RosieScript?
+
+New Architecture:
+    The new architecture will be based on plugins. Core will provide UI, 
+    a connection to Twitch (maybe other services) and an API to connect the
+    plugins to.
+
+    core:
+        UI:
+            UI will be responsive in column (+/- 300px wide)
+
+    plugins:
+        Stuff plugins can do;
+            = notifications
+            = UI in column (300px wide)
+            = UI full screen
+            = Overlays for OBS
+            = Listen for Twitch Events
+            = Listen for Chat messages
+            = Communicate between overlay and internal code
+            = Have a simple lifecycle
 
 Archive:
   ✘ filter on '!' for commands @cancelled(19-07-20 20:23) @project(Todo)

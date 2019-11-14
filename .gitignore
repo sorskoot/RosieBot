@@ -62,3 +62,5 @@ typings/
 
 .vscode
 
+#Electron-builder output
+/dist_electron
