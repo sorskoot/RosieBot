@@ -1,45 +1,25 @@
-import tmi from 'tmi.js';
-
-
-let client;
-
-
-
-function onMessageHandler(target, context, msg, self) {
-    console.log(msg);
-}
-
-function onConnectedHandler(addr, port) {
-    //    socketCommands = twitchEvents(client, process.env.TWITCH_CHANNEL);
-    //commandCommand.init(commands);
-    console.log(`* Connected to ${addr}:${port}`);
-    // socketCommands.speak('Hello World! We are good to go.')
-
-}
-function connect() {
-    client = new tmi.client({
-        identity: {
-            username: process.env.TWITCH_USERNAME,
-            password: process.env.TWITCH_PASSWORD
-        },
-        channels: [
-            process.env.TWITCH_CHANNEL
-        ]
-    });
-
-
-    client.on('message', onMessageHandler);
-    client.on('connected', onConnectedHandler);
-
-    client.connect()
-        .then((data) => {
-            // data returns [server, port]
-            console.log('connected!');
-            console.log(client);
-        }).catch((err) => {
-            console.log(err);
+function getUser(user) {
+    if (!user) return;
+    var querystring = `login=${user}`;
+    //GET https://api.twitch.tv/helix/users?id=<user ID>&id=<user ID>
+   return new Promise((res, rej) => {
+        request.get(`https://api.twitch.tv/helix/users?${querystring}`, {
+            headers: { 
+                'client-id': process.doenv.TWITCH_CLIENTID
+            }
+        }, function (error, response, body) {
+            if (!!error) {
+                rej(error);
+            }
+            if (response.statusCode != 200) {
+                rej(`statuscode: ${response.statusCode}`);
+            }
+            res(JSON.parse(body).data);
         });
+    });
 }
+
+
 export const twitchService = {
-    connect
+    getUser
 }

@@ -3,6 +3,11 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import dotenv from 'dotenv';
+
+process.dotenv = dotenv.config().parsed;
+console.log(process.dotenv.TWITCH_USERNAME);
+
 Vue.config.productionTip = false
 
 new Vue({

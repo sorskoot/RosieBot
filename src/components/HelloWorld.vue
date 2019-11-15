@@ -12,7 +12,6 @@ export default {
     msg: String
   },
   data:function(){
-      twitchService.connect();
       return {}
   }
 };
