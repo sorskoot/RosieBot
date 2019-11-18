@@ -1,22 +1,27 @@
 <template>
-<div>Hello World
-</div>
-
+  <div>
+    <h1> {{ message.user}} </h1>
+    <div> {{ message.message }}</div>
+  </div>
 </template>
 
 <script>
-import {twitchService} from "../services/twitchService";
+import { mapState, mapActions } from "vuex";
+
 export default {
   name: "HelloWorld",
   props: {
     msg: String
   },
-  data:function(){
-      return {}
+  computed: mapState({
+    user: state => state.twitch.user,
+    message: state => state.twitchChat.message
+  }),
+  created: function() {
+    //this.$store.dispatch('twitch/GetUser','sorskoot');
   }
 };
 </script>
 
 <style scoped lang="scss">
-
 </style>

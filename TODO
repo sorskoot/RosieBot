@@ -80,6 +80,7 @@ New Architecture:
             UI will be responsive in column (+/- 300px wide)
 
     plugins:
+        triggers and actions
         Stuff plugins can do;
             = notifications
             = UI in column (300px wide)

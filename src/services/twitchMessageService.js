@@ -7,15 +7,9 @@ let client;
 
 function onMessageHandler(target, context, msg, self) {
     console.log(msg);
+    _callback(target, context, msg, self);
 }
 
-function onConnectedHandler(addr, port) {
-    //    socketCommands = twitchEvents(client, process.env.TWITCH_CHANNEL);
-    //commandCommand.init(commands);
-    console.log(`* Connected to ${addr}:${port}`);
-    // socketCommands.speak('Hello World! We are good to go.')
-
-}
 function connect() {
     client = new tmi.client({
         identity: {
@@ -26,21 +20,26 @@ function connect() {
             process.dotenv.TWITCH_CHANNEL
         ]
     });
-
-
     client.on('message', onMessageHandler);
-    client.on('connected', onConnectedHandler);
+    return new Promise((res, rej) => {
+        client.connect()
+            .then((data) => {
+                // data returns [server, port]
+                console.log(`Twitch IRC Connected.`);
+                res(data);
+            }).catch((err) => {
+                console.log(err);
+                rej(err);
+            });
+    })
+}
+let _callback = function () { };
 
-    client.connect()
-        .then((data) => {
-            // data returns [server, port]
-            console.log('connected!');
-            console.log(client);
-        }).catch((err) => {
-            console.log(err);
-        });
+function setCallback(callback) {
+    _callback = callback;
 }
 
-export const twitchService = {
-    connect
+export const twitchMessageService = {
+    connect,
+    setCallback
 }

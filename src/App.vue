@@ -8,6 +8,14 @@
   </div>
 </template>
 
+<script>
+export default {
+    mounted:function(){
+        this.$store.dispatch('twitchChat/connect');
+    }
+}
+</script>
+
 <style lang="scss">
 body{
     background-color: rgb(37, 33, 39);
