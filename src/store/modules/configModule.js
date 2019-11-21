@@ -4,11 +4,10 @@ const GET_CONFIG = 'Getting config';
 const GET_CONFIG_SUCCESS = '✅ Got config';
 const GET_CONFIG_FAILURE = '❌ Failed getting config';
 
-const getters = {}
 const actions = {
-    getConfig({ commit }) {
+    loadConfig({ commit }) {
         commit(GET_CONFIG);
-        configService.getConfig().then(
+        configService.loadConfig().then(
             config => commit(GET_CONFIG_SUCCESS, config),
             error => commit(GET_CONFIG_FAILURE, error))
     }
@@ -16,7 +15,7 @@ const actions = {
 const mutations = {
     [GET_CONFIG](state) { },
     [GET_CONFIG_SUCCESS](state, config) { state.config = config },
-    [GET_CONFIG_FAILURE](state, error) { console.error(error)}
+    [GET_CONFIG_FAILURE](state, error) { console.error(error) }
 }
 
 export default {
@@ -24,7 +23,6 @@ export default {
     state: {
         config: {},
     },
-    getters: getters, 
     actions: actions,
     mutations: mutations
 }

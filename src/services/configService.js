@@ -1,11 +1,18 @@
 const config = require('electron-json-config');
 
-function loadConfig(){
-    return new Promise((res,rej)=>{
-        res(config.all());
+/**
+ * Loads all the configuration from disk (local appdata)
+ */
+function loadConfig() {
+    return new Promise((res, rej) => {
+        try {
+            res(config.all());
+        } catch (err) {
+            rej(err);
+        }
     })
 }
 
 export const configService = {
-    getConfig: loadConfig
+    loadConfig
 }

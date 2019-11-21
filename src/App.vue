@@ -10,10 +10,10 @@
 
 <script>
 export default {
-  created: function() {
-    this.$store.dispatch("config/getConfig").then(() => {
-      this.$store.dispatch("twitchChat/connect");
-    });
+  created: async function() {
+    await this.$store.dispatch("config/loadConfig");//.then(() => {
+    this.$store.dispatch("twitchChat/connect");
+    //});
   }
 };
 </script>
