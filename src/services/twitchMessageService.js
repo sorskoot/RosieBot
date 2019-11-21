@@ -10,14 +10,14 @@ function onMessageHandler(target, context, msg, self) {
     _callback(target, context, msg, self);
 }
 
-function connect() {
+function connect({ username, password, channel }) {
     client = new tmi.client({
         identity: {
-            username: process.dotenv.TWITCH_USERNAME,
-            password: process.dotenv.TWITCH_PASSWORD
+            username: username,//process.dotenv.TWITCH_USERNAME,
+            password: password,//process.dotenv.TWITCH_PASSWORD
         },
         channels: [
-            process.dotenv.TWITCH_CHANNEL
+            channel // process.dotenv.TWITCH_CHANNEL
         ]
     });
     client.on('message', onMessageHandler);

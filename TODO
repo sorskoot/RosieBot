@@ -78,6 +78,9 @@ New Architecture:
     core:
         UI:
             UI will be responsive in column (+/- 300px wide)
+        Config:
+            ☐ Create default config
+            ☐ Open config file from menu in app
 
     plugins:
         triggers and actions

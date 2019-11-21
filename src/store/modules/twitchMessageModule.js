@@ -1,6 +1,5 @@
 import { twitchMessageService } from '../../services/twitchMessageService';
 
-
 export const TWITCH_IRC_CONNECTING = 'Connecting to Twitch IRC';
 export const TWITCH_IRC_CONNECTED = '✅ Connected to Twitch IRC';
 export const TWITCH_IRC_DISCONNECTED = '❌ Disconnected from Twitch IRC';
@@ -8,9 +7,9 @@ export const TWITCH_IRC_MESSAGE = '✅ Twitch IRC Message';
 
 const actions = {
     //sync or async
-    connect({ commit, dispatch }) {
+    connect({ commit, dispatch, rootState }) {
         commit(TWITCH_IRC_CONNECTING);
-        twitchMessageService.connect()
+        twitchMessageService.connect(rootState.config.config.twitchMessage)
             .then(
                 data => {
                     twitchMessageService.setCallback((target, context, msg, self) => {
@@ -23,6 +22,7 @@ const actions = {
     },
 
     message({ commit }, { target, context, msg, self }) {
+        // remove check for 'bot_rosie' when the old version goes offline
         if (self || context['display-name'] === 'bot_rosie') { return };
         commit(TWITCH_IRC_MESSAGE,
             {

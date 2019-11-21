@@ -3,25 +3,27 @@
     <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-    </div> -->
-    <router-view/>
+    </div>-->
+    <router-view />
   </div>
 </template>
 
 <script>
 export default {
-    mounted:function(){
-        this.$store.dispatch('twitchChat/connect');
-    }
-}
+  created: function() {
+    this.$store.dispatch("config/getConfig").then(() => {
+      this.$store.dispatch("twitchChat/connect");
+    });
+  }
+};
 </script>
 
 <style lang="scss">
-body{
-    background-color: rgb(37, 33, 39);
+body {
+  background-color: rgb(37, 33, 39);
 }
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
