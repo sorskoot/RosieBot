@@ -2,11 +2,14 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import { app, protocol, BrowserWindow } from 'electron'
+import { app, protocol, BrowserWindow, Menu } from 'electron'
 import {
     createProtocol,
     installVueDevtools
 } from 'vue-cli-plugin-electron-builder/lib'
+
+import {menu} from './menu';
+
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -93,3 +96,4 @@ if (isDevelopment) {
     }
 }
 
+menu.build();
