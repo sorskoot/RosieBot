@@ -75,6 +75,9 @@ New Architecture:
     a connection to Twitch (maybe other services) and an API to connect the
     plugins to.
 
+    Research:
+        ☐ How to use html pages outside Electron, but served by the app
+
     core:
         UI:
             UI will be responsive in column (+/- 300px wide)

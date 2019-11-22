@@ -11,9 +11,8 @@
 <script>
 export default {
   created: async function() {
-    await this.$store.dispatch("config/loadConfig");//.then(() => {
+    await this.$store.dispatch("config/loadConfig");
     this.$store.dispatch("twitchChat/connect");
-    //});
   }
 };
 </script>

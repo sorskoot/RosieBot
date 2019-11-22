@@ -1,0 +1,31 @@
+[
+    {
+        "trigger": {
+            "core.chat.message": "!light {color}"
+        },
+        "action": [
+            {
+                "hue.change": [
+                    "{color}"
+                ]
+            }
+        ]
+    },
+    {
+        "trigger": "core.twitch.follow",
+        "action": [
+            {
+                "animation.play": "follow"
+            },
+            {
+                "sfx.play": "follow"
+            }
+        ]
+    },
+    {
+        "trigger": {
+            "core.chat.message": "!fbi"
+        },
+        "action": { "sfx.play": "fbi"}
+    }
+]

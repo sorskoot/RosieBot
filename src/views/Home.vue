@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="panel"><HelloWorld/></div>
-    <div class="panel"></div>
+    <div class="panel"><core-dice-command/></div>
     <div class="panel"></div>
   </div>
   
