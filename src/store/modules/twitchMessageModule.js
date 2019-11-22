@@ -59,7 +59,12 @@ export default {
     namespaced: true,
     state: {
         isConnected: false,
-        message: ''
+        message: {
+            user: '',
+            message: '',
+            emotes: [],
+            badges: []
+        }
     },
     getters: getters,
     actions: actions,

@@ -1,15 +1,13 @@
 <template>
   <div class="container">
     <div class="panel"><HelloWorld/></div>
-    <div class="panel"><core-dice-command/></div>
+    <div class="panel"><core-chat-trigger/></div>
     <div class="panel"></div>
   </div>
   
 </template>
 
 <script>
-// @ is an alias to /src
-
 import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {

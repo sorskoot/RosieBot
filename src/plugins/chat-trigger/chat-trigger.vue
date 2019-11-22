@@ -1,12 +1,12 @@
 <template>
   <div>
-      <h1>Dice Command</h1>
+      <h1>Chat Trigger</h1>
   </div>
 </template>
 
 <script>
 export default {
-
+   
 }
 </script>
 
