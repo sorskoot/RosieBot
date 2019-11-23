@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import {Trigger} from '@/lib';
+import {Trigger} from '../../lib';
 import chatCommandComponent from './chat-trigger';
 
 /**
@@ -38,6 +38,7 @@ class ChatTrigger extends Trigger {
     storeChange(value) {
        if(value.trim().startsWith('!')){
             this.triggerEvent('chatCommand', ...value.split(/\s/gi).slice(1));
+            this.$store.dispatch('twitchChat/sendMessage','message received');
        }
     }
 }

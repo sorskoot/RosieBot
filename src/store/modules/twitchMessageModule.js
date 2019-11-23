@@ -1,9 +1,12 @@
-import { twitchMessageService } from '../../services/twitchMessageService';
+import twitchMessageService from '../../services/twitchMessageService';
 
 export const TWITCH_IRC_CONNECTING = 'Connecting to Twitch IRC';
 export const TWITCH_IRC_CONNECTED = '✅ Connected to Twitch IRC';
 export const TWITCH_IRC_DISCONNECTED = '❌ Disconnected from Twitch IRC';
 export const TWITCH_IRC_MESSAGE = '✅ Twitch IRC Message';
+export const TWITCH_IRC_SEND_MESSAGE = 'Sending IRC Message';
+export const TWITCH_IRC_SEND_MESSAGE_SUCCESS = '✅ Succes Sending IRC Message';
+export const TWITCH_IRC_SEND_MESSAGE_FAILURE = '❌ Failed Sending IRC Message';
 
 const actions = {
     //sync or async
@@ -12,16 +15,32 @@ const actions = {
         twitchMessageService.connect(rootState.config.config.twitchMessage)
             .then(
                 data => {
-                    twitchMessageService.setCallback((target, context, msg, self) => {
-                        dispatch('message', { target, context, msg, self });
+                    twitchMessageService.setCallback((context, msg, self) => {
+                        dispatch('message', { context, msg, self });
                     })
                     commit(TWITCH_IRC_CONNECTED, data);
                 },
                 error => commit(TWITCH_IRC_DISCONNECTED, error)
             );
     },
-
-    message({ commit }, { target, context, msg, self }) {
+    /**
+     * Sends a message to Twitch chat.
+     */
+    async sendMessage({commit}, message){
+        commit(TWITCH_IRC_SEND_MESSAGE);
+        try{
+            await twitchMessageService.send(message);
+            commit(TWITCH_IRC_SEND_MESSAGE_SUCCESS);
+        }catch(err){
+            commit(TWITCH_IRC_SEND_MESSAGE_FAILURE, err)
+        }
+    },
+    /**
+     * called when a message is received from Twitch
+     * @param {*} param0 
+     * @param {*} param1 
+     */
+    message({ commit }, { context, msg, self }) {
         // remove check for 'bot_rosie' when the old version goes offline
         if (self || context['display-name'] === 'bot_rosie') { return };
         commit(TWITCH_IRC_MESSAGE,
@@ -42,6 +61,7 @@ const mutations = {
     [TWITCH_IRC_CONNECTING](state) {
         state.isConnected = false;
     },
+
     [TWITCH_IRC_CONNECTED](state) {
         state.isConnected = true;
     },
