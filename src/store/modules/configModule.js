@@ -1,4 +1,4 @@
-import { configService } from '../../services/configService';
+import configService from '../../services/configService';
 
 const GET_CONFIG = 'Getting config';
 const GET_CONFIG_SUCCESS = '✅ Got config';
@@ -18,6 +18,9 @@ const mutations = {
     [GET_CONFIG_FAILURE](state, error) { console.error(error) }
 }
 
+/**
+ * Export the Vuex store module for config
+ */
 export default {
     namespaced: true,
     state: {

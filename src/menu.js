@@ -111,7 +111,6 @@ const template = [
     ,
 
 ]
-//config.file()
 
 function build() {
     const menu = Menu.buildFromTemplate(template)

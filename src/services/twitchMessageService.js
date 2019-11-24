@@ -78,4 +78,7 @@ class TwitchMessageService {
     }
 }
 
+/**
+ * Export a new instance of the Twitch Message Service
+ */
 export default new TwitchMessageService();

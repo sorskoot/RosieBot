@@ -26,12 +26,12 @@ const actions = {
     /**
      * Sends a message to Twitch chat.
      */
-    async sendMessage({commit}, message){
+    async sendMessage({ commit }, message) {
         commit(TWITCH_IRC_SEND_MESSAGE);
-        try{
+        try {
             await twitchMessageService.send(message);
             commit(TWITCH_IRC_SEND_MESSAGE_SUCCESS);
-        }catch(err){
+        } catch (err) {
             commit(TWITCH_IRC_SEND_MESSAGE_FAILURE, err)
         }
     },
@@ -72,13 +72,17 @@ const mutations = {
 
     [TWITCH_IRC_MESSAGE](state, message) {
         state.message = message
-    }
+    },
+    [TWITCH_IRC_SEND_MESSAGE](state) {state.isSendingMessage = true;},
+    [TWITCH_IRC_SEND_MESSAGE_SUCCESS](state) { state.isSendingMessage = false; },
+    [TWITCH_IRC_SEND_MESSAGE_FAILURE](state) { state.isSendingMessage = false; }
 }
 
 export default {
     namespaced: true,
     state: {
         isConnected: false,
+        isSendingMessage:false,
         message: {
             user: '',
             message: '',
