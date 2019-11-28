@@ -36,15 +36,26 @@ class EventHandler {
             (newValue) => this.handleTrigger(newValue));
     }
 
-    handleTrigger(newValue) {
+    handleTrigger(value) {
         const event = this.events.find(e =>
-            e.trigger.hasOwnProperty(newValue.uuid) &&
-            e.trigger[newValue.uuid] === newValue.eventName);
+            e.trigger.hasOwnProperty(value.uuid) &&
+            e.trigger[value.uuid] === value.eventName);
         if (event) {
-            const action = this.actions.find(
-                x => x.uuid === Object.getOwnPropertyNames(event.action)[0]);
-            action.execute(event.action[action.uuid], newValue.params);
+            if (Array.isArray(event.action)) {
+                for (let index = 0; index < event.action.length; index++) {
+                    const action = event.action[index];
+                    this.executeAction(action, value);
+                }
+            }
+            else {
+                this.executeAction(event.action, value);
+            }
         }
+    }
+
+    executeAction(action, newValue) {
+        const a = this.actions.find(x => x.uuid === Object.getOwnPropertyNames(action)[0]);
+        a.execute(action[a.uuid], newValue.params);
     }
 }
 
