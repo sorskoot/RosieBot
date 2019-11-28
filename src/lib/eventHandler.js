@@ -1,24 +1,6 @@
 import { Action } from './action';
 import { Trigger } from './trigger';
-import { Store } from 'vuex';
-
-const events = [
-    {
-        "trigger": {
-            "rosie.core.trigger.chat.command": "!twitter"
-        },
-        "action": {
-            "rosie.core.action.chat.send": "You can follow @Sorskoot on twitter at https://twitter.com/sorskoot"
-        }
-    },
-    {
-        "trigger": {
-            "rosie.core.trigger.chat.command": "!youtube"
-        },
-        "action": {
-            "rosie.core.action.chat.send": "You can watch @Sorskoot's videos on https://youtube.com/c/sorskoot"
-        }
-    }];
+import { Store, mapState } from 'vuex';
 
 /**
  * Options for the install of Vue plugins
@@ -26,7 +8,7 @@ const events = [
  * @property {Store} store the Vuex store is passed in the options so it can be used in the plugin
  * @property {Trigger[]} triggers the available triggers
  * @property {Action[]} actions the available actions
-  */
+   */
 
 /**
  * Class that handles events that happen in the application. Takes care
@@ -44,19 +26,24 @@ class EventHandler {
         this.$store = options.store;
         this.actions = options.actions;
         this.triggers = options.triggers;
+
+        this.$store.watch(
+            state => state.config.config.events,
+            newValue => this.events = newValue);
+
         this.$store.watch(
             (state) => state.triggerAction.trigger,
             (newValue) => this.handleTrigger(newValue));
     }
 
     handleTrigger(newValue) {
-        const event = events.find(e =>
+        const event = this.events.find(e =>
             e.trigger.hasOwnProperty(newValue.uuid) &&
             e.trigger[newValue.uuid] === newValue.eventName);
         if (event) {
             const action = this.actions.find(
                 x => x.uuid === Object.getOwnPropertyNames(event.action)[0]);
-                action.execute(event.action[action.uuid], newValue.params);
+            action.execute(event.action[action.uuid], newValue.params);
         }
     }
 }

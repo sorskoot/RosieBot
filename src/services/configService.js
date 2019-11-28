@@ -20,7 +20,6 @@ class ConfigService {
     }
 }
 
-
 /**
  * Export default of the service
  */
