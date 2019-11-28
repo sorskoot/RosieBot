@@ -1,5 +1,6 @@
 Todo:
     ☐ Getting code documentation everywhere!
+    ☐ Play youtube Video on stream (donations or something).
     ☐ request information about the codebase working on, like lines of code or current issue
     ☐ Do something with hardware/IoT/Arduino
     ☐ Trigger stuff in the stream, in browser windows in OBS
@@ -35,6 +36,7 @@ TTS:
         ✔ Stream events @done(19-10-21 23:27)
 
 Commands:
+    ☐ !funfact - Show a random fun fact about Sorskoot
     ☐ !time - show current time in UTC and CET
     ✔ !sfx - link to https://github.com/sorskoot/RosieBot/blob/master/commands.md#sound-fx made it into => http://bit.ly/sfxCommands @done(19-09-04 14:00)
     ☐ !toolset

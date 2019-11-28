@@ -5,13 +5,13 @@ import chatCommandComponent from './chat-trigger';
 /**
  * Trigger that fires a trigger event when a '!' command is received in chat
  */
-class ChatTrigger extends Trigger {
+class ChatCommandTrigger extends Trigger {
 
     /**
      * Instantiates a new ChatTrigger plugin
      */
     constructor(){
-        super("Chat Command", 'rosie.core.chat.trigger');
+        super("Chat Command", 'rosie.core.trigger.chat.command');
     }
 
     /**
@@ -37,8 +37,8 @@ class ChatTrigger extends Trigger {
      */
     storeChange(value) {
        if(value.trim().startsWith('!')){
-            this.triggerEvent('chatCommand', ...value.split(/\s/gi).slice(1));
-            this.$store.dispatch('twitchChat/sendMessage','message received');
+            this.triggerEvent(...value.split(/\s/gi));
+         //   this.$store.dispatch('twitchChat/sendMessage','message received');
        }
     }
 }
@@ -46,4 +46,4 @@ class ChatTrigger extends Trigger {
 /**
  * Export an instance of the chat trigger plugin
  */
-export default new ChatTrigger();
+export default new ChatCommandTrigger();

@@ -27,7 +27,8 @@ export class Trigger extends Plugin {
 
     triggerEvent(eventName, ...params) {
         // raise a trigger event.
-        console.log('trigger', this.uuid, eventName, params)
+        //console.log('trigger', this.uuid, eventName, params);
+        this.$store.dispatch('triggerAction/trigger',{uuid:this.uuid, eventName, params});
     }
 
     /**

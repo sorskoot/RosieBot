@@ -3,13 +3,19 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import dotenv from 'dotenv';
-import chatTrigger from './plugins/chat-trigger/chat-trigger-plugin';
+import eventHandler from './lib/eventHandler';
+
+import chatCommandTrigger from './plugins/chat-trigger/chat-command-trigger';
+import chatAction from './plugins/chat-action/chat-message-action';
 
 // Hack until figured out how to dotenv in vue
 process.dotenv = dotenv.config().parsed;
 Vue.config.productionTip = false
 
-Vue.use(chatTrigger, { store });
+Vue.use(chatCommandTrigger, { store });
+Vue.use(chatAction, { store });
+
+Vue.use(eventHandler, { store, actions:[chatAction], triggers:[chatCommandTrigger] });
 
 new Vue({
     router,

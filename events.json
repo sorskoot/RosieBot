@@ -1,15 +1,17 @@
 [
     {
         "trigger": {
-            "core.chat.message": "!light {color}"
+            "rosie.core.chat.message": "!twitter"
         },
-        "action": [
-            {
-                "hue.change": [
-                    "{color}"
-                ]
-            }
-        ]
+        "action": {
+            "rosie.core.chat.send": "You can follow @Sorskoot on twitter at https://twitter.com/sorskoot"
+        }
+    },
+    {
+        "trigger": {
+            "rosie.core.chat.message": "!light"
+        },
+        "action": "hue.change"
     },
     {
         "trigger": "core.twitch.follow",
@@ -26,6 +28,8 @@
         "trigger": {
             "core.chat.message": "!fbi"
         },
-        "action": { "sfx.play": "fbi"}
+        "action": {
+            "sfx.play": "fbi"
+        }
     }
 ]

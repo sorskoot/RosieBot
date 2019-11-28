@@ -28,7 +28,6 @@ class TwitchMessageService {
      * @param {*} self 
      */
     onMessageHandler(context, msg, self) {
-        console.log(msg);
         this._callback(context, msg, self);
     }
 
