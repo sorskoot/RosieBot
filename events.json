@@ -31,5 +31,62 @@
         "action": {
             "sfx.play": "fbi"
         }
+    },
+    {
+        "trigger": {
+            "rosie.core.trigger.chat.command": "!twitter"
+        },
+        "action": {
+            "rosie.core.action.chat.send": "You can follow @Sorskoot on twitter at https://twitter.com/sorskoot"
+        }
+    },
+    {
+        "trigger": {
+            "rosie.core.trigger.chat.command": "!youtube"
+        },
+        "action": {
+            "rosie.core.action.chat.send": "You can watch @Sorskoot's videos on https://youtube.com/c/sorskoot"
+        }
+    },
+    {
+        "trigger": {
+            "rosie.core.trigger.chat.command": "!discord"
+        },
+        "action": {
+            "rosie.core.action.chat.send": "Come have a chat at the Discord at https://discord.gg/J3j43p8"
+        }
+    },
+    {
+        "trigger": {
+            "rosie.core.trigger.chat.command": "!git"
+        },
+        "action": {
+            "rosie.core.action.chat.send": "You can find all the code over at https://github.com/sorskoot"
+        }
+    },
+    {
+        "trigger": {
+            "rosie.core.trigger.chat.command": "!insta"
+        },
+        "action": {
+            "rosie.core.action.chat.send": "Have a look at Sorskoot's 360 tiny planets at https://www.instagram.com/sorskoot360/"
+        }
+    },
+    {
+        "trigger": {
+            "rosie.core.trigger.chat.command": "!merch"
+        },
+        "action": {
+            "rosie.core.action.chat.send": "You can buy awesome Sorskoot merch at https://shop.spreadshirt.net/sorskoot/ !"
+        }
+    },
+    {
+        "trigger": {
+            "rosie.core.trigger.chat.command": "!setup"
+        },
+        "action": {
+            "rosie.core.action.chat.send": "You can find out everything about Sorskoots setup at http://bit.ly/SorskootTwitchSetup !"
+        }
     }
+
 ]

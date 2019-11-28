@@ -78,6 +78,7 @@ New Architecture:
     a connection to Twitch (maybe other services) and an API to connect the
     plugins to.
 
+    ☐ default config installed when running for the first time.
     Research:
         ☐ How to use html pages outside Electron, but served by the app
 
