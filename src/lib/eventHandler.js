@@ -54,8 +54,15 @@ class EventHandler {
     }
 
     executeAction(action, newValue) {
-        const a = this.actions.find(x => x.uuid === Object.getOwnPropertyNames(action)[0]);
-        a.execute(action[a.uuid], newValue.params);
+        let actionToCall;
+
+        if(typeof action === "string"){
+            actionToCall = this.actions.find(x => x.uuid === action);
+            actionToCall.execute(...newValue.params);
+        }else{
+            actionToCall = this.actions.find(x => x.uuid === Object.getOwnPropertyNames(action)[0]);
+            actionToCall.execute(action[actionToCall.uuid], newValue.params);
+        }
     }
 }
 

@@ -8,6 +8,7 @@ import eventHandler from './lib/eventHandler';
 import chatCommandTrigger from './plugins/chat-trigger/chat-command-trigger';
 
 import chatAction from './plugins/chat-action/chat-message-action';
+import hueAction from './plugins/hue-action/hue.action';
 import consoleAction from './plugins/console-action';
 
 // Hack until figured out how to dotenv in vue
@@ -17,8 +18,9 @@ Vue.config.productionTip = false
 Vue.use(chatCommandTrigger, { store });
 Vue.use(chatAction, { store });
 Vue.use(consoleAction, { store });
+Vue.use(hueAction, { store });
 
-Vue.use(eventHandler, { store, actions:[chatAction,consoleAction], triggers:[chatCommandTrigger] });
+Vue.use(eventHandler, { store, actions:[chatAction,consoleAction,hueAction], triggers:[chatCommandTrigger] });
 
 new Vue({
     router,
