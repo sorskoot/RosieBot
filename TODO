@@ -67,8 +67,8 @@ Sfx:
     ☐ !delight sfx (https://www.youtube.com/watch?v=tUqvPJ3cbUQ) 
     ☐ Add more ~ https://www.youtube.com/watch?v=-1E10Tbsw68
     ☐ sfx back to the future
-    ☐ Hamsterdance
-    
+    ✔ Hamsterdance @done(19-12-13 21:25)
+
 Thoughts and rough ideas:
     ☐ Build a game or something where people can send `code` to Rosie and have her execute it to play a game.
         Secretmud: Maybe make RosieScript?
@@ -100,6 +100,34 @@ New Architecture:
             = Listen for Chat messages
             = Communicate between overlay and internal code
             = Have a simple lifecycle
+    
+    Triggers:
+        ☐ emotes
+        ☐ link check
+        ☐ QnA
+        ☐ Shoutout
+        ☐ TimedMessage
+        ☐ TwitchEvents
+        ☐ Vote
+
+    Actions:
+        ☐ VariableAction 
+            => broadcaster can set response of action during stream, like `!beer` or `!project`
+        ☐ AddCommandAction
+        ☐ BlameAction
+        ☐ FollowageAction
+        ☐ HangmanAction
+        ☐ HypeAction
+        ☐ AnimationAction
+            => Sequences of actions with time
+        ☐ MultiAction
+            => runs mulitple actions at the same time
+        ☐ Add tags to action string like `{display-name}` for the name of the viewer
+
+    Config:
+        ✔ Social @done(19-12-13 22:14)
+        ✔ Info @done(19-12-13 22:41)
+        ✔ theme @done(19-12-13 22:48)
 
 Archive:
   ✘ filter on '!' for commands @cancelled(19-07-20 20:23) @project(Todo)

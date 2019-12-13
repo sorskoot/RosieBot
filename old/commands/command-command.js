@@ -9,7 +9,6 @@ module.exports = {
 
     command: (twitchClient, target, context, action, command, ...message) => {
         if(!action){
-            
             return;
         }
         switch(action.toLowerCase()){

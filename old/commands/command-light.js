@@ -41,7 +41,7 @@ module.exports =
         color = color.toLowerCase();
         changeLightBri(254);
         if (!color) {
-            if (!silent) twitchClient.say(target, `Sorry @${context['display-name']}, you have to specify a color.`)
+            if (silent !== true) twitchClient.say(target, `Sorry @${context['display-name']}, you have to specify a color.`)
         } else if (color in colors) {
             lastColorSet = color;
             changeLightColor(color).then(c => {
