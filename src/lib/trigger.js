@@ -8,8 +8,8 @@ export class Trigger extends Plugin {
    
     /**
     * constructs a new trigger plugin. Should not be called directly
-    * @param {string} name of the trigger plugin 
-    * @param {string} uuid of the trigger plugin
+    * @param {string} name Name of the trigger plugin 
+    * @param {string} uuid UUID of the trigger plugin
     */
     constructor(name, uuid) {
         super(name, uuid, 'Trigger');
@@ -26,8 +26,6 @@ export class Trigger extends Plugin {
     }
 
     triggerEvent(eventName, ...params) {
-        // raise a trigger event.
-        //console.log('trigger', this.uuid, eventName, params);
         this.$store.dispatch('triggerAction/trigger',{uuid:this.uuid, eventName, params});
     }
 

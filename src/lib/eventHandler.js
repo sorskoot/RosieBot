@@ -16,6 +16,7 @@ import { Store, mapState } from 'vuex';
  */
 class EventHandler {
 
+
     /**
     * Install the EventHandler as a Vue Plugin
     * 
@@ -29,26 +30,47 @@ class EventHandler {
 
         this.$store.watch(
             state => state.config.config.events,
-            newValue => this.events = newValue);
+            newValue => this.initializeEvents(newValue));
 
         this.$store.watch(
             (state) => state.triggerAction.trigger,
             (newValue) => this.handleTrigger(newValue));
     }
 
-    handleTrigger(value) {
-        const event = this.events.find(e =>
-            e.trigger.hasOwnProperty(value.uuid) &&
-            e.trigger[value.uuid] === value.eventName);
-        if (event) {
-            if (Array.isArray(event.action)) {
-                for (let index = 0; index < event.action.length; index++) {
-                    const action = event.action[index];
-                    this.executeAction(action, value);
-                }
+    initializeEvents(events) {
+        this.events = events;
+        for (let i = 0; i < this.events.length; i++) {
+            const event = this.events[i];
+            let uuid = Object.getOwnPropertyNames(event.trigger)[0];
+            let trigger =
+                this.triggers.find(t => t.uuid === uuid);
+            if (trigger) {
+                trigger.initialize(event.trigger[uuid])
             }
-            else {
-                this.executeAction(event.action, value);
+        }
+    }
+
+    /**
+    * 
+    * @param {*} value 
+     */
+    handleTrigger(value) {
+        if (value.uuid === 'rosie.core.trigger.immidiate') {
+            this.executeAction(value.eventName, value);
+        } else {
+            const event = this.events.find(e =>
+                e.trigger.hasOwnProperty(value.uuid) &&
+                e.trigger[value.uuid] === value.eventName);
+            if (event) {
+                if (Array.isArray(event.action)) {
+                    for (let index = 0; index < event.action.length; index++) {
+                        const action = event.action[index];
+                        this.executeAction(action, value);
+                    }
+                }
+                else {
+                    this.executeAction(event.action, value);
+                }
             }
         }
     }
@@ -56,10 +78,10 @@ class EventHandler {
     executeAction(action, newValue) {
         let actionToCall;
 
-        if(typeof action === "string"){
+        if (typeof action === "string") {
             actionToCall = this.actions.find(x => x.uuid === action);
             actionToCall.execute(...newValue.params);
-        }else{
+        } else {
             actionToCall = this.actions.find(x => x.uuid === Object.getOwnPropertyNames(action)[0]);
             actionToCall.execute(action[actionToCall.uuid], newValue.params);
         }

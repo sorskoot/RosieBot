@@ -90,6 +90,10 @@ New Architecture:
             ✔ Open config file from menu in app @done(19-11-21 22:14)
 
     plugins:
+        ☐ Update folder structure to /actions and /trigger
+        ☐ dynamically load plugins from plugin folder
+        ☐ dynamically load plugins from disk
+        
         triggers and actions
         Stuff plugins can do;
             = notifications
@@ -106,11 +110,13 @@ New Architecture:
         ☐ link check
         ☐ QnA
         ☐ Shoutout
-        ☐ TimedMessage
+        ✔ Timed @done(19-12-16 22:58)
         ☐ TwitchEvents
         ☐ Vote
 
     Actions:
+        ✔ RandomAction @done(19-12-16 22:58)
+            => Sends a random action from the configured array
         ☐ VariableAction 
             => broadcaster can set response of action during stream, like `!beer` or `!project`
         ☐ AddCommandAction

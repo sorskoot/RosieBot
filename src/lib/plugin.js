@@ -40,11 +40,17 @@ export class Plugin {
     }
 
     /**
+     * abstract method that is called for every event that should be initialized
+     * The class can do whatever it wants in here
+     */
+    initialize() { }
+
+    /**
      * Abstract method can be implemented by a decentent to add a vue component.
      * @param {Vue} vue The current Vue instance
      */
     addComponent(vue) { }
-    
+
     /**
      * Abstract method can be implemented by a decentent to add code that needs
      * to be executed when the plugin is added to Vue.
