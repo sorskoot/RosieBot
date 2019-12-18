@@ -1,4 +1,4 @@
-import { Trigger } from '../../lib';
+import { Trigger } from '../../../lib';
 
 class TimedTrigger extends Trigger {
 

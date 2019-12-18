@@ -1,4 +1,4 @@
-import {Action} from '../../lib';
+import {Action} from '../../../lib';
 /**
  * Action writing a random number to chat when it is executed
  */

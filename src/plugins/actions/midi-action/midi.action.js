@@ -1,4 +1,4 @@
-import { Action } from '../../lib';
+import { Action } from '../../../lib';
 import { MidiService } from './midi.service';
 
 /**

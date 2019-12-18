@@ -1,4 +1,4 @@
-import { Action } from '../../lib';
+import { Action } from '../../../lib';
 import {HueService} from './hue.service';
 
 /**
@@ -11,7 +11,6 @@ class HueAction extends Action {
      */
     constructor() {
         super('Hue action', 'com.sorskoot.hue.action');
-        
     }
     
     onInstall(){

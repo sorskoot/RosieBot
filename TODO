@@ -79,6 +79,8 @@ New Architecture:
     plugins to.
 
     ☐ default config installed when running for the first time.
+    ✔ dynamically load modules @done(19-12-18 21:53)
+
     Research:
         ☐ How to use html pages outside Electron, but served by the app
 
@@ -90,7 +92,7 @@ New Architecture:
             ✔ Open config file from menu in app @done(19-11-21 22:14)
 
     plugins:
-        ☐ @today Update folder structure to /actions and /trigger
+        ✔ Update folder structure to /actions and /trigger @done(19-12-18 21:53)
         ☐ dynamically load plugins from plugin folder
         ☐ dynamically load plugins from disk
 
@@ -111,7 +113,8 @@ New Architecture:
         ☐ QnA
         ☐ Shoutout
         ✔ Timed @done(19-12-16 22:58)
-        ☐ TwitchEvents
+        ☐ TwitchEvents (streamlabs)
+        ☐ TwitchEvents 'native'
         ☐ Vote
 
     Actions:
@@ -126,6 +129,8 @@ New Architecture:
         ☐ HypeAction
         ☐ AnimationAction
             => Sequences of actions with time
+        ☐ DelayAction
+            => Delays the action for a couple of milliseconds
         ☐ MultiAction
             => runs mulitple actions at the same time
         ☐ Add tags to action string like `{display-name}` for the name of the viewer

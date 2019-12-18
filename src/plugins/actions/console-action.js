@@ -1,4 +1,4 @@
-import { Action } from '../lib';
+import { Action } from '../../lib';
 
 /**
  * Action to send a message to console

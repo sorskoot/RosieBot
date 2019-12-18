@@ -5,14 +5,15 @@ import store from './store/store'
 import dotenv from 'dotenv';
 import eventHandler from './lib/eventHandler';
 
-import chatCommandTrigger from './plugins/chat-trigger/chat-command-trigger';
-import timedTrigger from './plugins/timed-trigger/timed.trigger';
+import chatCommandTrigger from './plugins/triggers/chat-trigger/chat-command-trigger';
+import timedTrigger from './plugins/triggers/timed-trigger/timed.trigger';
+import eventTrigger from './plugins/triggers/event-trigger/event.trigger';
 
-import chatAction from './plugins/chat-action/chat-message-action';
-import hueAction from './plugins/hue-action/hue.action';
-import midiAction from './plugins/midi-action/midi.action';
-import consoleAction from './plugins/console-action';
-import randomAction from './plugins/random-action/random.action';
+import chatAction from './plugins/actions/chat-action/chat-message-action';
+import hueAction from './plugins/actions/hue-action/hue.action';
+import midiAction from './plugins/actions/midi-action/midi.action';
+import consoleAction from './plugins/actions/console-action';
+import randomAction from './plugins/actions/random-action/random.action';
 
 // Hack until figured out how to dotenv in vue
 process.dotenv = dotenv.config().parsed;
@@ -20,6 +21,7 @@ Vue.config.productionTip = false
 
 Vue.use(chatCommandTrigger, { store });
 Vue.use(timedTrigger, { store });
+Vue.use(eventTrigger, { store });
 
 Vue.use(chatAction, { store });
 Vue.use(consoleAction, { store });
@@ -29,7 +31,7 @@ Vue.use(randomAction, { store });
 
 Vue.use(eventHandler, { store, 
     actions:[chatAction,consoleAction,hueAction,midiAction,randomAction], 
-    triggers:[chatCommandTrigger, timedTrigger] });
+    triggers:[chatCommandTrigger, timedTrigger,eventTrigger] });
 
 new Vue({
     router,

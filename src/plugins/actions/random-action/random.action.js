@@ -1,4 +1,4 @@
-import { Action } from '../../lib';
+import { Action } from '../../../lib';
 
 /**
  * Triggers a random action from the list provided

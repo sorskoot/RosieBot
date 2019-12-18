@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import {Trigger} from '../../lib';
+import {Trigger} from '../../../lib';
 import chatCommandComponent from './chat-trigger';
 
 /**
