@@ -25,9 +25,9 @@ TTS:
     ✔ Add TTS shoutouts for live coders and VIPS @done(19-10-21 23:27)
     ✔ Make it possible to trigger TTS from Stream Deck (url with param?) @done(19-10-22 00:53)
         Add quotes from:
-            - HAL 9000 
-            - Master Control Program
-            - V.I.K.I
+            ☐ HAL 9000
+            ☐ Master Control Program
+            ☐ V.I.K.I
     ☐ TTS message with donations, bits, subs
     ☐ Queue messages and play in order
     ☐ Test and fix memory leak when stopping at vocode end
@@ -90,10 +90,10 @@ New Architecture:
             ✔ Open config file from menu in app @done(19-11-21 22:14)
 
     plugins:
-        ☐ Update folder structure to /actions and /trigger
+        ☐ @today Update folder structure to /actions and /trigger
         ☐ dynamically load plugins from plugin folder
         ☐ dynamically load plugins from disk
-        
+
         triggers and actions
         Stuff plugins can do;
             = notifications

@@ -1,4 +1,4 @@
-import { twitchService } from '../../services/twitchService';
+import { twitchService } from '../../services/twitch.service';
 
 export const GET_USER = 'Get User';
 export const GET_USER_SUCCESS = '✅ Get User Success';

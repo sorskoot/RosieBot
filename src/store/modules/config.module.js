@@ -1,4 +1,4 @@
-import configService from '../../services/configService';
+import configService from '../../services/config.service';
 
 const GET_CONFIG = 'Getting config';
 const GET_CONFIG_SUCCESS = '✅ Got config';

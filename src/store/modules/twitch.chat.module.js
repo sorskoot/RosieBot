@@ -1,4 +1,4 @@
-import twitchMessageService from '../../services/twitchMessageService';
+import twitchMessageService from '../../services/twitch.message.service';
 
 export const TWITCH_IRC_CONNECTING = 'Connecting to Twitch IRC';
 export const TWITCH_IRC_CONNECTED = '✅ Connected to Twitch IRC';
