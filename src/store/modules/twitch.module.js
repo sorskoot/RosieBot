@@ -11,31 +11,31 @@ export const GET_USER_SUCCESS = '✅ Get User Success';
 export const GET_USER_FAIL = '❌ Get User Fail';
 
 const actions = {
-    connect({ commit, dispatch, rootstate }) {
+    connect({ commit, rootState }) {
         commit(TWITCH_CONNECT);
-        streamlabsService.connect().then(value => {
-
-            streamlabsService.on('follow', (e) => {
-                commit(TWITCH_EVENT, {
-                    type: e.type,
-                    name: e.name
+        streamlabsService.connect(rootState.config.config.streamlabs)
+            .then(value => {
+                streamlabsService.on('follow', (e) => {
+                    commit(TWITCH_EVENT, {
+                        type: e.type,
+                        name: e.name
+                    });
                 });
-            });
-            streamlabsService.on('raid', (e) => {
-                commit(TWITCH_EVENT, {
-                    type: e.type,
-                    name: e.name,
-                    raiders:e.raiders
+                streamlabsService.on('raid', (e) => {
+                    commit(TWITCH_EVENT, {
+                        type: e.type,
+                        name: e.name,
+                        raiders: e.raiders
+                    });
                 });
-            });
 
-            streamlabsService.addListener('sub', (e) => {
-                console.log(e);
-            })
+                streamlabsService.addListener('sub', (e) => {
+                    console.log(e);
+                })
 
-            commit(TWITCH_CONNECT_SUCCESS);
-        },
-            e => commit(TWITCH_CONNECT_FAIL, e));
+                commit(TWITCH_CONNECT_SUCCESS);
+            },
+                e => commit(TWITCH_CONNECT_FAIL, e));
     },
     getUser({ commit, state }, username) {
         commit(GET_USER);
