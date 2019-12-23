@@ -2,12 +2,20 @@
   <div>
     <h1> {{ message.user}} </h1>
     <div> {{ message.message }}</div>
+    <button v-on:click="foo">click</button>
   </div>
 </template>
 
 <script>
 import { mapState, mapActions } from "vuex";
+import {ipcRenderer} from 'electron';
+ipcRenderer.on("do-test",(event, arg)=>{
+    console.log("do test");
+    console.log(arg);
+    ipcRenderer.send("do-test-return", "it's working");
+}
 
+);
 export default {
   name: "HelloWorld",
   props: {
@@ -17,6 +25,12 @@ export default {
     user: state => state.twitch.user,
     message: state => state.twitchChat.message
   }),
+  methods:{
+    foo(){
+        console.log("foo");
+        
+    }
+  },
   created: function() {
     //this.$store.dispatch('twitch/GetUser','sorskoot');
   }

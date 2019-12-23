@@ -9,6 +9,8 @@ import {
 } from 'vue-cli-plugin-electron-builder/lib'
 
 import {menu} from './menu';
+import {express} from './express/start.express';
+import { WatchIgnorePlugin } from 'webpack';
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
@@ -17,7 +19,8 @@ const isDevelopment = process.env.NODE_ENV !== 'production'
 let win
 
 // Scheme must be registered before the app is ready
-protocol.registerSchemesAsPrivileged([{ scheme: 'app', privileges: { secure: true, standard: true } }])
+protocol.registerSchemesAsPrivileged([{ scheme: 'app', 
+privileges: { secure: true, standard: true } }])
 
 function createWindow() {
     // Create the browser window.
@@ -27,7 +30,7 @@ function createWindow() {
             nodeIntegration: true
         }
     })
-
+    
     if (process.env.WEBPACK_DEV_SERVER_URL) {
         // Load the url of the dev server if in development mode
         win.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
@@ -77,9 +80,12 @@ app.on('ready', async () => {
         } catch (e) {
           console.error('Vue Devtools failed to install:', e.toString())
         }
-
     }
+
     createWindow()
+    
+    express.startExpress(7531, win);
+
 })
 // Exit cleanly on request from parent process in development mode.
 if (isDevelopment) {

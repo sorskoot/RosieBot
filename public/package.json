@@ -1,5 +1,5 @@
 {
-    "name": "your-app",
+    "name": "Rosie",
     "version": "0.1.0",
-    "main": "main.js"
+    "main": "background.js"
   }

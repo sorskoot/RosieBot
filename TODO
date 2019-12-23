@@ -82,13 +82,16 @@ New Architecture:
     ✔ dynamically load modules @done(19-12-18 21:53)
 
     Research:
-        ☐ How to use html pages outside Electron, but served by the app
+        ☐ @today How to use html pages outside Electron, but served by the app
+            Use IPC to communicate between main and renderer to request page 
+            from app. A service provides all pages and content.
 
     core:
         UI:
             UI will be responsive in column (+/- 300px wide)
         Config:
             ☐ Create default config
+            ☐ Add a toggle for all triggers to disabled them if needed
             ✔ Open config file from menu in app @done(19-11-21 22:14)
 
     plugins:
