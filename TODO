@@ -41,6 +41,7 @@ Commands:
     ✔ !sfx - link to https://github.com/sorskoot/RosieBot/blob/master/commands.md#sound-fx made it into => http://bit.ly/sfxCommands @done(19-09-04 14:00)
     ☐ !toolset
     ☐ !editor
+    ☐ !cheers
     ☐ code metrics
     ☐ !build for build status
     ☐ !loc for lines of code

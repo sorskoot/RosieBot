@@ -9,8 +9,7 @@ import {
 } from 'vue-cli-plugin-electron-builder/lib'
 
 import {menu} from './menu';
-import {express} from './express/start.express';
-import { WatchIgnorePlugin } from 'webpack';
+import {server} from './express/server';
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
@@ -84,7 +83,7 @@ app.on('ready', async () => {
 
     createWindow()
     
-    express.startExpress(7531, win);
+    server.start(7531, win);
 
 })
 // Exit cleanly on request from parent process in development mode.
