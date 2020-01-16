@@ -2,7 +2,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import { app, protocol, BrowserWindow, Menu } from 'electron'
+import { app, protocol, BrowserWindow, Menu,ipcMain } from 'electron'
 import {
     createProtocol,
     installVueDevtools
@@ -10,6 +10,7 @@ import {
 
 import {menu} from './menu';
 import {server} from './express/server';
+import socketio from 'socket.io';
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
@@ -29,7 +30,6 @@ function createWindow() {
             nodeIntegration: true
         }
     })
-    
     if (process.env.WEBPACK_DEV_SERVER_URL) {
         // Load the url of the dev server if in development mode
         win.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
@@ -84,8 +84,25 @@ app.on('ready', async () => {
     createWindow()
     
     server.start(7531, win);
+    
+    let io = socketio(7532, {serveClient:false});
+    let sockets = [];
+    io.on('connection', socket => {
+        sockets.push(socket);
+        console.log(socket.id);
+        
+        win.send("websocket-connected", {id:socket.id});
+        // socket.emit('connected',{
+        //     id:socket.id
+        // });
+    });
 
+    ipcMain.on("socket-broadcast",(events, args)=>{
+        console.log(args);
+        io.emit(args.event, args.args);
+    })
 })
+
 // Exit cleanly on request from parent process in development mode.
 if (isDevelopment) {
     if (process.platform === 'win32') {

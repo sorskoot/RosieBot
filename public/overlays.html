@@ -16,17 +16,22 @@
             continue.</strong>
     </noscript>
     <div id="overlays">
-        <div>Hello {{name}}</div>
+        <dynamic-component></dynamic-component>
     </div>
+
     <script>
-       
+
         new Vue({
             el: '#overlays',
-            data:function(){
-                return {name:'world'}
+            components: {
+                'dynamic-component': () => {
+                    return fetch('helloworld')
+                        .then(c => c.text())
+                        .then(c => Vue.compile(c))
+                }
             }
-
         })
+
     </script>
 </body>
 

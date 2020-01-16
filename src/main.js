@@ -6,8 +6,7 @@ import dotenv from 'dotenv';
 import eventHandler from './lib/eventHandler';
 
 import { ipcService } from './services/ipc.service';
-
-import page from './plugins/page/helloworld';
+import page from './plugins/pages/helloworld';
 
 import chatCommandTrigger from './plugins/triggers/chat-trigger/chat-command-trigger';
 import timedTrigger from './plugins/triggers/timed-trigger/timed.trigger';

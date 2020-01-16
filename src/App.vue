@@ -12,8 +12,10 @@
 export default {
   created: async function() {
     await this.$store.dispatch("config/loadConfig");
+    await this.$store.dispatch("socket/open");
     await this.$store.dispatch("twitch/connect");
     await this.$store.dispatch("twitchChat/connect");
+
   }
 };
 </script>

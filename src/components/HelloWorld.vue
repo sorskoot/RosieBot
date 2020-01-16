@@ -19,8 +19,8 @@ export default {
     message: state => state.twitchChat.message
   }),
   methods:{
-    foo(){
-        console.log("foo");
+    async foo(){
+        await this.$store.dispatch("socket/emit",{event:"render emotes",args:"hello"});
     }
   },
   created: function() {

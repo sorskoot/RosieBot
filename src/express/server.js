@@ -14,6 +14,12 @@ export const server = {
     }
 }
 
+/**
+ * Handles a HTTP request for the server
+ * @param {BrowserWindow} win 
+ * @param {http.IncomingMessage} request 
+ * @param {http.ServerResponse} response 
+ */
 function handleRequest(win, request, response) {
     new Promise((res, rej) => {
         try {
