@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import {Trigger} from '../../../lib';
+import { Trigger } from '../../../lib';
 import chatCommandComponent from './chat-trigger';
 
 /**
@@ -10,7 +10,7 @@ class ChatCommandTrigger extends Trigger {
     /**
      * Instantiates a new ChatTrigger plugin
      */
-    constructor(){
+    constructor() {
         super("Chat Command", 'rosie.core.trigger.chat.command');
     }
 
@@ -18,7 +18,7 @@ class ChatCommandTrigger extends Trigger {
      * Called by the base class to add a UI component
      * @param {Vue} vue the Vue instance of the application
      */
-    addComponent(vue){
+    addComponent(vue) {
         vue.component('core-chat-trigger', chatCommandComponent)
     }
 
@@ -29,17 +29,38 @@ class ChatCommandTrigger extends Trigger {
     storeGetter(state) {
         return state.twitchChat.message.message;
     }
+    
+    /**
+       * Called when the action is installed in Vue
+       */
+    onInstall() {
+        this.$store.watch(
+            state => state.config.config['events'],
+            events => this.initEvents(events));
+        super.onInstall();
+    }
+
+    /**
+     * 
+     * @param {[]} events 
+     */
+    initEvents(events) {
+        this.commands = [];
+        for (let i = 0; i < events.length; i++) {
+            if (!!events[i].trigger[this.uuid]) {
+                this.commands.push(events[i].trigger[this.uuid]);
+            }
+        }
+    }
 
     /**
      * Called when a chat message is received and raises a trigger event 
-     * if the first word starts with a '!'.
      * @param {string} value 
      */
     storeChange(value) {
-       if(value.trim().startsWith('!')){
+        if(!!~this.commands.indexOf(value.split(' ')[0].trim())) {
             this.triggerEvent(...value.split(/\s/gi));
-         //   this.$store.dispatch('twitchChat/sendMessage','message received');
-       }
+        }
     }
 }
 

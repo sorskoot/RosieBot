@@ -13,6 +13,11 @@ class SocketService extends EventEmitter {
         ipcRenderer.on("websocket-connected", (event, arg) => {
             console.log("websocket connected", arg.id);
         });
+        let that=this;
+        ipcRenderer.on("websocket-trigger", (e, args) => {
+            console.log("websocket-trigger",args)
+            that.emit("trigger",args);
+        });
      }
 
     /**

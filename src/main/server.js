@@ -27,19 +27,26 @@ function handleRequest(win, request, response) {
                 res();
                 return;
             }
-            ipcMain.once("webresponse", (event, args) => {
-                //console.log(args);
+            ipcMain.once(`webresponse-${request.url}`, (event, args) => {
+                if(!!args.redirect){
+                    response.writeHead(302, {
+                        'Location': args.redirect
+                      });
+                    response.end();
+                }
+                else{
+                    response.statusCode = 200;
+                    response.end(args);
+                }
                 res(args);
             });
-           // console.log(`sending message for ${request.url}`);
             win.send("webrequest", request.url);
         }
         catch (e) {
             rej(e);
         }
     }).then(arg => {
-        response.statusCode = 200;
-        response.end(arg);
+      
     }, rejection => {
         response.statusCode = 500;
         response.end(rejection);

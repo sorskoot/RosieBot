@@ -9,8 +9,8 @@ import {
 } from 'vue-cli-plugin-electron-builder/lib'
 
 import {menu} from './menu';
-import {server} from './express/server';
-import socketio from 'socket.io';
+import {server} from './main/server';
+import { sockets } from './main/sockets';
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
@@ -85,22 +85,7 @@ app.on('ready', async () => {
     
     server.start(7531, win);
     
-    let io = socketio(7532, {serveClient:false});
-    let sockets = [];
-    io.on('connection', socket => {
-        sockets.push(socket);
-        console.log(socket.id);
-        
-        win.send("websocket-connected", {id:socket.id});
-        // socket.emit('connected',{
-        //     id:socket.id
-        // });
-    });
-
-    ipcMain.on("socket-broadcast",(events, args)=>{
-        console.log(args);
-        io.emit(args.event, args.args);
-    })
+    sockets.start(7532, win);
 })
 
 // Exit cleanly on request from parent process in development mode.
