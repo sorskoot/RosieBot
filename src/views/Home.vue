@@ -1,17 +1,36 @@
 <template>
   <div class="container">
-    <div class="panel"><core-chat-trigger/></div>
-    <div class="panel"><core-event-trigger/></div>
-    <div class="panel"></div>
+    <template  v-for="(item,index) in comps">
+      <div v-bind:key="index" class="panel">
+        <component :is="item" />
+      </div>
+    </template >
+
+    <!-- <div class="panel">
+      <core-chat-trigger />
+    </div>
+    <div class="panel">
+      <core-event-trigger />
+    </div>-->
   </div>
-  
 </template>
 
-<script>
+<script >
+import components from "../plugins/components/_globals";
+
+console.log(components);
 
 export default {
-  name: 'home',
-}
+  name: "home",
+  data() {
+    //     return {
+    //       comps: components
+    return {
+      comps: components
+    };
+  }
+  //}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -28,14 +47,14 @@ export default {
   min-height: 100px;
 }
 
-@media screen and (min-width:916px) {
-   .container {
-       flex-wrap:nowrap;
-   } 
-   
-    .panel {
-        flex-basis:1;
-        order:1;
-    }
+@media screen and (min-width: 916px) {
+  .container {
+    flex-wrap: nowrap;
+  }
+
+  .panel {
+    flex-basis: 1;
+    order: 1;
+  }
 }
 </style>

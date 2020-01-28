@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import { Trigger } from '../../../lib';
-import eventComponent from './event-trigger';
+// import eventComponent from './event-trigger';
 
 /**
  * Triggers when a Twitch event event happens.
@@ -19,10 +19,10 @@ class EventTrigger extends Trigger {
     * @param {Vue} vue the Vue instance of the application
     */
     addComponent(vue) {
-        console.log('core-event-trigger loaded');
-        console.log(eventComponent);
-        vue.component('core-event-trigger', eventComponent)
-        this.component = eventComponent;
+        // console.log('core-event-trigger loaded');
+        // console.log(eventComponent);
+        // vue.component('core-event-trigger', eventComponent)
+        // this.component = eventComponent;
     }
 
     initialize(options) {
