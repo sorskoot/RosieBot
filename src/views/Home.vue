@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <div class="panel"><HelloWorld/></div>
     <div class="panel"><core-chat-trigger/></div>
     <div class="panel"><core-event-trigger/></div>
     <div class="panel"></div>
@@ -9,13 +8,9 @@
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'home',
-  components: {
-    HelloWorld
-  }
 }
 </script>
 
