@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import { Trigger } from '../../../lib';
-import chatCommandComponent from './chat-trigger';
 
 /**
  * Trigger that fires a trigger event when a '!' command is received in chat
@@ -12,14 +11,6 @@ class ChatCommandTrigger extends Trigger {
      */
     constructor() {
         super("Chat Command", 'rosie.core.trigger.chat.command');
-    }
-
-    /**
-     * Called by the base class to add a UI component
-     * @param {Vue} vue the Vue instance of the application
-     */
-    addComponent(vue) {
-        vue.component('core-chat-trigger', chatCommandComponent)
     }
 
     /**

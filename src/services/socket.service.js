@@ -25,7 +25,7 @@ class SocketService extends EventEmitter {
      * @param {string} event the key to use when emitting
      * @param {object[]} args The message/object to send to all 
      */
-    emit(event, ...args){
+    emit(event, args){
         ipcRenderer.send("socket-broadcast",{event, args});
     }
 }

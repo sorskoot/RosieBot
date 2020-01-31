@@ -21,6 +21,7 @@ export const server = {
  * @param {http.ServerResponse} response 
  */
 function handleRequest(win, request, response) {
+    console.log(request.url);
     new Promise((res, rej) => {
         try {
             if(!!~request.url.indexOf("favicon")){

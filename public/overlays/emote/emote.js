@@ -3,8 +3,8 @@
     let emotes = document.querySelector("#emotes");
 
     socket.on('render emotes', function (msg) {
-        for (emote in msg[0]) {
-            for(let i = 0 ; i<msg[0][emote].length;i++){
+        for (emote in msg) {
+            for(let i = 0 ; i<msg[emote].length;i++){
                 let img = document.createElement('img');
                 img.style.position = "absolute";
                 img.style.left = ~~(Math.random()*800)+'px';

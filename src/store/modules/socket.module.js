@@ -27,8 +27,8 @@ const mutations = {
     [EMIT_SUCCESS](state) { },
     [TRIGGER_RECEIVED](state, event) {
         console.log(event);
-        state.event = event;
-        state.args = 1;
+        state.event = event[0];
+        state.args = event.slice(1);
         state.timestame = +new Date();
     }
 }

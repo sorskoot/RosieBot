@@ -16,14 +16,28 @@ class IpcService {
                 fetch(`/overlays/${page}/${page}.json`)
                     .then(r => r.json())
                     .then(m => {
-                        ipcRenderer.send("webresponse", { redirect: `/overlay/${page}/${m.index}`});
+                        ipcRenderer.send(`webresponse-${arg}`, { redirect: `/overlay/${page}/${m.index}` });
                     })
             } else {
                 let page = arg.replace('/overlay/', '/overlays/');
                 fetch(page)
-                    .then(x => x.text())
+                    .then(x => {
+                        if (x.url.endsWith('.mp3')) {
+                            return x.blob().then(blob => {
+                                return new Promise((r) => {
+                                    blob = blob.slice(0, blob.size, "audio/mp3")
+                                    var reader = new FileReader();
+                                    reader.readAsDataURL(blob);
+                                    reader.onloadend = function () {
+                                        var base64data = reader.result;
+                                        r(base64data);
+                                    }
+                                })
+                            });
+                        }
+                        return x.text()
+                    })
                     .then(d => {
-                        console.log(d);
                         ipcRenderer.send(`webresponse-${arg}`, d);
                     });
             }

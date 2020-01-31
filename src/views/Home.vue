@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <template  v-for="(item,index) in comps">
-      <div v-bind:key="index" class="panel">
+    
+      <div v-bind:key="index" class="panel" v-for="(item,index) in comps">
         <component :is="item" />
       </div>
-    </template >
+    
 
     <!-- <div class="panel">
       <core-chat-trigger />
@@ -15,21 +15,16 @@
   </div>
 </template>
 
-<script >
+<script>
 import components from "../plugins/components/_globals";
-
-console.log(components);
 
 export default {
   name: "home",
   data() {
-    //     return {
-    //       comps: components
     return {
       comps: components
     };
   }
-  //}
 };
 </script>
 
