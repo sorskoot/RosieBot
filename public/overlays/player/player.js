@@ -1,3 +1,5 @@
+const CompressionPlugin = require("compression-webpack-plugin");
+
 (function () {
 
     let music;
@@ -141,7 +143,9 @@
 
         if (command === 'play') {
             audio[currentPlayer].volume = 1;
-            audio[currentPlayer].play();
+            audio[currentPlayer].play().catch(r => {
+                console.log(r);
+            });
         }
         else if (command === 'pause') audio[currentPlayer].pause();
         else if (command === 'reload') document.location.reload(true);
