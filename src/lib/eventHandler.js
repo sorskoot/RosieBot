@@ -60,7 +60,7 @@ class EventHandler {
         } else {
             const event = this.events.find(e =>
                 e.trigger.hasOwnProperty(value.uuid) &&
-                e.trigger[value.uuid] === value.eventName);
+                e.trigger[value.uuid].toLowerCase() === value.eventName.toLowerCase());
             if (event) {
                 if (Array.isArray(event.action)) {
                     for (let index = 0; index < event.action.length; index++) {

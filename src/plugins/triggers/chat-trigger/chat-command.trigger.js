@@ -39,7 +39,7 @@ class ChatCommandTrigger extends Trigger {
         this.commands = [];
         for (let i = 0; i < events.length; i++) {
             if (!!events[i].trigger[this.uuid]) {
-                this.commands.push(events[i].trigger[this.uuid]);
+                this.commands.push(events[i].trigger[this.uuid].toLowerCase());
             }
         }
     }
@@ -49,7 +49,7 @@ class ChatCommandTrigger extends Trigger {
      * @param {string} value 
      */
     storeChange(value) {
-        if(!!~this.commands.indexOf(value.split(' ')[0].trim())) {
+        if(!!~this.commands.indexOf(value.split(' ')[0].toLowerCase().trim())) {
             this.triggerEvent(...value.split(/\s/gi));
         }
     }

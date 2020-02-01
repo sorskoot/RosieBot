@@ -83,7 +83,7 @@ New Architecture:
     ✔ dynamically load modules @done(19-12-18 21:53)
 
     Research:
-        ☐ How to use html pages outside Electron, but served by the app
+        ✔ How to use html pages outside Electron, but served by the app @done(20-02-01 23:03)
             Use IPC to communicate between main and renderer to request page 
             from app. A service provides all pages and content.
 
@@ -127,15 +127,11 @@ New Architecture:
         ☐ VariableAction 
             => broadcaster can set response of action during stream, like `!beer` or `!project`
         ☐ AddCommandAction
-        ☐ BlameAction
-        ☐ FollowageAction
-        ☐ HangmanAction
-        ☐ HypeAction
         ☐ AnimationAction
             => Sequences of actions with time
         ☐ DelayAction
             => Delays the action for a couple of milliseconds
-        ☐ MultiAction
+        ✔ MultiAction @done(20-02-01 23:31)
             => runs mulitple actions at the same time
         ☐ Add tags to action string like `{display-name}` for the name of the viewer
 
@@ -143,6 +139,43 @@ New Architecture:
         ✔ Social @done(19-12-13 22:14)
         ✔ Info @done(19-12-13 22:41)
         ✔ theme @done(19-12-13 22:48)
+
+    To convert from old to new:
+        overlays:
+            ✔ Music player @done(20-01-31 23:04)
+            ☐ @critical end stream credits
+            ☐ @critical pre stream ticker
+            ☐ @critical social links
+            ☐ @critical tts
+                !!keep in mind that there's an endpoint as well to trigger from 
+                  the stream deck
+            ☐ (speech recognition)
+        chat events:
+            ☐ @critical link check
+            ☐ @critical QnA
+            ☐ @critical Shoutout
+            Twitch events:
+                - @critical chat message
+                - @critical tts message
+        chat commands:
+            ☐ beer
+            ☐ blame
+            ☐ command
+            ☐ commands
+            ☐ followage
+            ☐ hype
+            ✔ info @done(20-02-01 23:08)
+            ☐ light
+            ☐ lurk
+            ☐ muted
+            ☐ @critical project
+            ☐ (rosie)
+            ✔ sfx @done(20-02-01 23:27)
+            ☐ so
+            ☐ social
+            ☐ (song)
+            ☐ theme
+            ☐ uptime
 
 Archive:
   ✘ filter on '!' for commands @cancelled(19-07-20 20:23) @project(Todo)
