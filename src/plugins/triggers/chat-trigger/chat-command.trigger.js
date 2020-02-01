@@ -20,7 +20,7 @@ class ChatCommandTrigger extends Trigger {
     storeGetter(state) {
         return state.twitchChat.message.message;
     }
-    
+
     /**
        * Called when the action is installed in Vue
        */
@@ -39,7 +39,14 @@ class ChatCommandTrigger extends Trigger {
         this.commands = [];
         for (let i = 0; i < events.length; i++) {
             if (!!events[i].trigger[this.uuid]) {
-                this.commands.push(events[i].trigger[this.uuid].toLowerCase());
+                if (Array.isArray(events[i].trigger[this.uuid])) {
+                    for (let j = 0; j < events[i].trigger[this.uuid].length; j++) {
+                        const command = events[i].trigger[this.uuid][j];
+                        this.commands.push(command);
+                    }
+                } else {
+                    this.commands.push(events[i].trigger[this.uuid].toLowerCase());
+                }
             }
         }
     }
@@ -49,7 +56,7 @@ class ChatCommandTrigger extends Trigger {
      * @param {string} value 
      */
     storeChange(value) {
-        if(!!~this.commands.indexOf(value.split(' ')[0].toLowerCase().trim())) {
+        if (!!~this.commands.indexOf(value.split(' ')[0].toLowerCase().trim())) {
             this.triggerEvent(...value.split(/\s/gi));
         }
     }
