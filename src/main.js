@@ -5,7 +5,7 @@ import store from './store/store'
 import dotenv from 'dotenv';
 import eventHandler from './lib/eventHandler';
 
-//import { ipcService } from './services/ipc.service';
+import './services/ipc.service';
 
 import triggers from './plugins/triggers';
 import actions from './plugins/actions';

@@ -60,8 +60,8 @@ class EventHandler {
         } else {
             const event = this.events.find(e =>
                 e.trigger.hasOwnProperty(value.uuid) &&
-                (!Array.isArray(e.trigger[value.uuid]) && e.trigger[value.uuid].toLowerCase() === value.eventName.toLowerCase()) ||
-                (Array.isArray(e.trigger[value.uuid]) && !!~e.trigger[value.uuid].findIndex(i=>i.toLowerCase() === value.eventName.toLowerCase()))
+                (!Array.isArray(e.trigger[value.uuid]) && String(e.trigger[value.uuid]).toLowerCase() === String(value.eventName).toLowerCase()) ||
+                (Array.isArray(e.trigger[value.uuid]) && !!~e.trigger[value.uuid].findIndex(i=>String(i).toLowerCase() === String(value.eventName).toLowerCase()))
                 )
             if (event) {
                 if (Array.isArray(event.action)) {
