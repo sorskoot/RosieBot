@@ -1,5 +1,6 @@
 import http from 'http';
-import { BrowserWindow, ipcMain } from 'electron'
+import { BrowserWindow, ipcMain } from 'electron';
+import { API } from './API';
 
 export const server = {
     /**
@@ -11,6 +12,8 @@ export const server = {
         http.createServer(function (request, response) {
             handleRequest(win, request, response);
         }).listen(port);
+
+        let api = new API(win, 7533)
     }
 }
 
@@ -24,18 +27,18 @@ function handleRequest(win, request, response) {
     console.log(request.url);
     new Promise((res, rej) => {
         try {
-            if(!!~request.url.indexOf("favicon")){
+            if (!!~request.url.indexOf("favicon")) {
                 res();
                 return;
             }
             ipcMain.once(`webresponse-${request.url}`, (event, args) => {
-                if(!!args.redirect){
+                if (!!args.redirect) {
                     response.writeHead(302, {
                         'Location': args.redirect
-                      });
+                    });
                     response.end();
                 }
-                else{
+                else {
                     response.statusCode = 200;
                     response.end(args);
                 }
@@ -47,9 +50,10 @@ function handleRequest(win, request, response) {
             rej(e);
         }
     }).then(arg => {
-      
+
     }, rejection => {
         response.statusCode = 500;
         response.end(rejection);
     });
 }
+

@@ -81,7 +81,9 @@ New Architecture:
 
     ☐ default config installed when running for the first time.
     ✔ dynamically load modules @done(19-12-18 21:53)
-
+    ☐ we need a way to have a dynamic api available.
+    ~ https://twitch.c0dr.nl:9384/webhook/tts-send/Welcome to the channel!
+     
     Research:
         ✔ How to use html pages outside Electron, but served by the app @done(20-02-01 23:03)
             Use IPC to communicate between main and renderer to request page 

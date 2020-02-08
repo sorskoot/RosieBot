@@ -2,7 +2,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import { app, protocol, BrowserWindow, Menu,ipcMain } from 'electron'
+import { app, protocol, BrowserWindow, Menu,ipcMain, ipcRenderer } from 'electron'
 import {
     createProtocol,
     installVueDevtools
@@ -11,6 +11,9 @@ import {
 import {menu} from './menu';
 import {server} from './main/server';
 import { sockets } from './main/sockets';
+
+import {cheerio} from 'cheerio';
+import {request} from 'request';
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
@@ -27,8 +30,10 @@ function createWindow() {
     win = new BrowserWindow({
         width: 1280, height: 900,
         webPreferences: {
-            nodeIntegration: true
-        }
+            nodeIntegration: true,
+            webSecurity: false
+        },
+        
     })
     if (process.env.WEBPACK_DEV_SERVER_URL) {
         // Load the url of the dev server if in development mode
@@ -84,8 +89,8 @@ app.on('ready', async () => {
     createWindow()
     
     server.start(7531, win);
-    
     sockets.start(7532, win);
+
 })
 
 // Exit cleanly on request from parent process in development mode.

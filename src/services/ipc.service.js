@@ -42,6 +42,10 @@ class IpcService {
                     });
             }
         });
+
+        ipcRenderer.on('api-request',(event,args)=>{
+            ipcRenderer.send(`api-response-${args.id}`, {message:'w00t!'});
+        });
     }
 }
 

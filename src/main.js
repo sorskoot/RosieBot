@@ -5,6 +5,11 @@ import store from './store/store'
 import dotenv from 'dotenv';
 import eventHandler from './lib/eventHandler';
 
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {fas} from '@fortawesome/free-solid-svg-icons';
+
+library.add(fas);
+
 import './services/ipc.service';
 
 import triggers from './plugins/triggers';
