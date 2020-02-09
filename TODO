@@ -81,7 +81,7 @@ New Architecture:
 
     ☐ default config installed when running for the first time.
     ✔ dynamically load modules @done(19-12-18 21:53)
-    ☐ we need a way to have a dynamic api available.
+    ✔ we need a way to have a dynamic api available. @done(20-02-09 15:14)
     ~ https://twitch.c0dr.nl:9384/webhook/tts-send/Welcome to the channel!
      
     Research:
@@ -148,7 +148,7 @@ New Architecture:
             ☐ @critical end stream credits
             ☐ @critical pre stream ticker
             ☐ @critical social links
-            ☐ @critical tts
+            ✔ tts @done(20-02-09 15:14)
                 !!keep in mind that there's an endpoint as well to trigger from 
                   the stream deck
             ☐ (speech recognition)
@@ -171,6 +171,7 @@ New Architecture:
             ☐ lurk
             ☐ muted
             ☐ @critical project
+                ~ probably needs to have `VariableAction` implemented as well
             ☐ (rosie)
             ✔ sfx @done(20-02-01 23:27)
             ☐ so

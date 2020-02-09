@@ -2,29 +2,31 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import { app, protocol, BrowserWindow, Menu,ipcMain, ipcRenderer } from 'electron'
+import { app, protocol, BrowserWindow, Menu, ipcMain, ipcRenderer } from 'electron'
 import {
     createProtocol,
     installVueDevtools
 } from 'vue-cli-plugin-electron-builder/lib'
 
-import {menu} from './menu';
-import {server} from './main/server';
+import { menu } from './menu';
+import { server } from './main/server';
 import { sockets } from './main/sockets';
-
-import {cheerio} from 'cheerio';
-import {request} from 'request';
+import { WebProxy } from './main/WebProxy';
+import { cheerio } from 'cheerio';
+import { request } from 'request';
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 app.allowRendererProcessReuse = true;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let win
+let win, webproxy;
 
 // Scheme must be registered before the app is ready
-protocol.registerSchemesAsPrivileged([{ scheme: 'app', 
-privileges: { secure: true, standard: true, } }])
+protocol.registerSchemesAsPrivileged([{
+    scheme: 'app',
+    privileges: { secure: true, standard: true, }
+}])
 
 function createWindow() {
     // Create the browser window.
@@ -34,7 +36,7 @@ function createWindow() {
             nodeIntegration: true,
             webSecurity: false
         },
-        
+
     })
     if (process.env.WEBPACK_DEV_SERVER_URL) {
         // Load the url of the dev server if in development mode
@@ -81,17 +83,17 @@ app.on('ready', async () => {
         // If you are not using Windows 10 dark mode, you may uncomment these lines
         // In addition, if the linked issue is closed, you can upgrade electron and uncomment these lines
         try {
-          await installVueDevtools()
+            await installVueDevtools()
         } catch (e) {
-          console.error('Vue Devtools failed to install:', e.toString())
+            console.error('Vue Devtools failed to install:', e.toString())
         }
     }
 
     createWindow()
-    
+
     server.start(7531, win);
     sockets.start(7532, win);
-
+    webproxy = new WebProxy(win);
 })
 
 // Exit cleanly on request from parent process in development mode.

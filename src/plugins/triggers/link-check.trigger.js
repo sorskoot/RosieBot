@@ -1,6 +1,6 @@
 import { Trigger } from '../../lib';
-import { cheerio } from 'cheerio';
-import { request } from 'request';
+import cheerio from 'cheerio';
+import { ipcRenderer } from 'electron';
 
 /**
  * 
@@ -43,7 +43,7 @@ class LinkCheckTrigger extends Trigger {
             Promise.all(getTitles).then(titles => {
                 titles = titles.filter(x => !!x);
                 if (titles.length > 0) {
-                    this.triggerEvent(value.type, `Thank you @${value.user}! You just shared ${titles.length > 1 ? 'links' : 'a link'} to '${titles.join('\' and \'')}' with us.`);
+                    this.triggerEvent('*',`Thank you @${value.user}! You just shared ${titles.length > 1 ? 'links' : 'a link'} to '${titles.join('\' and \'')}' with us.`);
                 }
             }, e => console.log(e))
         }
@@ -59,18 +59,16 @@ class LinkCheckTrigger extends Trigger {
             url = 'https://' + url;
         }
         return new Promise(async (res, rej) => {
-            try {
-                let response = await fetch(url, {mode:"no-cors"});
-                if (response.statusCode == 200) {
-                    let body = await response.body();
-                    const $ = cheerio.load(body);
+            ipcRenderer.on('proxy-response', (event, body) => {
+                try{
+                     const $ = cheerio.load(body);
                     res($("head>title").text());
-                } else {
-                    res(undefined); // just ignore... 
+                }catch(e){
+                    console.log(e);
+                    res(undefined); // resolve anyway.
                 }
-            } catch{
-                res(undefined); // just ignore... 
-            }
+            })
+            ipcRenderer.send('proxy-request', url);
         });
     }
 }
