@@ -18,9 +18,18 @@ const actions = {
     }
 }
 const mutations = {
-    [API_REQUEST_RECEIVED](state, args) { state.id = args.id; state.data = args.data },
-    [API_RESPONSE](state) { },
-    [API_RESPONSE_SUCCESS]() { state.id = 0 }
+    [API_REQUEST_RECEIVED](state, { id, data }) {
+        state.request = {
+            id: id,
+            data: data.data,
+            api: data.api
+        }
+    },
+    [API_RESPONSE](state) { state.busy = true; },
+    [API_RESPONSE_SUCCESS](state) {
+     //   state.request = { id: 0, api: '', data: {} };
+        state.busy = false;
+    }
 }
 
 /**
@@ -29,8 +38,12 @@ const mutations = {
 export default {
     namespaced: true,
     state: {
-        id: 0,
-        data: {}
+        busy: false,
+        request: {
+            id: 0,
+            data: {},
+            api: ''
+        }
     },
     actions: actions,
     mutations: mutations
