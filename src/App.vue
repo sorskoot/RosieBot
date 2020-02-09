@@ -15,6 +15,7 @@ export default {
     await this.$store.dispatch("socket/open");
     await this.$store.dispatch("twitch/connect");
     await this.$store.dispatch("twitchChat/connect");
+    await this.$store.dispatch("api/open");
 
   }
 };

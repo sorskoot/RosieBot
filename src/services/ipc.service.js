@@ -1,15 +1,17 @@
 import { ipcRenderer } from 'electron';
+import EventEmitter from 'events';
 
 /**
  *  The IPC Service provides a way of communicating between the Electron Main process 
- *  and the Renderer Process. It is used to serve pages.
+ *  and the Renderer Process. It is used to serve pages and handle API requests.
  */
-class IpcService {
+class IpcService extends EventEmitter {
 
     /**
-     * Instantiates a new IPC Sercvices. Subscribes to 
+     * Instantiates a new IPC Services. Subscribes to 
      */
     constructor() {
+        super();
         ipcRenderer.on("webrequest", (event, arg) => {
             if (/^\/overlay\/[a-zA-Z0-0_\-]+$/g.test(arg)) {
                 let page = arg.replace('/overlay/', '');
@@ -42,11 +44,15 @@ class IpcService {
                     });
             }
         });
-
+        let that=this;
         ipcRenderer.on('api-request',(event,args)=>{
-            ipcRenderer.send(`api-response-${args.id}`, {message:'w00t!'});
+          that.emit('api-request',event, args);
         });
+    }
+
+    sendAPI(id, data){
+        ipcRenderer.send(`api-response-${id}`, data);
     }
 }
 
-export const ipcService = new IpcService();
+export default new IpcService();

@@ -34,8 +34,9 @@ export class API {
             response.writeHead(200, { 'Content-Type': 'application/json', 'Rosie': 'v2.0.0' });
             response.write(JSON.stringify(responseData));
         } catch (e) {
+            response.statusMessage = e.message||e;
             response.statusCode = 500;
-            response.statusMessage = e.message;
+            
         } finally {
             response.end();
         };
@@ -48,12 +49,24 @@ export class API {
     handleRequestData(request) {
         return new Promise((res, rej) => {
             let data = [];
+            let api = request.url.split('/')[1];
+            if(!api){
+                rej('no API specified in request URL');
+            }
             request.on('data', chunk => {
                 data.push(chunk)
             })
             request.on('end', () => {
-                res(JSON.parse(data));
+                let d = { api: api };
+                if (data.length !== 0) {
+                    d.data = JSON.parse(data);
+                }else{
+                    d.data = request.url.split('/').slice(2).join('/');
+                }
+
+                res(d);
             })
+
         })
     }
 

@@ -1,4 +1,3 @@
-import SocketService from '../../services/socket.service';
 import socketService from '../../services/socket.service';
 
 const CONNECTION_SUCCESS = '✅ Socket connection opened ';
@@ -16,7 +15,7 @@ const actions = {
     },
     emit({ commit }, { event, args }) {
         commit(EMIT);
-        SocketService.emit(event, args);
+        socketService.emit(event, args);
         commit(EMIT_SUCCESS);
     }
 }
