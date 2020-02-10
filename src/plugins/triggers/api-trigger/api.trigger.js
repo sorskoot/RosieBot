@@ -26,7 +26,7 @@ class APITrigger extends Trigger {
      */
     storeChange(request) {
        this.triggerEvent(request.api, request.data)
-       this.$store.dispatch("api/return",{id:request.id,data:"OK"});
+       this.$store.dispatch("api/return",{id:request.id,data:{"status":"OK"}});
     }
 }
 
