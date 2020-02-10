@@ -146,7 +146,7 @@ New Architecture:
         overlays:
             ✔ Music player @done(20-01-31 23:04)
             ☐ @critical end stream credits
-            ☐ @critical pre stream ticker
+            ✔ pre stream ticker @done(20-02-10 21:59)
             ☐ @critical social links
             ✔ tts @done(20-02-09 15:14)
                 !!keep in mind that there's an endpoint as well to trigger from 

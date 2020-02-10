@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <style type='text/css'>
+        body {
+            padding: 50px;
+            font: 14px "Raleway", Helvetica, Arial, sans-serif;
+            font-weight: 900;
+            overflow: hidden;
+        }
+
+        @keyframes ticker {
+
+            0%,
+            1% {
+                opacity: 0;
+                transform: translateX(0px);
+                animation-timing-function: cubic-bezier(0, 0, 0, 1);
+            }
+
+            10% {
+                opacity: 1;
+                transform: translateX(195px);
+                animation-timing-function: linear;
+            }
+
+            90% {
+                opacity: 1;
+                transform: translateX(205px);
+                animation-timing-function: cubic-bezier(1, 0, 1, 1)
+            }
+
+            99%,
+            100% {
+                opacity: 0;
+                transform: translateX(400px);
+                animation-timing-function: linear;
+            }
+        }
+
+        #prestream-ticker .ticker-text {
+            color: white;
+            font-size: 2em;
+            animation: ticker 5s infinite;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="prestream-ticker">
+        <div class="ticker-text"></div>
+    </div>
+    <script src="prestream-ticker.js"></script>
+</body>
+
+</html>
