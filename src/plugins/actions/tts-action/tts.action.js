@@ -30,7 +30,14 @@ class TtsAction extends Action {
      * Executes the action.
      * @param {string} message 
      */
-    execute(message) {
+    execute(message, params) {
+
+        let entries = Object.entries(params[0]);
+        for (let i = 0; i < entries.length; i++) {
+            const [key,value] = entries[i];
+            message = message.replace(`{{${key}}}`, value);
+        }
+
         this.loadBuffer(this.ctx,
             `https://api.streamelements.com/kappa/v2/speech?voice=${this.voice}&text=${message}`)
             .then(d => this.vocoderInstance.vocode(d));

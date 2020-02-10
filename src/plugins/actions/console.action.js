@@ -16,7 +16,14 @@ class ConsoleAction extends Action {
      * Executes the action. Dispatched the message to be send to the console
      * @param {string} message The message to send to the console
      */
-    execute(message) {
+    execute(message, params) {
+        
+        let entries = Object.entries(params[0]);
+        for (let i = 0; i < entries.length; i++) {
+            const [key,value] = entries[i];
+            message = message.replace(`{{${key}}}`, value);
+        }
+
         console.log(message);
     }
 

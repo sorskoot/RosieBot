@@ -37,6 +37,7 @@ TTS:
         ✔ Stream events @done(19-10-21 23:27)
 
 Commands:
+    ☐ !addToToDoList "Add Konami Code in the official website" (fetii1)
     ☐ !funfact - Show a random fun fact about Sorskoot
     ☐ !time - show current time in UTC and CET
     ✔ !sfx - link to https://github.com/sorskoot/RosieBot/blob/master/commands.md#sound-fx made it into => http://bit.ly/sfxCommands @done(19-09-04 14:00)
@@ -147,6 +148,7 @@ New Architecture:
         overlays:
             ✔ Music player @done(20-01-31 23:04)
             ☐ @critical end stream credits
+                ~ Create Azure Webhook to Websocket relay first
             ✔ pre stream ticker @done(20-02-10 21:59)
             ✔ social links @done(20-02-10 22:32)
             ✔ tts @done(20-02-09 15:14)
@@ -158,8 +160,8 @@ New Architecture:
             ☐ @critical QnA
             ☐ @critical Shoutout
             Twitch events:
-                - @critical chat message
-                - @critical tts message
+                ✔ chat message @done(20-02-11 00:00)
+                ✔ tts message @done(20-02-11 00:00)
         chat commands:
             ☐ beer
             ☐ blame

@@ -16,7 +16,14 @@ class ChatMessageAction extends Action {
      * Executes the action. Dispatched the message to be send to Twitch Chat
      * @param {string} message The message to send to chat
      */
-    execute(message) {
+    execute(message, params) {
+
+        let entries = Object.entries(params[0]);
+        for (let i = 0; i < entries.length; i++) {
+            const [key,value] = entries[i];
+            message = message.replace(`{{${key}}}`, value);
+        }
+
         this.$store.dispatch('twitchChat/sendMessage', message);
     }
 

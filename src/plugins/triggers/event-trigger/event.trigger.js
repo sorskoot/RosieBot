@@ -26,7 +26,7 @@ class EventTrigger extends Trigger {
     }
 
     initialize(options) {
-     //   this.component.updateEvent('init');
+        //   this.component.updateEvent('init');
     }
 
     /**
@@ -42,8 +42,8 @@ class EventTrigger extends Trigger {
      * @param {twitchEvent} value 
      */
     storeChange(value) {
-       //this.component.updateEvent(value.type);
-        this.triggerEvent(value.type);
+        //this.component.updateEvent(value.type);
+        this.triggerEvent(value.type, { name: value.name });
     }
 }
 
