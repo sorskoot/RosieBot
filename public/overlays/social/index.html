@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <style type='text/css'>
+        body {
+            padding: 50px;
+            font: 14px "Raleway", Helvetica, Arial, sans-serif;
+            font-weight: 900;
+            overflow: hidden;
+        }
+
+        .fab {
+            font-family: 'fontawesome';
+            font-style: normal;
+        }
+
+        .social {
+            color: #ffaaff;
+            text-shadow: #ffd7ff 0 0 5px, #ffaaff 0 0 25px;
+            font-size: 2em;
+            position: absolute;
+            top: 200px;
+            transition: top 0.5s cubic-bezier(0.4, 0, 1, 1);
+        }
+
+        .social .name {
+            margin-left: 20px;
+        }
+
+        .social.active {
+            top: 0px;
+        }
+
+    </style>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' />
+</head>
+
+<body>
+    <div class="social">
+        <i class="fab fa-twitter"></i>
+        <span class="name">@sorskoot</span>
+    </div>
+    <div class="social">
+        <i class="fab fa-youtube"></i>
+        <span class="name">youtube.com/c/sorskoot</span>
+    </div>
+    <div class="social">
+        <i class="fab fa-instagram"></i>
+        <span class="name">sorskoot360</span>
+    </div>
+    <div class="social">
+        <i class="fab fa-github"></i>
+        <span class="name">github.com/sorskoot</span>
+    </div>
+
+    <script src="social.js"></script>
+</body>
+
+</html>
