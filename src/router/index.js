@@ -15,6 +15,7 @@ const routes = [
 const router = new VueRouter({
   routes,
 })
+
 router.beforeEach((to, from, next) => {
     console.log("beforeEach");
     /* must call `next` */
@@ -30,4 +31,5 @@ router.beforeEach((to, from, next) => {
   router.afterEach((to, from) => {
     console.log("afterEach");
   })
+  
 export default router

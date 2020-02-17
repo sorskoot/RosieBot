@@ -18,7 +18,7 @@ class ChatCommandTrigger extends Trigger {
      * @param {*} state 
      */
     storeGetter(state) {
-        return state.twitchChat.message.message;
+        return state.twitchChat.message;
     }
 
     /**
@@ -55,9 +55,9 @@ class ChatCommandTrigger extends Trigger {
      * Called when a chat message is received and raises a trigger event 
      * @param {string} value 
      */
-    storeChange(value) {
-        if (!!~this.commands.indexOf(value.split(' ')[0].toLowerCase().trim())) {
-            this.triggerEvent(...value.split(/\s/gi));
+    storeChange({message}) {
+        if (!!~this.commands.indexOf(message.split(' ')[0].toLowerCase().trim())) {
+            this.triggerEvent(...message.split(/\s/gi));
         }
     }
 }

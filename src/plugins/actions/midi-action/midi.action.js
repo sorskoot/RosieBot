@@ -26,7 +26,11 @@ class MidiAction extends Action {
      * @param {string} data The data from the config
      */
     execute(data) {
-        this.midiService.triggerMidiNote(data.outputId, data.note);
+        if(!!data.message){
+            this.midiService.triggerMidi(data.outputId, ...data.message);
+        }else{
+            this.midiService.triggerMidiNote(data.outputId, data.note);
+        }
     }
 }
 

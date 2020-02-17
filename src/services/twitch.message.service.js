@@ -46,6 +46,11 @@ class TwitchMessageService {
                 channel // process.dotenv.TWITCH_CHANNEL
             ]
         });
+        
+        this.client.on('subscription',(t, c, m, s)=>{
+            console.log(t,c,m,s)
+        });
+
         this.client.on('message', (target, context, msg, self) => this.onMessageHandler(context, msg, self));
         return new Promise((res, rej) => {
             this.client.connect()

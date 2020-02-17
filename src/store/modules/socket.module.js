@@ -28,7 +28,7 @@ const mutations = {
         console.log(event);
         state.event = event[0];
         state.args = event.slice(1);
-        state.timestame = +new Date();
+        state.timestamp = +new Date();
     }
 }
 
@@ -40,7 +40,7 @@ export default {
     state: {
         event:'',
         args:{},
-        timestame:0
+        timestamp:0
     },
     actions: actions,
     mutations: mutations

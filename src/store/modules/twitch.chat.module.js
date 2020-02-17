@@ -72,6 +72,7 @@ const mutations = {
 
     [TWITCH_IRC_MESSAGE](state, message) {
         state.message = message
+        state.message.timestamp = +new Date();
     },
     [TWITCH_IRC_SEND_MESSAGE](state) {state.isSendingMessage = true;},
     [TWITCH_IRC_SEND_MESSAGE_SUCCESS](state) { state.isSendingMessage = false; },
@@ -87,7 +88,8 @@ export default {
             user: '',
             message: '',
             emotes: [],
-            badges: []
+            badges: [],
+            timestamp : 0
         }
     },
     getters: getters,

@@ -1,5 +1,3 @@
-const CompressionPlugin = require("compression-webpack-plugin");
-
 (function () {
 
     let music;

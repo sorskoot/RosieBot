@@ -85,7 +85,7 @@ New Architecture:
     ✔ dynamically load modules @done(19-12-18 21:53)
     ✔ we need a way to have a dynamic api available. @done(20-02-09 15:14)
     ~ https://twitch.c0dr.nl:9384/webhook/tts-send/Welcome to the channel!
-     
+
     Research:
         ✔ How to use html pages outside Electron, but served by the app @done(20-02-01 23:03)
             Use IPC to communicate between main and renderer to request page 
@@ -133,11 +133,12 @@ New Architecture:
         ☐ AddCommandAction
         ☐ AnimationAction
             => Sequences of actions with time
-        ☐ DelayAction
+            -> could be the delay action in combination with multiaction
+        ✔ DelayAction @done(20-02-17 22:05)
             => Delays the action for a couple of milliseconds
         ✔ MultiAction @done(20-02-01 23:31)
             => runs mulitple actions at the same time
-        ☐ Add tags to action string like `{display-name}` for the name of the viewer
+        ✔ Add tags to action string like `{display-name}` for the name of the viewer @done(20-02-17 20:46)
 
     Config:
         ✔ Social @done(19-12-13 22:14)
@@ -157,7 +158,7 @@ New Architecture:
             ☐ (speech recognition)
         chat events:
             ✔ link check @done(20-02-10 21:46)
-            ☐ @critical QnA
+            ☐ @today @critical QnA
             ☐ @critical Shoutout
             Twitch events:
                 ✔ chat message @done(20-02-11 00:00)
@@ -182,6 +183,10 @@ New Architecture:
             ☐ (song)
             ☐ theme
             ☐ uptime
+    Bugs:
+        ☐ Change the volume of the stream during the alert
+            => need to have the delay action in place to send 2 midi events
+            
 
 Archive:
   ✘ filter on '!' for commands @cancelled(19-07-20 20:23) @project(Todo)
