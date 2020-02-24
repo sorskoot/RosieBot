@@ -1,6 +1,7 @@
 import { Action } from '../../../lib';
-import {HueService} from './hue.service';
+import { HueService } from './hue.service';
 
+let hueService;
 /**
  * Action to control a Hue light
  */
@@ -12,20 +13,30 @@ class HueAction extends Action {
     constructor() {
         super('Hue action', 'com.sorskoot.hue.action');
     }
-    
-    onInstall(){
+
+    onInstall() {
         this.$store.watch(
             state => state.config.config['com.sorskoot.hue.action'],
-            newValue => this.hueService = new HueService(newValue));
+            newValue => {
+                if (!hueService) {
+                    hueService = new HueService(newValue)
+                };
+            });
     }
-    
+
     /**
      * Executes the action.
-     * @param {string} color 
+     * @param {string|object} color color to change to or object containing lightId and color
      */
     execute(color) {
-        if(!!this.hueService){
-            this.hueService.setColor(color).catch(e=>console.error(e));
+        if (!!hueService) {
+            if (color.lightId) {
+
+            } else {
+                hueService.setColor(color);
+                    // .then(x => console.log(`done with color:${color}`))
+                    // .catch(e => console.error(e));
+            }
         }
     }
 

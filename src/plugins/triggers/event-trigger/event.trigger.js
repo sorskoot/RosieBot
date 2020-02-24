@@ -43,7 +43,7 @@ class EventTrigger extends Trigger {
      */
     storeChange(value) {
         //this.component.updateEvent(value.type);
-        this.triggerEvent(value.type, { name: value.name });
+        this.triggerEvent(value.type, value);
     }
 }
 

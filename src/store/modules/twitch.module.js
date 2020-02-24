@@ -29,8 +29,9 @@ const actions = {
                     });
                 });
 
-                streamlabsService.addListener('sub', (e) => {
+                streamlabsService.addListener('subscription', (e) => {
                     console.log(e);
+                    commit(TWITCH_EVENT, e);
                 })
 
                 commit(TWITCH_CONNECT_SUCCESS);

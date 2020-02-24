@@ -1,4 +1,5 @@
 Todo:
+    ☐ Create a Bugger / DeBugger emote
     ☐ Be able to play soundeffects when commands are inside messages
     ☐ Getting code documentation everywhere!
     ☐ Play youtube Video on stream (donations or something).
@@ -158,7 +159,7 @@ New Architecture:
             ☐ (speech recognition)
         chat events:
             ✔ link check @done(20-02-10 21:46)
-            ☐ @today @critical QnA
+            ☐ @critical QnA
             ☐ @critical Shoutout
             Twitch events:
                 ✔ chat message @done(20-02-11 00:00)
@@ -171,7 +172,9 @@ New Architecture:
             ☐ followage
             ☐ hype
             ✔ info @done(20-02-01 23:08)
-            ☐ light
+            ☐ @today light
+                ☐ @critical copmode
+                ☐ hype
             ☐ lurk
             ☐ muted
             ☐ @critical project
@@ -182,11 +185,12 @@ New Architecture:
             ☐ social
             ☐ (song)
             ☐ theme
-            ☐ uptime
+            ☐ @high uptime
+            ☐ !addToToDoList
     Bugs:
-        ☐ Change the volume of the stream during the alert
+        ✔ Change the volume of the stream during the alert @done(20-02-24 20:43)
             => need to have the delay action in place to send 2 midi events
-            
+        ☐ when opening app (TMI) => "Uncaught TypeError: request is not a function"
 
 Archive:
   ✘ filter on '!' for commands @cancelled(19-07-20 20:23) @project(Todo)

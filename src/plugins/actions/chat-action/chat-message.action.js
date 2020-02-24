@@ -21,12 +21,18 @@ class ChatMessageAction extends Action {
             let entries = Object.entries(params[0]);
             for (let i = 0; i < entries.length; i++) {
                 const [key, value] = entries[i];
-                message = message.replace(`{{${key}}}`, value);
+                message = replaceAll(message,`{{${key}}}`,value);
             }
         }
         this.$store.dispatch('twitchChat/sendMessage', message);
     }
 
 }
+function escapeRegExp(string) {
+    return string.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+  }
+function replaceAll(str, find, replace) {
+    return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
+  }
 
 export default new ChatMessageAction();

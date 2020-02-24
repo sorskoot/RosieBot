@@ -42,8 +42,21 @@ class StreamlabsService extends EventEmitter {
                         type: 'follow',
                         name: eventData.message[0].name });
                     break;
+                case 'sub':
                 case 'subscription':
-                    this.emit('sub', { type: 'sub' });
+                case 'resub':
+                    this.emit('subscription', 
+                    { 
+                        type: 'subscription',
+                        name: eventData.message[0].name,
+                        months: eventData.message[0].months,
+                        message: eventData.message[0].message,
+                        emotes: eventData.message[0].emotes,
+                        sub_plan: eventData.message[0].sub_plan,
+                        months: eventData.message[0].months,
+                        streak: eventData.message[0].streak_months,
+                        gifter: eventData.message[0].gifter
+                     });
                     break;
                 case 'raid':
                     this.emit('raid',

@@ -19,10 +19,10 @@ let tuyaDeviceFound = false;
 tuyaDevice.find().then(() => {
 
     tuyaDevice.connect();
-    tuyaDeviceFound=true;
+    tuyaDeviceFound = true;
 }).catch(e => {
     console.log('could not connect to ledstrip.')
-    
+
 });
 
 let initialized = false;
@@ -239,15 +239,17 @@ function changeLightBri(bri, transitiontime = 10, lightId = 17) {
 }
 
 function callLight(state, lightId = 17) {
-    return new Promise((res, rej) => request.put(`${process.env.HUE_URL}/lights/${lightId}/state`, {
-        json: state
-    }, function (error, response, body) {
-        if (!!error) {
-            console.error(error.message);
-            rej(error);
-        }
-        res(body);
-    }));
+    return new Promise((res, rej) => {
+        request.put(`${process.env.HUE_URL}/lights/${lightId}/state`, {
+            json: state
+        }, function (error, response, body) {
+            if (!!error) {
+                console.error(error.message);
+                rej(error);
+            }
+            res(body);
+        });
+    });
 }
 
 function changeLightRGB(R, G, B, transitiontime) {
