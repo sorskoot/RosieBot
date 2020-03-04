@@ -173,9 +173,6 @@
     async function next() {
         let path = `${music.path}/${music.songs[~~(Math.random() * music.songs.length)]}`;
         filesocket.emit('request-file', path);
-        return;
-        let f = await fetch(`${music.path}/${encodeURI(music.songs[~~(Math.random() * music.songs.length)])}`)
-    
     }
 
     function getRandomColor() {

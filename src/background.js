@@ -26,8 +26,10 @@ let win, webproxy;
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([{
     scheme: 'app',
-    // privileges: { secure: true, standard: true,bypassCSP:true }
-    privileges: { standard: true, secure: true }
+    privileges: { 
+        supportFetchAPI:true,
+        secure: true, standard: true,bypassCSP:true }
+    
 }])
 
 function createWindow() {

@@ -26,7 +26,7 @@ class TtsAction extends Action {
     async initialize() {
 
 
-        let carrier = await this.loadBuffer(this.ctx, 'saw.wav');
+        let carrier = await this.loadBuffer(this.ctx, path.join(__static, 'saw.wav'));
         this.vocoderInstance.init(this.ctx, carrier);
     }
 
@@ -53,16 +53,13 @@ class TtsAction extends Action {
      * @param {string} path Path/URL to the audio
      */
     async loadBuffer(context, filepath) {
-        /* use `path` to create the full path to our asset */
-    const pathToAsset = path.join(__static, filepath)
-
-        // /* use `fs` to consume the path and read our asset */
+                // /* use `fs` to consume the path and read our asset */
         // const reader = fs.readFileSync(pathToAsset, 'utf8')
         // let buffer = new ArrayBuffer(reader.length);
         // for (var i=0, strLen=reader.length; i < strLen; i++) {
         //     buffer[i] = reader.charCodeAt(i);
         //   }
-         let response = await fetch(pathToAsset);
+         let response = await fetch(filepath);
          let buffer = await response.arrayBuffer();
         return new Promise((res, rej) => {
             context.decodeAudioData(buffer, function (theBuffer) {

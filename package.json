@@ -16,6 +16,10 @@
     "start": "vue-cli-service electron:serve"
   },
   "main": "background.js",
+  "protocols": {
+    "name": "electron-internal-linking",
+    "schemes": ["app"]
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
