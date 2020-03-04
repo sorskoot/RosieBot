@@ -12,6 +12,7 @@ import { menu } from './menu';
 import { server } from './main/server';
 import { sockets } from './main/sockets';
 import { WebProxy } from './main/WebProxy';
+import { fileRequest } from './main/FileRequest';
 import { cheerio } from 'cheerio';
 import { request } from 'request';
 
@@ -25,7 +26,8 @@ let win, webproxy;
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([{
     scheme: 'app',
-    privileges: { secure: true, standard: true, }
+    // privileges: { secure: true, standard: true,bypassCSP:true }
+    privileges: { standard: true, secure: true }
 }])
 
 function createWindow() {
@@ -93,6 +95,7 @@ app.on('ready', async () => {
 
     server.start(7531, win);
     sockets.start(7532, win);
+    fileRequest.start(7535);
     webproxy = new WebProxy(win);
 })
 

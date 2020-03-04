@@ -11,6 +11,7 @@
     const FFT_SIZE = 2048;
 
     let socket = io('http://localhost:7532');
+    let filesocket = io('http://localhost:7535');
     // socket.emit('websocket-trigger',["player-remote","next"]);
     let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     let analyser = audioCtx.createAnalyser();
@@ -158,21 +159,23 @@
             currentVolume = command.volume / 100;
         }
     }
-
-    async function next() {
-        let f = await fetch(`${music.path}/${encodeURI(music.songs[~~(Math.random() * music.songs.length)])}`)
-        let m = await f.text();
+    filesocket.on('file-response',data=>{
+        var blob = new Blob([new Uint8Array(data, 0, data.length)], { type: 'audio/mpeg' });
 
         player.removeChild(audio[currentPlayer]);
         audio[currentPlayer] = createAudioElement(currentPlayer);
         player.appendChild(audio[currentPlayer]);
-        //        transitioning = false;
-        //    console.log("transition done", currentPlayer, (currentPlayer + 1) % 2);
-        //  currentPlayer = (currentPlayer + 1) % 2;
-        // audio[currentPlayer].ontimeupdate = onTimeUpdate;
-        audio[currentPlayer].src = m;
+
+        audio[currentPlayer].src = URL.createObjectURL(blob);
         audio[currentPlayer].play();
         audio[currentPlayer].onended = onEnded;
+    })
+    async function next() {
+        let path = `${music.path}/${music.songs[~~(Math.random() * music.songs.length)]}`;
+        filesocket.emit('request-file', path);
+        return;
+        let f = await fetch(`${music.path}/${encodeURI(music.songs[~~(Math.random() * music.songs.length)])}`)
+    
     }
 
     function getRandomColor() {

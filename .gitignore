@@ -64,3 +64,5 @@ typings/
 
 #Electron-builder output
 /dist_electron
+
+/dist
