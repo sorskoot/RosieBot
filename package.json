@@ -18,7 +18,9 @@
   "main": "background.js",
   "protocols": {
     "name": "electron-internal-linking",
-    "schemes": ["app"]
+    "schemes": [
+      "app"
+    ]
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
@@ -32,6 +34,7 @@
     "debug": "^4.1.1",
     "dotenv": "^8.2.0",
     "electron-json-config": "^1.5.3",
+    "electron-store": "^5.1.1",
     "express": "^4.17.1",
     "g": "^2.0.1",
     "moment": "^2.24.0",

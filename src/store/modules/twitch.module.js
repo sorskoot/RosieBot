@@ -1,4 +1,5 @@
 import { twitchService } from '../../services/twitch.service';
+import twitchPubSubService from '../../services/twitchPubSub.service';
 import streamlabsService from '../../services/streamlabs.service';
 
 export const TWITCH_CONNECT = 'Connect to twitch'
@@ -13,6 +14,19 @@ export const GET_USER_FAIL = '❌ Get User Fail';
 const actions = {
     connect({ commit, rootState }) {
         commit(TWITCH_CONNECT);
+        
+        twitchPubSubService.connect().then(tps=>{
+            twitchPubSubService.on('channel-points', e=>{
+                commit(TWITCH_EVENT, {
+                    type: 'channel-points',
+                    name: e.name,
+                    reward: e.reward,
+                    message:e.message,
+                    timestamp: +new Date()
+                });
+            })
+        });
+
         streamlabsService.connect(rootState.config.config.streamlabs)
             .then(value => {
                 streamlabsService.on('follow', (e) => {

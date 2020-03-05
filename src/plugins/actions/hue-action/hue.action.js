@@ -28,7 +28,15 @@ class HueAction extends Action {
      * Executes the action.
      * @param {string|object} color color to change to or object containing lightId and color
      */
-    execute(color) {
+    execute(color, params) {
+        if (params && !!params.length) {
+            let entries = Object.entries(params[0]);
+            for (let i = 0; i < entries.length; i++) {
+                const [key, value] = entries[i];
+                color = color.replace(`{{${key}}}`, value);
+            }
+        }
+        
         if (!!hueService) {
             if (color.lightId) {
 

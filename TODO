@@ -81,7 +81,8 @@ New Architecture:
     The new architecture will be based on plugins. Core will provide UI, 
     a connection to Twitch (maybe other services) and an API to connect the
     plugins to.
-
+    ☐ implement RFC-1149
+    ☐ @today Integrate Twitch PubSub for points and subs etc
     ☐ default config installed when running for the first time.
     ✔ dynamically load modules @done(19-12-18 21:53)
     ✔ we need a way to have a dynamic api available. @done(20-02-09 15:14)

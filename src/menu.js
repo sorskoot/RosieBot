@@ -24,7 +24,20 @@ const template = [
     {
         label: 'File',
         submenu: [
-            isMac ? { role: 'close' } : { role: 'quit' }
+            isMac ? { role: 'close' } : { role: 'quit' },
+            {
+                role: 'config',
+                label: 'Authorize …',
+                click: async () => {
+                    const { twitchOauth } = require('./main/TwitchOauth')
+                    try {
+                        let code = await twitchOauth.handle();
+                    } catch (e) {
+                        console.log(e);
+                    }
+                }
+            },
+
         ]
     },
     // { role: 'editMenu' }

@@ -12,7 +12,7 @@ let triggers = [];
 requireTrigger.keys().forEach((fileName) => {
   const trigger = requireTrigger(fileName)
   triggers.push(trigger.default || trigger);
-  
+
   Vue.use(trigger.default || trigger, { store });
 })
 

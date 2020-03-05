@@ -5,7 +5,7 @@ import { Plugin } from './plugin';
  * Triggers are used to determain what Actions should be called.
  */
 export class Trigger extends Plugin {
-   
+
     /**
     * constructs a new trigger plugin. Should not be called directly
     * @param {string} name Name of the trigger plugin 
@@ -26,7 +26,9 @@ export class Trigger extends Plugin {
     }
 
     triggerEvent(eventName, ...params) {
-        this.$store.dispatch('triggerAction/trigger',{uuid:this.uuid, eventName, params});
+        setTimeout(() => {
+            this.$store.dispatch('triggerAction/trigger', { uuid: this.uuid, eventName, params });
+        });
     }
 
     /**
