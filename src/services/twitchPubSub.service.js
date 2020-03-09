@@ -16,33 +16,18 @@ class TwitchPubSubService extends EventEmitter {
         return new Promise((res, rej) => {
             try {
                 this.socket = new WebSocket(this._url);
-                this.socket.onopen = (event) => {
-                   
-                    let message = {
-                        type: 'LISTEN',
-                        nonce: nonce(15),
-                        data: {
-                            topics: ["channel-points-channel-v1.77504814"],
-                            auth_token: `${this._token}`
-                        }
-                    };
+                this.socket.onopen = event =>this.onOpen(event);
 
-                    this.socket.send(JSON.stringify(message));
-
-                    this.heartbeat();
-                    this.heartbeatHandle = setInterval(()=>this.heartbeat(), 60000);
-                }
-                
-                this.socket.onmessage =  (event,a)=>{
+                this.socket.onmessage = (event, a) => {
                     let data = JSON.parse(event.data);
                     this.onEvent(data);
                 }
 
-                this.socket.onerror  =  (event)=>{
-                    console.log('error',event);
+                this.socket.onerror = (event) => {
+                    console.log('error', event);
                 }
 
-                this.socket.onclose  =  (event)=>{
+                this.socket.onclose = (event) => {
                     console.log('onclose', event);
                 }
 
@@ -53,6 +38,22 @@ class TwitchPubSubService extends EventEmitter {
         });
     }
 
+    onOpen(event) {
+        let message = {
+            type: 'LISTEN',
+            nonce: nonce(15),
+            data: {
+                topics: ["channel-points-channel-v1.77504814"],
+                auth_token: `${this._token}`
+            }
+        };
+
+        this.socket.send(JSON.stringify(message));
+
+        this.heartbeat();
+        this.heartbeatHandle = setInterval(() => this.heartbeat(), 60000);
+    }
+
     heartbeat() {
         let message = {
             type: 'PING'
@@ -61,16 +62,17 @@ class TwitchPubSubService extends EventEmitter {
     }
 
     onEvent(eventData) {
-        switch(eventData.type){
+        switch (eventData.type) {
             case "PONG":
                 console.log('heartbeat...');
                 break;
             case "RESPONSE":
+                if(eventData)
                 console.log(eventData);
                 break;
             case "MESSAGE":
 
-                if(eventData.data.topic.startsWith('channel-points-channel-v1')){
+                if (eventData.data.topic.startsWith('channel-points-channel-v1')) {
                     let message = JSON.parse(eventData.data.message);
                     this.handleChannelPoints(message.data.redemption);
                 }
@@ -82,14 +84,14 @@ class TwitchPubSubService extends EventEmitter {
         }
     }
 
-    handleChannelPoints(reward){
+    handleChannelPoints(reward) {
         this.emit('channel-points',
-        {
-            type: 'channel-points',
-            name:reward.user.display_name,
-            reward: reward.reward.title,
-            message: reward.user_input
-        })
+            {
+                type: 'channel-points',
+                name: reward.user.display_name,
+                reward: reward.reward.title,
+                message: reward.user_input
+            })
     }
 }
 

@@ -82,7 +82,7 @@ New Architecture:
     a connection to Twitch (maybe other services) and an API to connect the
     plugins to.
     ☐ implement RFC-1149
-    ☐ @today Integrate Twitch PubSub for points and subs etc
+    ✔ Integrate Twitch PubSub for points @done(20-03-06 10:14)
     ☐ default config installed when running for the first time.
     ✔ dynamically load modules @done(19-12-18 21:53)
     ✔ we need a way to have a dynamic api available. @done(20-02-09 15:14)
@@ -119,7 +119,7 @@ New Architecture:
     
     Triggers:
         ✔ emotes @done(20-02-01 22:34)
-        ☐ link check
+        ✔ link check @done(20-03-09 11:44)
         ☐ QnA
         ☐ Shoutout
         ✔ Timed @done(19-12-16 22:58)

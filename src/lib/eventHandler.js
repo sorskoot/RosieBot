@@ -61,8 +61,8 @@ class EventHandler {
             const event = this.events.find(e =>
                 e.trigger.hasOwnProperty(value.uuid) &&
                 (!Array.isArray(e.trigger[value.uuid]) && String(e.trigger[value.uuid]).toLowerCase() === String(value.eventName).toLowerCase()) ||
-                (Array.isArray(e.trigger[value.uuid]) && !!~e.trigger[value.uuid].findIndex(i=>String(i).toLowerCase() === String(value.eventName).toLowerCase()))
-                )
+                (Array.isArray(e.trigger[value.uuid]) && !!~e.trigger[value.uuid].findIndex(i => String(i).toLowerCase() === String(value.eventName).toLowerCase()))
+            )
             if (event) {
                 if (Array.isArray(event.action)) {
                     for (let index = 0; index < event.action.length; index++) {
@@ -82,10 +82,20 @@ class EventHandler {
 
         if (typeof action === "string") {
             actionToCall = this.actions.find(x => x.uuid === action);
-            actionToCall.execute(...newValue.params);
+            if (!actionToCall) {
+                console.error(`Action (${action}) not found`);
+            }
+            else {
+                actionToCall.execute(...newValue.params);
+            }
         } else {
             actionToCall = this.actions.find(x => x.uuid === Object.getOwnPropertyNames(action)[0]);
-            actionToCall.execute(action[actionToCall.uuid], newValue.params);
+            if (!actionToCall) {
+                console.error(`Action (${action}) not found`);
+            }
+            else {
+                actionToCall.execute(action[actionToCall.uuid], newValue.params);
+            }
         }
     }
 }
