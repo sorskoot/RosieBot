@@ -1,5 +1,4 @@
 import EventEmitter from 'events';
-import { runInThisContext } from 'vm';
 import Store from 'electron-store';
 
 class TwitchPubSubService extends EventEmitter {

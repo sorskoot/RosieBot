@@ -1,4 +1,4 @@
-import { twitchService } from '../../services/twitch.service';
+import twitchService from '../../services/twitch.service';
 import twitchPubSubService from '../../services/twitchPubSub.service';
 import streamlabsService from '../../services/streamlabs.service';
 
@@ -10,6 +10,11 @@ export const TWITCH_EVENT = '👍 Received Event from Twitch';
 export const GET_USER = 'Get User';
 export const GET_USER_SUCCESS = '✅ Get User Success';
 export const GET_USER_FAIL = '❌ Get User Fail';
+
+export const GET_STREAM_DATA = 'Get Stream Data';
+export const GET_STREAM_DATA_SUCCESS = '✅ Get Stream Data Success';
+export const GET_STREAM_DATA_FAIL = '❌ Get Stream Data Fail';
+
 
 const actions = {
     connect({ commit, rootState }) {
@@ -59,7 +64,17 @@ const actions = {
                 user => commit(GET_USER_SUCCESS, user.data[0]),
                 error => commit(GET_USER_FAIL, error)
             );
+    },
+
+    getStreamData({commit}, username){
+        commit(GET_STREAM_DATA);
+        twitchService.getUser(username)
+        .then(
+            data => commit(GET_STREAM_DATA_SUCCESS, data),
+            error => commit(GET_STREAM_DATA_FAIL, error)
+        );
     }
+    
 }
 const getters = {};
 
@@ -89,6 +104,17 @@ const mutations = {
     [GET_USER_FAIL](state, error) {
         state.loading = false;
         state.error = error;
+    },
+    [GET_STREAM_DATA](state){
+        state.loading = true;
+    },
+    [GET_STREAM_DATA_SUCCESS](state, data){
+        state.streamData = data;
+        state.loading = false;
+    },
+    [GET_STREAM_DATA_FAIL](state,error){
+        state.loading=false;
+        state.error=error;
     }
 }
 
@@ -99,7 +125,8 @@ export default {
         loading: false,
         connecting: false,
         connected: false,
-        event: {}
+        event: {},
+        streamData:{}
     },
     getters: getters,
     actions: actions,

@@ -130,7 +130,9 @@ New Architecture:
     Actions:
         ✔ RandomAction @done(19-12-16 22:58)
             => Sends a random action from the configured array
-        ☐ VariableAction 
+        ☐ @high VariableAction 
+            => this is also the basis for variable commands like !project
+            => maybe they should have a UI as well.
             => broadcaster can set response of action during stream, like `!beer` or `!project`
         ☐ AddCommandAction
         ☐ AnimationAction
@@ -160,21 +162,21 @@ New Architecture:
             ☐ (speech recognition)
         chat events:
             ✔ link check @done(20-02-10 21:46)
-            ☐ @critical QnA
+            ✔ QnA @done(20-03-09 13:31)
             ☐ @critical Shoutout
             Twitch events:
                 ✔ chat message @done(20-02-11 00:00)
                 ✔ tts message @done(20-02-11 00:00)
         chat commands:
-            ☐ beer
-            ☐ blame
-            ☐ command
+            ☐ @low beer
+            ☐ @low blame
+            ☐ @low command
             ☐ commands
             ☐ followage
             ☐ hype
             ✔ info @done(20-02-01 23:08)
-            ☐ @today light
-                ☐ @critical copmode
+            !light:
+                ✔  copmode @done(20-03-09 13:31)
                 ☐ hype
             ☐ lurk
             ☐ muted
@@ -188,6 +190,8 @@ New Architecture:
             ☐ theme
             ☐ @high uptime
             ☐ !addToToDoList
+            ☐ !mark 
+                => add a mark in the stream, if something happens
     Bugs:
         ✔ Change the volume of the stream during the alert @done(20-02-24 20:43)
             => need to have the delay action in place to send 2 midi events
