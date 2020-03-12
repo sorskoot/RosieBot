@@ -120,7 +120,7 @@ New Architecture:
     Triggers:
         ✔ emotes @done(20-02-01 22:34)
         ✔ link check @done(20-03-09 11:44)
-        ☐ QnA
+        ✔ QnA @done(20-03-12 16:56)
         ☐ Shoutout
         ✔ Timed @done(19-12-16 22:58)
         ✔ TwitchEvents (streamlabs) @done(20-02-01 22:35)
@@ -163,7 +163,7 @@ New Architecture:
         chat events:
             ✔ link check @done(20-02-10 21:46)
             ✔ QnA @done(20-03-09 13:31)
-            ☐ @critical Shoutout
+            ✔ Shoutout @done(20-03-12 16:56)
             Twitch events:
                 ✔ chat message @done(20-02-11 00:00)
                 ✔ tts message @done(20-02-11 00:00)

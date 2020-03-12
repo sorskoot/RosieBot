@@ -42,6 +42,7 @@ class TtsAction extends Action {
                 message = message.replace(`{{${key}}}`, value);
             }
         }
+        message = message.replace('_',' ');
         this.loadBuffer(this.ctx,
             `https://api.streamelements.com/kappa/v2/speech?voice=${this.voice}&text=${message}`)
             .then(d => this.vocoderInstance.vocode(d));

@@ -1,14 +1,14 @@
-const defaultMessage = 'It\' one of the live coders! Hello __NAME__! ';
+const defaultMessage = 'It\'s one of the live coders! Hello __NAME__! ';
 
 const Shoutouties = [
     { name: 'fetishlace', message: 'Hi fetishlace! Good to see you again!' },
     { name: 'fetii1', message: 'Hi fetii! Great to have you deconcentrating sorskoot!' },
+    { name: "baldbeardedbuilder", message:"Hey look! It's the bald bearded builder! Hi Michael!" },
     { name: "JitterTed" },
     { name: "davidortinau" },
     { name: "Syropian" },
     { name: "cldubya" },
     { name: "DrMikachu" },
-    //{ name: `かちい` },
     { name: "LizeLive" },
     { name: "FullStackLive" },
     { name: "Talk2meGooseman" },
@@ -31,7 +31,6 @@ const Shoutouties = [
     { name: "illuminatedspace" },
     { name: "Chiefcll" },
     { name: "potatoqualitee" },
-    { name: "theMichaelJolley", message:"Hey look! It's the bald bearded developer! Hi Michael Jolley!" },
     { name: "noopkat" },
     { name: "csharpfritz" },
     { name: "SudoKid" },
