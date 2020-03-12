@@ -46,9 +46,10 @@ const actions = {
         commit(TWITCH_IRC_MESSAGE,
             {
                 user: context['display-name'],
+                color: context.color?context.color:"#FF00FF",
                 message: msg,
                 emotes: context.emotes,
-                badges: context.badges
+                badges: context.badges,
             });
     }
 }

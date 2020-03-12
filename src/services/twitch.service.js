@@ -1,8 +1,8 @@
 import Store from 'electron-store';
 
 class TwitchClass {
-    
-    constructor(){
+
+    constructor() {
         let store = new Store();
         this._token = store.get('oauth-token');
     }
@@ -39,24 +39,29 @@ class TwitchClass {
         return response.json();
     }
 
-    getStreamData(username){
-        return fetch(`https://api.twitch.tv/helix/streams?user_login=${username}`, {
+    async getStreamData(username) {
+        let streamData = await fetch(`https://api.twitch.tv/helix/streams?user_login=${username}`, {
             headers: {
                 'client-id': process.env.TWITCH_CLIENTID,
-                'Authorization':`Bearer ${this._token}`
+                'Authorization': `Bearer ${this._token}`
             }
-        }, function (error, response, body) {
-            if (!!error) {
-                rej(error);
-                return;
-            }
-            if (response.statusCode != 200) {
-                rej(`statuscode: ${response.statusCode}`);
-                return;
-            }
-            res(JSON.parse(body));
-        });
+        }).then(body => body.json());
 
+        console.log(streamData);
+        if (!streamData.data.length) {
+            return {
+                username:username,
+                isLive: false
+            }
+        } else {
+            return {
+                username:username,
+                thumbnailUrl:streamData.data[0].thumbnail_url,
+                title:streamData.data[0].title,
+                startedAt:streamData.data[0].started_at,
+                isLive: true
+            }
+        }
     }
 }
 

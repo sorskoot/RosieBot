@@ -68,7 +68,7 @@ const actions = {
 
     getStreamData({commit}, username){
         commit(GET_STREAM_DATA);
-        twitchService.getUser(username)
+        twitchService.getStreamData(username)
         .then(
             data => commit(GET_STREAM_DATA_SUCCESS, data),
             error => commit(GET_STREAM_DATA_FAIL, error)
