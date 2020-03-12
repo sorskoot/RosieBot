@@ -22,14 +22,21 @@ export default {
 
 <style lang="scss">
 body {
-  background-color: rgb(37, 33, 39);
+  background-color: hsl(280, 8%, 14%);
+  
 }
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #7f66a0;
+  color: hsl(280, 8%, 74%);
+}
+h1{
+    font: size 1.2em;
+    font-family: sans-serif;
+    color: hsl(280, 8%, 94%);
+    margin:0;
+    padding:0;
 }
 
 #nav {

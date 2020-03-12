@@ -1,4 +1,5 @@
 import Store from 'electron-store';
+import moment from 'moment';
 
 class TwitchClass {
 
@@ -54,11 +55,13 @@ class TwitchClass {
                 isLive: false
             }
         } else {
+            const uptime =moment.utc(moment.utc() - moment.utc(streamData.data[0].started_at)); 
             return {
                 username:username,
                 thumbnailUrl:streamData.data[0].thumbnail_url,
                 title:streamData.data[0].title,
                 startedAt:streamData.data[0].started_at,
+                uptime: `${("0" + uptime.hour()).slice (-2)}:${("0" + uptime.minute()).slice (-2)}:${("0" + uptime.second()).slice (-2)}`,
                 isLive: true
             }
         }

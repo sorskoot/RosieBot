@@ -4,6 +4,7 @@ import router from './router'
 import store from './store/store'
 import dotenv from 'dotenv';
 import eventHandler from './lib/eventHandler';
+import './filters/datetimeformat.filter';
 
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {fas} from '@fortawesome/free-solid-svg-icons';

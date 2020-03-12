@@ -46,7 +46,6 @@ export default {
   min-height: 100px;
   //min-width: 300px;
   border-radius: 11px;
-  background: #252127;
   box-shadow: 5px 5px 5px #1e1b20, -5px -5px 5px #2c272e;
 
 }
