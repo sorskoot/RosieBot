@@ -40,7 +40,7 @@ export default {
 .panel {
   margin:11px;
   padding:11px;
-  flex: 1 0 400px;
+  flex: 1 0 350px;
   //flex-basis: 300px;
   //flex-grow: 1;
   min-height: 100px;

@@ -1,6 +1,7 @@
 <template>
-  <div id="player-remote">
-    <div>
+  <div>
+      <h1>Audio Player</h1>
+    <div id="player-remote">
       <div class="neobutton" @click="onReload"><font-awesome-icon icon="sync"/></div>
       <div class="neobutton" @click="onPlay"><font-awesome-icon icon="play"/></div>
       <div class="neobutton" @click="onPause"><font-awesome-icon icon="pause"/></div>

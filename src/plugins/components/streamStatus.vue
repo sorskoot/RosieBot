@@ -16,9 +16,9 @@ import { mapState, mapActions } from "vuex";
 
 export default {
   mounted: async function() {
-    await this.$store.dispatch("twitch/getStreamData", "sorskoot_plays"); //"sorskoot");
+    await this.$store.dispatch("twitch/getStreamData", "sorskoot"); //"sorskoot");
     setInterval(async () => {
-      await this.$store.dispatch("twitch/getStreamData", "sorskoot_plays"); //"sorskoot");
+      await this.$store.dispatch("twitch/getStreamData", "sorskoot"); //"sorskoot");
     }, 30000);
   },
   computed: mapState({

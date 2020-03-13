@@ -32,7 +32,7 @@ body {
   color: hsl(280, 8%, 74%);
 }
 h1{
-    font: size 1.2em;
+    font-size: 1.2em;
     font-family: sans-serif;
     color: hsl(280, 8%, 94%);
     margin:0;
