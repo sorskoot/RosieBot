@@ -171,18 +171,20 @@ New Architecture:
             ☐ @low beer
             ☐ @low blame
             ☐ @low command
-            ☐ commands
+            ✔ commands @done(20-03-13 17:27)
             ☐ followage
-            ☐ hype
+            ✔ hype @done(20-03-13 17:27)
             ✔ info @done(20-02-01 23:08)
             !light:
                 ✔  copmode @done(20-03-09 13:31)
                 ☐ hype
             ☐ lurk
+                ~ difficulty is that right now an action has no knowledge of the context 
+                  and doesn't know WHO typed the command.
             ☐ muted
             ☐ @critical project
                 ~ probably needs to have `VariableAction` implemented as well
-            ☐ (rosie)
+            ✔ (rosie) @done(20-03-13 17:27)
             ✔ sfx @done(20-02-01 23:27)
             ☐ so
             ☐ social

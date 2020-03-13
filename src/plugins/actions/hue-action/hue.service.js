@@ -32,6 +32,21 @@ export class HueService {
             case 'copmode':
                 await this.copMode();
                 break;
+            case 'hype':
+                    await this.hype('purple');
+                    break;
+            case 'greenhype':
+                    await this.hype('green');
+                    break;
+            case 'yellowhype':
+                    await this.hype('yellow');
+                    break;
+            case 'redhype':
+                    await this.hype('red');
+                    break;
+            case 'bluehype':
+                    await this.hype('blue');
+                    break;
             case 'reset':
                 await Promise.all(
                     [this.changeLightBri(MAX_BRIGHTNESS),
@@ -123,6 +138,22 @@ export class HueService {
             .addStep(() => this.changeLightBri(MAX_BRIGHTNESS, 1, 16), 6000)
             .run();
     }
+
+    hype(color) {
+        let sequence = new Sequencer();
+        sequence
+            .addStep(() => this.changeLightColor(color, 1),0)
+            .addStep(() => this.changeLightBri(20, 1, 16), 100);
+        for (let i = 0; i < 20; i++) {
+            sequence
+                .addStep(() => this.changeLightBri(1, 3), 250 + i * 500)    
+                .addStep(() => this.changeLightBri(MAX_BRIGHTNESS, 3), 500 + i * 500);    
+        }
+        return sequence.addStep(() => this.changeLightColor("purple", 1), 10500)
+            .addStep(() => this.changeLightBri(MAX_BRIGHTNESS, 1), 10500)
+            .addStep(() => this.changeLightBri(MAX_BRIGHTNESS, 1, 16), 10500)
+            .run();
+    }
 }
 
 class Sequencer {
@@ -147,6 +178,7 @@ class Sequencer {
         return new Promise(res => {
             for (let i = 0; i < this.steps.length; i++) {
                 setTimeout(() => {
+                    console.log(i);
                     this.steps[i].callback()
                 }, this.steps[i].time);
             }
