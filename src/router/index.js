@@ -17,19 +17,16 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    console.log("beforeEach");
     /* must call `next` */
     next();
   })
   
   router.beforeResolve((to, from, next) => {
-    console.log("beforeResolve");
     /* must call `next` */
     next();
   })
   
   router.afterEach((to, from) => {
-    console.log("afterEach");
   })
   
 export default router

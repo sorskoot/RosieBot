@@ -22,7 +22,6 @@ export class HueService {
     constructor(config) {
         this.light = config.light;
         this.url = config.url;
-        console.log(colors.aqua);
     }
 
     async setColor(color) {

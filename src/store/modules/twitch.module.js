@@ -49,7 +49,6 @@ const actions = {
                 });
 
                 streamlabsService.addListener('subscription', (e) => {
-                    console.log(e);
                     commit(TWITCH_EVENT, e);
                 })
 

@@ -22,13 +22,13 @@ export class MidiService {
 
             for (var entry of access.outputs) {
                 var output = entry[1];
-                console.log( "Output port [type:'" + output.type + "'] id:'" + output.id +
-                  "' manufacturer:'" + output.manufacturer + "' name:'" + output.name +
-                  "' version:'" + output.version + "'" );
+                // console.log( "Output port [type:'" + output.type + "'] id:'" + output.id +
+                //   "' manufacturer:'" + output.manufacturer + "' name:'" + output.name +
+                //   "' version:'" + output.version + "'" );
               }
 
             access.onstatechange = function (e) {
-                console.log(e.port.name, e.port.manufacturer, e.port.state);
+                // console.log(e.port.name, e.port.manufacturer, e.port.state);
             };
         })
     }

@@ -63,11 +63,9 @@ class TwitchPubSubService extends EventEmitter {
     onEvent(eventData) {
         switch (eventData.type) {
             case "PONG":
-                console.log('heartbeat...');
                 break;
             case "RESPONSE":
                 if(eventData)
-                console.log(eventData);
                 break;
             case "MESSAGE":
 

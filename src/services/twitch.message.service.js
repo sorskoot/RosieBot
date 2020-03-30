@@ -56,7 +56,6 @@ class TwitchMessageService {
             this.client.connect()
                 .then((data) => {
                     // data returns [server, port]
-                    console.log(`Twitch IRC Connected.`);
                     res(data);
                 }).catch((err) => {
                     console.log(err);

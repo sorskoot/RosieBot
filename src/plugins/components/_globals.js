@@ -8,7 +8,6 @@ import Vue from 'vue'
 const requireComponent = require.context(
   // Look for files in the current directory
   '.',
-  // Do not look in subdirectories
   false,
   /[\w-]+\.vue$/
 )

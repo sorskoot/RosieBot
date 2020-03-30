@@ -48,7 +48,6 @@ class TwitchClass {
             }
         }).then(body => body.json());
 
-        console.log(streamData);
         if (!streamData.data.length) {
             return {
                 username:username,
