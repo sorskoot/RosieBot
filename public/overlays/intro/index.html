@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <title>Back2Space Player</title>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <a-scene vr-mode-ui="enabled: false">
+        <a-assets>
+            <a-asset-song></a-asset-song>
+        </a-assets>
+        <a-entity>
+            <a-plane sun position="0 120 -430" scale="260 260 260"></a-plane>
+        </a-entity>
+
+        <a-entity id='titlescreen' visible="visible">
+            <a-plane titlescreen="text:Stream Starting" position="0 -.22 -2" scale="4 4 4" rotation="-14.5 0 0"></a-plane>
+            <a-plane neontext countdown  position="0 .44 -1.9" scale="2 2 2"></a-plane>
+        </a-entity>
+
+        <a-entity id='musicscreen' visible="true">
+            <a-plane music position="0 50 -325" scale="600 200 200"></a-plane>
+        </a-entity>
+        <a-entity game>
+            <a-entity mountains wireframe-material="color:#497cdf" position="0 -1 0"></a-entity>
+            <a-entity ground wireframe-material="color:#FF00FF;thickness:0.005"></a-entity>
+        </a-entity>
+        <a-sky space>
+        </a-sky>
+        <a-entity camera position="0 1.6 -.5"  rotation="12.5 -0.5 0" >
+        </a-entity>
+    </a-scene>
+</body>
+
+</html>
