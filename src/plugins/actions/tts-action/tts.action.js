@@ -35,7 +35,7 @@ class TtsAction extends Action {
      * @param {string} message 
      */
     execute(message, params) {
-        if (params && !!params.length) {
+        if (params && !!params.length && !!params[0]) {
             let entries = Object.entries(params[0]);
             for (let i = 0; i < entries.length; i++) {
                 const [key, value] = entries[i];
