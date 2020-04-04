@@ -17,6 +17,7 @@ class PlayerRemoteAction extends Action {
      * @param {string|object} arguments the arguments to send to the remote player
      */
     execute(args) {
+        console.log(args);
         this.$store.dispatch("socket/emit", {
             event: "player",
             args: args

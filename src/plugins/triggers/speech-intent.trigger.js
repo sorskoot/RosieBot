@@ -25,11 +25,15 @@ class SpeechIntentTrigger extends Trigger {
      * @param {twitchEvent} value 
      */
     storeChange(prediction) {
-        if (!prediction.entities) {
-            this.triggerEvent(prediction.intent);
-        } else {
-            console.log(prediction);
-            this.triggerEvent(prediction.intent, prediction.entities[Object.keys(prediction.entities)[0]][0][0]);
+        if (prediction.intent && prediction.intent !== '') {
+            if (!prediction.entities) {
+                this.triggerEvent(prediction.intent);
+            } else {
+                console.log(prediction);
+                let obj = {};
+                obj[Object.keys(prediction.entities)[0]] = prediction.entities[Object.keys(prediction.entities)[0]][0][0];
+                this.triggerEvent(prediction.intent, obj);
+            }
         }
     }
 }

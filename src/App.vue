@@ -17,6 +17,7 @@ export default {
     await this.$store.dispatch("twitchChat/connect");
     await this.$store.dispatch("api/open");
     await this.$store.dispatch("speechrec/start");
+    await this.$store.dispatch("obs/connect");
   }
 };
 </script>

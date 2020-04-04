@@ -36,10 +36,16 @@ export class SpeechRecService extends EventEmitter {
 
         this.recognizer.recognized = async (s, e) => {
             if (e.result.reason === ResultReason.RecognizedSpeech) {
-                let result = await fetch(`https://westeurope.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/${this.config.luisappid}/slots/PRODUCTION/predict?query=${encodeURI(e.result.text)}`,
+                let result = await fetch(`${this.config.luisendpoint}/luis/prediction/v3.0/apps/${this.config.luisappid}/slots/PRODUCTION/predict?query=${encodeURI(e.result.text)}`,
                     {
                         headers: { "Ocp-Apim-Subscription-Key": this.config.luissubscriptionkey }
                     }).then(r => r.json());
+
+                //console.log(Object.values(result.prediction.intents)[0].score);
+                if (Object.values(result.prediction.intents)[0].score < 0.8) {
+                    result.prediction.topIntent = "None"; //Ignore
+                }
+
                 switch (result.prediction.topIntent) {
                     case "Wake up":
                         this.emit("wakeup");
@@ -50,7 +56,7 @@ export class SpeechRecService extends EventEmitter {
                             this.emit("unknown");
                             this.listening = false;
                             // console.log("I don't understand");
-                            // console.log(result.prediction);
+                            console.log(result.query);
                         }
                         break;
                     default:
@@ -60,8 +66,10 @@ export class SpeechRecService extends EventEmitter {
                             // then trigger action based on intent, 
                             // with parameters entities and values of those                            
                             if (Object.keys(result.prediction.entities).length === 0) {
+                                console.log(result.query);
                                 this.emit("unknown");
                             } else {
+
                                 this.emit("execute",
                                     {
                                         intent: result.prediction.topIntent,
@@ -71,6 +79,7 @@ export class SpeechRecService extends EventEmitter {
                         }
                         break;
                 }
+
             }
         }
 
@@ -84,9 +93,9 @@ export class SpeechRecService extends EventEmitter {
         console.log('listening')
 
         this.recognizer.startContinuousRecognitionAsync(cb => {
-            console.log(cb);            
+            // console.log(cb);            
         }, e => {
-            console.log(e);
+            console.error(e);
         })
     }
 

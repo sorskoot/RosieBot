@@ -25,6 +25,9 @@ export class HueService {
     }
 
     async setColor(color) {
+        if(color['light-color']){
+            color = color['light-color'];
+        }
         if (color in colors) {
             await this.changeLightColor(color);
         } else switch (color.toLowerCase()) {
