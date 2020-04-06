@@ -3,6 +3,10 @@ const CONNECTING = 'Connecting';
 const CONNECTED = '✅ Connected ';
 const CONNECTING_FAILED = '❌ Connection Failed';
 
+const OBS_CHANGESCENE = 'Changing Scene';
+const OBS_CHANGESCENE_SUCCESS = '✅ Changing Scene';
+const OBS_CHANGESCENE_FAILED = '❌ Changing Scene failed';
+
 const actions = {
     async connect({ commit, rootState }) {
         commit(CONNECTING);
@@ -12,12 +16,20 @@ const actions = {
         } catch (e) {
             commit(CONNECTING_FAILED, e.message);
         }
+    },
+    async changescene({ commit }, scene) {
+        commit(OBS_CHANGESCENE);
+        await obsService.setScene(scene);
+        commit(OBS_CHANGESCENE_SUCCESS);
     }
 }
 const mutations = {
     [CONNECTING](state) { state.connected = false; },
     [CONNECTED](state) { state.connected = true; },
-    [CONNECTING_FAILED](state, error) { state.connected = false; state.error = error; }
+    [CONNECTING_FAILED](state, error) { state.connected = false; state.error = error; },
+    [OBS_CHANGESCENE](state) {},
+    [OBS_CHANGESCENE_SUCCESS](state) {},
+    [OBS_CHANGESCENE_FAILED](state) {},
 }
 
 /**

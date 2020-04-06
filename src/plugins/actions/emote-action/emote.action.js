@@ -17,6 +17,9 @@ class EmoteAction extends Action {
      * @param {[]} emotes 
      */
     execute(emotes) {
+        if (typeof emotes === 'string' || emotes instanceof String){            
+            emotes = JSON.parse(decodeURI(emotes));
+        }
         this.$store.dispatch("socket/emit",{event:"render emotes",args:emotes});
     }
 

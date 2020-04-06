@@ -48,6 +48,7 @@ class FirstMessageTrigger extends Trigger {
     }
     
     storeChange({user}) {
+        return;
         if(!!~this.users.indexOf(user)){
             if(!~this.seen.indexOf(user)){
                 this.seen.push(user);

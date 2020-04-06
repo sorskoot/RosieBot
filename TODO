@@ -21,6 +21,9 @@ Todo:
     ☐ Make Rosie respond to voice commands, like 'Hey Rosie!'
     ☐ Automatically add stream markers on events like raids
     ☐ The combination ! and ? should ignore the ?
+    ☐ Store speechrec results as transcript of the stream.
+    ☐ Play sound effect on C# (C Sharp, see sharp)
+    
 TTS:
     ✔ Test volume and sound and adjust accordingly @done(19-10-21 23:27)
     ☐ when shouting out names, replace underscores with spaces

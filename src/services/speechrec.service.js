@@ -41,8 +41,8 @@ export class SpeechRecService extends EventEmitter {
                         headers: { "Ocp-Apim-Subscription-Key": this.config.luissubscriptionkey }
                     }).then(r => r.json());
 
-                //console.log(Object.values(result.prediction.intents)[0].score);
-                if (Object.values(result.prediction.intents)[0].score < 0.8) {
+                console.log(e.result.text,Object.values(result.prediction.intents)[0].score);
+                if (Object.values(result.prediction.intents)[0].score < 0.65) {
                     result.prediction.topIntent = "None"; //Ignore
                 }
 
@@ -66,7 +66,7 @@ export class SpeechRecService extends EventEmitter {
                             // then trigger action based on intent, 
                             // with parameters entities and values of those                            
                             if (Object.keys(result.prediction.entities).length === 0) {
-                                console.log(result.query);
+                                console.log(result);
                                 this.emit("unknown");
                             } else {
 

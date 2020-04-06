@@ -31,7 +31,12 @@ class SpeechIntentTrigger extends Trigger {
             } else {
                 console.log(prediction);
                 let obj = {};
-                obj[Object.keys(prediction.entities)[0]] = prediction.entities[Object.keys(prediction.entities)[0]][0][0];
+                if(Array.isArray(prediction.entities[Object.keys(prediction.entities)[0]][0])){
+                    obj[Object.keys(prediction.entities)[0]] = prediction.entities[Object.keys(prediction.entities)[0]][0][0];    
+                }else{
+                    obj[Object.keys(prediction.entities)[0]] = prediction.entities[Object.keys(prediction.entities)[0]][0];
+                }
+                
                 this.triggerEvent(prediction.intent, obj);
             }
         }
