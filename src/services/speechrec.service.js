@@ -33,14 +33,17 @@ export class SpeechRecService extends EventEmitter {
                 this.config.serviceRegion);
         this.recognizer =
             new SpeechRecognizer(this.speechConfig);
-
+        
+        
         this.recognizer.recognized = async (s, e) => {
             if (e.result.reason === ResultReason.RecognizedSpeech) {
                 let result = await fetch(`${this.config.luisendpoint}/luis/prediction/v3.0/apps/${this.config.luisappid}/slots/PRODUCTION/predict?query=${encodeURI(e.result.text)}`,
                     {
                         headers: { "Ocp-Apim-Subscription-Key": this.config.luissubscriptionkey }
                     }).then(r => r.json());
-
+                
+                
+                this.emit("recognized",e.result.text);
                 console.log(e.result.text,Object.values(result.prediction.intents)[0].score);
                 if (Object.values(result.prediction.intents)[0].score < 0.65) {
                     result.prediction.topIntent = "None"; //Ignore
