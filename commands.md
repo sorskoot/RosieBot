@@ -39,4 +39,6 @@ command | description
 !lovebye | !goat | !findout | !asif |
 !unexceptable | !bitemetal | !nasty | !howdare |
 !attention | !fbi | !typing | !wholelotta |
-!yourewelcome | !bob | !vbip |
+!yourewelcome | !bob | !vbip | !hacktheplanet |
+!kickassalgo
+
