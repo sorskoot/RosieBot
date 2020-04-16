@@ -40,5 +40,5 @@ command | description
 !unexceptable | !bitemetal | !nasty | !howdare |
 !attention | !fbi | !typing | !wholelotta |
 !yourewelcome | !bob | !vbip | !hacktheplanet |
-!kickassalgo
+!kickassalgo | !stupid
 
