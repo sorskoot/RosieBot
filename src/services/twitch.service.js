@@ -65,6 +65,28 @@ class TwitchClass {
             }
         }
     }
+
+    /**
+     * Adds a stream marker
+     * @param {string} text the text to add to the marker
+     * @param {string} userId the user_id of the stream to add the marker
+     */
+    async addMarker(text, userId){
+        let result = await fetch(`https://api.twitch.tv/helix/streams/markers`, {
+            body:JSON.stringify({
+                "user_id":userId,
+                "description":text
+            }),            
+            method:"POST",
+            headers: {
+                'content-type':'application/json',
+                'client-id': process.env.TWITCH_CLIENTID,
+                'Authorization': `Bearer ${this._token}`
+            }
+        }).then(body => body.json());
+        console.log(result);
+        return result;
+    }
 }
 
 export default new TwitchClass();

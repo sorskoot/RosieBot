@@ -15,18 +15,21 @@ export const GET_STREAM_DATA = 'Get Stream Data';
 export const GET_STREAM_DATA_SUCCESS = '✅ Get Stream Data Success';
 export const GET_STREAM_DATA_FAIL = '❌ Get Stream Data Fail';
 
+export const ADD_MARKER = 'Add marker';
+export const ADD_MARKER_SUCCESS = '✅ Add marker Success';
+export const ADD_MARKER_FAIL = '❌ Add marker Fail';
 
 const actions = {
     connect({ commit, rootState }) {
         commit(TWITCH_CONNECT);
-        
-        twitchPubSubService.connect().then(tps=>{
-            twitchPubSubService.on('channel-points', e=>{
+
+        twitchPubSubService.connect().then(tps => {
+            twitchPubSubService.on('channel-points', e => {
                 commit(TWITCH_EVENT, {
                     type: 'channel-points',
                     name: e.name,
                     reward: e.reward,
-                    message:e.message,
+                    message: e.message,
                     timestamp: +new Date()
                 });
             })
@@ -65,15 +68,24 @@ const actions = {
             );
     },
 
-    getStreamData({commit}, username){
+    addMarker({ commit, rootState }, text) {
+        commit(ADD_MARKER);
+        twitchService.addMarker(text, rootState.config.config.twitch['user-id'])
+            .then(
+                () => commit(ADD_MARKER_SUCCESS),
+                error => commit(ADD_MARKER_FAIL, error)
+            );
+    },
+
+    getStreamData({ commit }, username) {
         commit(GET_STREAM_DATA);
         twitchService.getStreamData(username)
-        .then(
-            data => commit(GET_STREAM_DATA_SUCCESS, data),
-            error => commit(GET_STREAM_DATA_FAIL, error)
-        );
+            .then(
+                data => commit(GET_STREAM_DATA_SUCCESS, data),
+                error => commit(GET_STREAM_DATA_FAIL, error)
+            );
     }
-    
+
 }
 const getters = {};
 
@@ -104,17 +116,27 @@ const mutations = {
         state.loading = false;
         state.error = error;
     },
-    [GET_STREAM_DATA](state){
+    [GET_STREAM_DATA](state) {
         state.loading = true;
     },
-    [GET_STREAM_DATA_SUCCESS](state, data){
+    [GET_STREAM_DATA_SUCCESS](state, data) {
         state.streamData = data;
         state.loading = false;
     },
-    [GET_STREAM_DATA_FAIL](state,error){
-        state.loading=false;
-        state.error=error;
-    }
+    [GET_STREAM_DATA_FAIL](state, error) {
+        state.loading = false;
+        state.error = error;
+    },
+    [ADD_MARKER](state) {
+        state.loading = true;
+    },
+    [ADD_MARKER_SUCCESS](state) {
+        state.loading = false;
+    },
+    [ADD_MARKER_FAIL](state, error) {
+        state.loading = false;
+        state.error = error;
+    },
 }
 
 export default {
@@ -125,7 +147,7 @@ export default {
         connecting: false,
         connected: false,
         event: {},
-        streamData:{}
+        streamData: {}
     },
     getters: getters,
     actions: actions,

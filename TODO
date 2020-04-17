@@ -18,11 +18,11 @@ Todo:
     ☐ Add environment parameters for the light ids
     ☐ Modify the cycling for social media links so that it constantly shows 1
     ☐ Add latest follower, sub, donation etc to cycling text
-    ☐ Make Rosie respond to voice commands, like 'Hey Rosie!'
+    ✔ Make Rosie respond to voice commands, like 'Hey Rosie!' @done(20-04-17 12:23)
     ☐ Automatically add stream markers on events like raids
     ☐ The combination ! and ? should ignore the ?
     ☐ Store speechrec results as transcript of the stream.
-    ☐ Play sound effect on C# (C Sharp, see sharp)
+    ✔ Play sound effect on C# (C Sharp, see sharp) @done(20-04-17 12:23)
 
 BUGS:
     ☐ Alerts playing during intro start audio, and don't stop the music.
@@ -49,6 +49,7 @@ Commands:
     ☐ !time - show current time in UTC and CET
     ✔ !sfx - link to https://github.com/sorskoot/RosieBot/blob/master/commands.md#sound-fx made it into => http://bit.ly/sfxCommands @done(19-09-04 14:00)
     ☐ !toolset
+    ☐ !pc
     ☐ !editor
     ☐ !cheers
     ☐ code metrics
@@ -132,6 +133,8 @@ New Architecture:
         ✔ TwitchEvents (streamlabs) @done(20-02-01 22:35)
         ☐ TwitchEvents 'native'
         ☐ Vote
+        ☐ On scene switch
+            ~ for example to stop the music when the opening starts
 
     Actions:
         ✔ RandomAction @done(19-12-16 22:58)
@@ -165,7 +168,7 @@ New Architecture:
             ✔ tts @done(20-02-09 15:14)
                 !!keep in mind that there's an endpoint as well to trigger from 
                   the stream deck
-            ☐ (speech recognition)
+            ✔ (speech recognition) @done(20-04-17 12:02)
         chat events:
             ✔ link check @done(20-02-10 21:46)
             ✔ QnA @done(20-03-09 13:31)
@@ -198,7 +201,7 @@ New Architecture:
             ☐ theme
             ☐ @high uptime
             ☐ !addToToDoList
-            ☐ !mark 
+            ✔ !mark @done(20-04-17 16:15)
                 => add a mark in the stream, if something happens
     Bugs:
         ✔ Change the volume of the stream during the alert @done(20-02-24 20:43)

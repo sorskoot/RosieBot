@@ -180,7 +180,7 @@ class Sequencer {
         return new Promise(res => {
             for (let i = 0; i < this.steps.length; i++) {
                 setTimeout(() => {
-                    console.log(i);
+                    //console.log(i);
                     this.steps[i].callback()
                 }, this.steps[i].time);
             }

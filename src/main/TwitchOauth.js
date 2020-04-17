@@ -32,7 +32,7 @@ export const twitchOauth = {
               }
             
             // This is just an example url - follow the guide for whatever service you are using
-            var authUrl = 'https://id.twitch.tv/oauth2/authorize?client_id=775d471xdokmb2jo5zvz5opyopo5k1&response_type=token&scope=bits:read+channel:read:redemptions+channel_subscriptions+channel:moderate+whispers:read&redirect_uri=http://localhost'
+            var authUrl = 'https://id.twitch.tv/oauth2/authorize?client_id=775d471xdokmb2jo5zvz5opyopo5k1&response_type=token&scope=bits:read+channel:read:redemptions+channel_subscriptions+channel:moderate+whispers:read+user:edit:broadcast&redirect_uri=http://localhost'
 
             // 'will-navigate' is an event emitted when the window.location changes
             // newUrl should contain the tokens you need
