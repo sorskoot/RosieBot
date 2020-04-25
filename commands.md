@@ -13,13 +13,13 @@ command | description
 !light copmode |
 !light hype |
 !merch | Shows the link the the Sorskoot Shop
-!uptime | Shows the amount of time the stream is live
+!uptime | {broken} Shows the amount of time the stream is live
 !hype | spam chat with purple love and fire
 !ide | Gives info on the IDE
 !song | {broken} Shows info on the current song playing
 !project | What is Sorskoot working on today
 !theme | Get the link to the theme Sorskoot is using in VsCode
-!command | Add a temporary command. try !command help
+!command | {broken} Add a temporary command. try !command help
 !setup | Find out everything about [Sorskoots setup](http://bit.ly/SorskootTwitchSetup)
 !geekcode | displays sorskoot's geek code
 !livecoders | show a link to the live coders
@@ -40,5 +40,5 @@ command | description
 !unexceptable | !bitemetal | !nasty | !howdare |
 !attention | !fbi | !typing | !wholelotta |
 !yourewelcome | !bob | !vbip | !hacktheplanet |
-!kickassalgo | !stupid
+!kickassalgo | !stupid | !codehard | !familyshow |
 
