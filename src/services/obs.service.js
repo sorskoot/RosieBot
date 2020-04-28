@@ -39,13 +39,22 @@ class ObsService extends EventEmitter {
                 {
                     'message-id': `id-${+new Date()}`,
                     'request-type': 'SetCurrentScene',
-                    'scene-name': scene[name]
+                    'scene-name': scene[name.toLowerCase()]
                 }
             ));
         }
 
     }
-
+    setText(target, text) {
+        this.socket.send(JSON.stringify(
+            {
+                'message-id': `id-${+new Date()}`,
+                'request-type': 'SetSourceSettings',
+                'sourceName':target,
+                'sourceSettings':{'text':text}
+            }
+        ));
+    }
     send() {
 
     }

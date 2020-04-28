@@ -1,5 +1,5 @@
 import { Action } from '../../lib';
-import {replaceAll} from '../../lib/utils';
+import { replaceAll } from '../../lib/utils';
 
 /**
  * TODO: Describe action 
@@ -20,18 +20,32 @@ class ObsAction extends Action {
      */
     execute(intent, params) {
         console.log(intent, params);
-        let message = intent;
-        if (params && !!params.length) {
-            let entries = Object.entries(params[0]);
-            for (let i = 0; i < entries.length; i++) {
-                const [key, value] = entries[i];
-                message = replaceAll(message,`{{${key}}}`,value);
+        if (typeof action === "string") {
+            let message = intent;
+            if (params && !!params.length) {
+                let entries = Object.entries(params[0]);
+                for (let i = 0; i < entries.length; i++) {
+                    const [key, value] = entries[i];
+                    message = replaceAll(message, `{{${key}}}`, value);
+                }
+            }
+            if (intent === '{{obs-scene}}') {
+                this.$store.dispatch('obs/changescene', message);
+            } else {
+                console.log('unknown intent');
             }
         }
-        if (intent === '{{obs-scene}}') {
-            this.$store.dispatch('obs/changescene', message);
-        } else {
-            console.log('unknown intent');
+        else {
+            if (intent.action) {
+                switch (intent.action) {
+                    case 'switch':
+                        this.$store.dispatch('obs/changescene', intent.scene);
+                        break;
+                    default:
+                        console.log('unknown intent');
+                        break;
+                }
+            }
         }
     }
 

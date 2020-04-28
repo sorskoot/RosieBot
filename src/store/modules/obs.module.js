@@ -7,6 +7,11 @@ const OBS_CHANGESCENE = 'Changing Scene';
 const OBS_CHANGESCENE_SUCCESS = '✅ Changing Scene';
 const OBS_CHANGESCENE_FAILED = '❌ Changing Scene failed';
 
+const OBS_CHANGETEXT = 'Changing Text';
+const OBS_CHANGETEXT_SUCCESS = '✅ Changing Text';
+const OBS_CHANGETEXT_FAILED = '❌ Changing Text failed';
+
+
 const actions = {
     async connect({ commit, rootState }) {
         commit(CONNECTING);
@@ -21,6 +26,11 @@ const actions = {
         commit(OBS_CHANGESCENE);
         await obsService.setScene(scene);
         commit(OBS_CHANGESCENE_SUCCESS);
+    },
+    async changetext({ commit }, {target,text}) {
+        commit(OBS_CHANGETEXT);
+        await obsService.setText(target,text);
+        commit(OBS_CHANGETEXT_SUCCESS);
     }
 }
 const mutations = {
@@ -30,6 +40,10 @@ const mutations = {
     [OBS_CHANGESCENE](state) {},
     [OBS_CHANGESCENE_SUCCESS](state) {},
     [OBS_CHANGESCENE_FAILED](state) {},
+
+    [OBS_CHANGETEXT](state) {},
+    [OBS_CHANGETEXT_SUCCESS](state) {},
+    [OBS_CHANGETEXT_FAILED](state) {},
 }
 
 /**

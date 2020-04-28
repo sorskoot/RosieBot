@@ -13,25 +13,19 @@ Todo:
     ☐ if !project is not set, just use current stream title.
     ☐ do something with https://www.npmjs.com/package/obs-websocket-js
     ☐ Create a game in chat (hangman, gamble, Roulette (adding points gamble like roulette)
-    ✔ Create Hangman @done(19-09-16 23:20)
-        ☐ Send message to Layouts to show current state as picture.
     ☐ Add environment parameters for the light ids
     ☐ Modify the cycling for social media links so that it constantly shows 1
     ☐ Add latest follower, sub, donation etc to cycling text
-    ✔ Make Rosie respond to voice commands, like 'Hey Rosie!' @done(20-04-17 12:23)
     ☐ Automatically add stream markers on events like raids
     ☐ The combination ! and ? should ignore the ?
     ☐ Store speechrec results as transcript of the stream.
-    ✔ Play sound effect on C# (C Sharp, see sharp) @done(20-04-17 12:23)
 
 BUGS:
     ☐ Alerts playing during intro start audio, and don't stop the music.
+    ☐ Alerts starting while a alerts plays needs to work.
 
 TTS:
-    ✔ Test volume and sound and adjust accordingly @done(19-10-21 23:27)
     ☐ when shouting out names, replace underscores with spaces
-    ✔ Add TTS shoutouts for live coders and VIPS @done(19-10-21 23:27)
-    ✔ Make it possible to trigger TTS from Stream Deck (url with param?) @done(19-10-22 00:53)
         Add quotes from:
             ☐ HAL 9000
             ☐ Master Control Program
@@ -41,13 +35,11 @@ TTS:
     ☐ Test and fix memory leak when stopping at vocode end
     Add TTS to:
         ☐ Muted Command
-        ✔ Stream events @done(19-10-21 23:27)
 
 Commands:
     ☐ !addToToDoList "Add Konami Code in the official website" (fetii1)
     ☐ !funfact - Show a random fun fact about Sorskoot
     ☐ !time - show current time in UTC and CET
-    ✔ !sfx - link to https://github.com/sorskoot/RosieBot/blob/master/commands.md#sound-fx made it into => http://bit.ly/sfxCommands @done(19-09-04 14:00)
     ☐ !toolset
     ☐ !pc
     ☐ !editor
@@ -55,10 +47,8 @@ Commands:
     ☐ code metrics
     ☐ !build for build status
     ☐ !loc for lines of code
-    ✔ Add hosts to credits @done(19-09-04 14:01)
     ☐ !stupid {name} - Random message, You are so stupid, {name}. You {random message} 
     ☐ !pun - drop a random joke - (http://pun.me/pages/funny-jokes.php)
-    ✔ !livecoders --> link to livecoders.dev @done(19-09-16 22:00)
     ☐ !reminder {minutes} {message} - Set a reminder that automatically responds after X minutes
     ☐ !marker {message} - add a stream marker with that message
 
@@ -78,7 +68,6 @@ Sfx:
     ☐ !delight sfx (https://www.youtube.com/watch?v=tUqvPJ3cbUQ) 
     ☐ Add more ~ https://www.youtube.com/watch?v=-1E10Tbsw68
     ☐ sfx back to the future
-    ✔ Hamsterdance @done(19-12-13 21:25)
 
 Thoughts and rough ideas:
     ☐ Build a game or something where people can send `code` to Rosie and have her execute it to play a game.
@@ -89,28 +78,15 @@ New Architecture:
     a connection to Twitch (maybe other services) and an API to connect the
     plugins to.
     ☐ implement RFC-1149
-    ✔ Integrate Twitch PubSub for points @done(20-03-06 10:14)
     ☐ default config installed when running for the first time.
-    ✔ dynamically load modules @done(19-12-18 21:53)
-    ✔ we need a way to have a dynamic api available. @done(20-02-09 15:14)
     ~ https://twitch.c0dr.nl:9384/webhook/tts-send/Welcome to the channel!
 
-    Research:
-        ✔ How to use html pages outside Electron, but served by the app @done(20-02-01 23:03)
-            Use IPC to communicate between main and renderer to request page 
-            from app. A service provides all pages and content.
 
     core:
-        UI:
-            UI will be responsive in column (+/- 300px wide)
         Config:
-            ✔ Create default config @done(20-02-01 22:33)
             ☐ Add a toggle for all triggers to disabled them if needed
-            ✔ Open config file from menu in app @done(19-11-21 22:14)
 
     plugins:
-        ✔ Update folder structure to /actions and /trigger @done(19-12-18 21:53)
-        ✔ dynamically load plugins from plugin folder @done(20-02-01 23:02)
         ☐ dynamically load plugins from disk
 
         triggers and actions
@@ -125,20 +101,15 @@ New Architecture:
             = Have a simple lifecycle
     
     Triggers:
-        ✔ emotes @done(20-02-01 22:34)
-        ✔ link check @done(20-03-09 11:44)
-        ✔ QnA @done(20-03-12 16:56)
+        ☐ Rosie Started
+            ~ to initialize some things
         ☐ Shoutout
-        ✔ Timed @done(19-12-16 22:58)
-        ✔ TwitchEvents (streamlabs) @done(20-02-01 22:35)
         ☐ TwitchEvents 'native'
         ☐ Vote
         ☐ On scene switch
             ~ for example to stop the music when the opening starts
 
     Actions:
-        ✔ RandomAction @done(19-12-16 22:58)
-            => Sends a random action from the configured array
         ☐ @high VariableAction 
             => this is also the basis for variable commands like !project
             => maybe they should have a UI as well.
@@ -147,45 +118,18 @@ New Architecture:
         ☐ AnimationAction
             => Sequences of actions with time
             -> could be the delay action in combination with multiaction
-        ✔ DelayAction @done(20-02-17 22:05)
-            => Delays the action for a couple of milliseconds
-        ✔ MultiAction @done(20-02-01 23:31)
-            => runs mulitple actions at the same time
-        ✔ Add tags to action string like `{display-name}` for the name of the viewer @done(20-02-17 20:46)
 
-    Config:
-        ✔ Social @done(19-12-13 22:14)
-        ✔ Info @done(19-12-13 22:41)
-        ✔ theme @done(19-12-13 22:48)
 
     To convert from old to new:
         overlays:
-            ✔ Music player @done(20-01-31 23:04)
             ☐ @critical end stream credits
                 ~ Create Azure Webhook to Websocket relay first
-            ✔ pre stream ticker @done(20-02-10 21:59)
-            ✔ social links @done(20-02-10 22:32)
-            ✔ tts @done(20-02-09 15:14)
-                !!keep in mind that there's an endpoint as well to trigger from 
-                  the stream deck
-            ✔ (speech recognition) @done(20-04-17 12:02)
-        chat events:
-            ✔ link check @done(20-02-10 21:46)
-            ✔ QnA @done(20-03-09 13:31)
-            ✔ Shoutout @done(20-03-12 16:56)
-            Twitch events:
-                ✔ chat message @done(20-02-11 00:00)
-                ✔ tts message @done(20-02-11 00:00)
         chat commands:
             ☐ @low beer
             ☐ @low blame
             ☐ @low command
-            ✔ commands @done(20-03-13 17:27)
             ☐ followage
-            ✔ hype @done(20-03-13 17:27)
-            ✔ info @done(20-02-01 23:08)
             !light:
-                ✔  copmode @done(20-03-09 13:31)
                 ☐ hype
             ☐ lurk
                 ~ difficulty is that right now an action has no knowledge of the context 
@@ -193,22 +137,74 @@ New Architecture:
             ☐ muted
             ☐ @critical project
                 ~ probably needs to have `VariableAction` implemented as well
-            ✔ (rosie) @done(20-03-13 17:27)
-            ✔ sfx @done(20-02-01 23:27)
             ☐ so
             ☐ social
             ☐ (song)
             ☐ theme
             ☐ @high uptime
             ☐ !addToToDoList
-            ✔ !mark @done(20-04-17 16:15)
-                => add a mark in the stream, if something happens
     Bugs:
-        ✔ Change the volume of the stream during the alert @done(20-02-24 20:43)
-            => need to have the delay action in place to send 2 midi events
         ☐ when opening app (TMI) => "Uncaught TypeError: request is not a function"
 
 Archive:
+  ✔ Create Hangman @done(19-09-16 23:20) @project(Todo)
+  ✔ Make Rosie respond to voice commands, like 'Hey Rosie!' @done(20-04-17 12:23) @project(Todo)
+  ✔ Play sound effect on C# (C Sharp, see sharp) @done(20-04-17 12:23) @project(Todo)
+  ✔ Test volume and sound and adjust accordingly @done(19-10-21 23:27) @project(TTS)
+  ✔ Add TTS shoutouts for live coders and VIPS @done(19-10-21 23:27) @project(TTS)
+  ✔ Make it possible to trigger TTS from Stream Deck (url with param?) @done(19-10-22 00:53) @project(TTS)
+  ✔ Stream events @done(19-10-21 23:27) @project(TTS.Add TTS to)
+  ✔ !sfx - link to https://github.com/sorskoot/RosieBot/blob/master/commands.md#sound-fx made it into => http://bit.ly/sfxCommands @done(19-09-04 14:00) @project(Commands)
+  ✔ Add hosts to credits @done(19-09-04 14:01) @project(Commands)
+  ✔ !livecoders --> link to livecoders.dev @done(19-09-16 22:00) @project(Commands)
+  ✔ Hamsterdance @done(19-12-13 21:25) @project(Sfx)
+  ✔ Integrate Twitch PubSub for points @done(20-03-06 10:14) @project(New Architecture)
+  ✔ dynamically load modules @done(19-12-18 21:53) @project(New Architecture)
+  ✔ we need a way to have a dynamic api available. @done(20-02-09 15:14) @project(New Architecture)
+  ✔ How to use html pages outside Electron, but served by the app @done(20-02-01 23:03) @project(New Architecture.Research)
+    Use IPC to communicate between main and renderer to request page 
+    from app. A service provides all pages and content.
+  ✔ Create default config @done(20-02-01 22:33) @project(New Architecture.core.Config)
+  ✔ Open config file from menu in app @done(19-11-21 22:14) @project(New Architecture.core.Config)
+  ✔ Update folder structure to /actions and /trigger @done(19-12-18 21:53) @project(New Architecture.plugins)
+  ✔ dynamically load plugins from plugin folder @done(20-02-01 23:02) @project(New Architecture.plugins)
+  ✔ emotes @done(20-02-01 22:34) @project(New Architecture.Triggers)
+  ✔ link check @done(20-03-09 11:44) @project(New Architecture.Triggers)
+  ✔ QnA @done(20-03-12 16:56) @project(New Architecture.Triggers)
+  ✔ Timed @done(19-12-16 22:58) @project(New Architecture.Triggers)
+  ✔ TwitchEvents (streamlabs) @done(20-02-01 22:35) @project(New Architecture.Triggers)
+  ✔ RandomAction @done(19-12-16 22:58) @project(New Architecture.Actions)
+    => Sends a random action from the configured array
+  ✔ DelayAction @done(20-02-17 22:05) @project(New Architecture.Actions)
+    => Delays the action for a couple of milliseconds
+  ✔ MultiAction @done(20-02-01 23:31) @project(New Architecture.Actions)
+    => runs mulitple actions at the same time
+  ✔ Add tags to action string like `{display-name}` for the name of the viewer @done(20-02-17 20:46) @project(New Architecture.Actions)
+  ✔ Social @done(19-12-13 22:14) @project(New Architecture.Config)
+  ✔ Info @done(19-12-13 22:41) @project(New Architecture.Config)
+  ✔ theme @done(19-12-13 22:48) @project(New Architecture.Config)
+  ✔ Music player @done(20-01-31 23:04) @project(New Architecture.To convert from old to new.overlays)
+  ✔ pre stream ticker @done(20-02-10 21:59) @project(New Architecture.To convert from old to new.overlays)
+  ✔ social links @done(20-02-10 22:32) @project(New Architecture.To convert from old to new.overlays)
+  ✔ tts @done(20-02-09 15:14) @project(New Architecture.To convert from old to new.overlays)
+    !!keep in mind that there's an endpoint as well to trigger from 
+    the stream deck
+  ✔ (speech recognition) @done(20-04-17 12:02) @project(New Architecture.To convert from old to new.overlays)
+  ✔ link check @done(20-02-10 21:46) @project(New Architecture.To convert from old to new.chat events)
+  ✔ QnA @done(20-03-09 13:31) @project(New Architecture.To convert from old to new.chat events)
+  ✔ Shoutout @done(20-03-12 16:56) @project(New Architecture.To convert from old to new.chat events)
+  ✔ chat message @done(20-02-11 00:00) @project(New Architecture.To convert from old to new.chat events.Twitch events)
+  ✔ tts message @done(20-02-11 00:00) @project(New Architecture.To convert from old to new.chat events.Twitch events)
+  ✔ commands @done(20-03-13 17:27) @project(New Architecture.To convert from old to new.chat commands)
+  ✔ hype @done(20-03-13 17:27) @project(New Architecture.To convert from old to new.chat commands)
+  ✔ info @done(20-02-01 23:08) @project(New Architecture.To convert from old to new.chat commands)
+  ✔  copmode @done(20-03-09 13:31) @project(New Architecture.To convert from old to new.chat commands.!light)
+  ✔ (rosie) @done(20-03-13 17:27) @project(New Architecture.To convert from old to new.chat commands)
+  ✔ sfx @done(20-02-01 23:27) @project(New Architecture.To convert from old to new.chat commands)
+  ✔ !mark @done(20-04-17 16:15) @project(New Architecture.To convert from old to new.chat commands)
+    => add a mark in the stream, if something happens
+  ✔ Change the volume of the stream during the alert @done(20-02-24 20:43) @project(New Architecture.Bugs)
+    => need to have the delay action in place to send 2 midi events
   ✘ filter on '!' for commands @cancelled(19-07-20 20:23) @project(Todo)
   ✔ Handle casing in light colors @done(19-07-22 23:54) @project(Todo)
   ✔ fix !song command - not using spotify but websocket request to layout. @done(19-07-23 01:18) @project(Todo)
