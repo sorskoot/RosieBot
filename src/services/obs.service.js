@@ -14,21 +14,33 @@ class ObsService extends EventEmitter {
             try {
                 this.socket = new WebSocket(`ws://localhost:4444`);
                 this.socket.addEventListener('message', (e) => this.onMessage(JSON.parse(e.data)));
-                this.socket.addEventListener('open', (e) => this.onOpen(e));
-                this.socket.addEventListener('error', (e) => this.onError(e));
-                setTimeout(() => {
+                this.socket.addEventListener('open', (e) => {
+                    //    this.onOpen(e)
                     this.socket.send(JSON.stringify(
                         {
                             'message-id': `Initial-GetSceneList`,
                             'request-type': 'GetSceneList'
                         }
                     ));
-                }, 2000);
+                    res(this);
+                });
+                this.socket.addEventListener('error', (e) => {
+                    rej(e);
+                    //this.onError(e);
+                });
 
-                res(this);
             } catch (e) {
                 rej(e);
             }
+        }).then(() => {
+            // setTimeout(() => {
+            //     this.socket.send(JSON.stringify(
+            //         {
+            //             'message-id': `Initial-GetSceneList`,
+            //             'request-type': 'GetSceneList'
+            //         }
+            //     ));
+            // }, 2000);
         });
     }
 
@@ -50,8 +62,8 @@ class ObsService extends EventEmitter {
             {
                 'message-id': `id-${+new Date()}`,
                 'request-type': 'SetSourceSettings',
-                'sourceName':target,
-                'sourceSettings':{'text':text}
+                'sourceName': target,
+                'sourceSettings': { 'text': text }
             }
         ));
     }
@@ -67,6 +79,7 @@ class ObsService extends EventEmitter {
                 break;
             case 'SwitchScenes':
                 console.log('switching to scene', eventData['scene-name']);
+                this.emit('obs-scene-change', eventData['scene-name']);
                 break;
             case 'SceneItemTransformChanged':
                 break;

@@ -12,6 +12,7 @@ class StreamlabsService extends EventEmitter {
     }
 
     connect(options) {
+        this.options = options;
         return new Promise((res, rej) => {
             try {
                 this.socket =
@@ -30,7 +31,7 @@ class StreamlabsService extends EventEmitter {
             console.log(eventData.payload);
             return;
         }
-        
+
         if (!eventData.for && eventData.type === 'donation') {
             this.emit('donation', {});
         }
@@ -38,25 +39,26 @@ class StreamlabsService extends EventEmitter {
         if (eventData.for === 'twitch_account') {
             switch (eventData.type) {
                 case 'follow':
-                    this.emit('follow', { 
+                    this.emit('follow', {
                         type: 'follow',
-                        name: eventData.message[0].name });
+                        name: eventData.message[0].name
+                    });
                     break;
                 case 'sub':
                 case 'subscription':
                 case 'resub':
-                    this.emit('subscription', 
-                    { 
-                        type: 'subscription',
-                        name: eventData.message[0].name,
-                        months: eventData.message[0].months,
-                        message: eventData.message[0].message,
-                        emotes: eventData.message[0].emotes,
-                        sub_plan: eventData.message[0].sub_plan,
-                        months: eventData.message[0].months,
-                        streak: eventData.message[0].streak_months,
-                        gifter: eventData.message[0].gifter
-                     });
+                    this.emit('subscription',
+                        {
+                            type: 'subscription',
+                            name: eventData.message[0].name,
+                            months: eventData.message[0].months,
+                            message: eventData.message[0].message,
+                            emotes: eventData.message[0].emotes,
+                            sub_plan: eventData.message[0].sub_plan,
+                            months: eventData.message[0].months,
+                            streak: eventData.message[0].streak_months,
+                            gifter: eventData.message[0].gifter
+                        });
                     break;
                 case 'raid':
                     this.emit('raid',
@@ -71,6 +73,14 @@ class StreamlabsService extends EventEmitter {
                     console.log(eventData);
             }
         }
+    }
+
+    async getLabels(api_token) {
+        let result =
+            await fetch(`https://streamlabs.com/api/v5/stream-labels/files?token=${api_token}`)
+                .then(d => d.json());
+
+        return result.data;
     }
 }
 
