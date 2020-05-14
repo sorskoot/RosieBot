@@ -56,6 +56,7 @@ class ChatCommandTrigger extends Trigger {
      * @param {string} value 
      */
     storeChange({message}) {
+        if(!this.$store.state.global.active) return;
         if (!!~this.commands.indexOf(message.split(' ')[0].toLowerCase().trim())) {
             this.triggerEvent(...message.split(/\s/gi));
         }

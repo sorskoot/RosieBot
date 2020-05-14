@@ -4,6 +4,7 @@ const CONNECTED = '✅ Connected ';
 const CONNECTING_FAILED = '❌ Connection Failed';
 
 const OBS_CHANGESCENE = 'Changing Scene';
+const OBS_CHANGEDSCENE = '✅ Scene Changed';
 const OBS_CHANGESCENE_SUCCESS = '✅ Changing Scene';
 const OBS_CHANGESCENE_FAILED = '❌ Changing Scene failed';
 
@@ -25,6 +26,9 @@ const actions = {
         }
         p = p.then(() => {
             commit(CONNECTED);
+            obsService.on('obs-scene-change',scene=>{
+                commit(OBS_CHANGEDSCENE, scene);
+            });
         }).catch((e) => {
             commit(CONNECTING_FAILED, e.message);
         });
@@ -53,7 +57,9 @@ const mutations = {
     [CONNECTING](state) { state.connected = false; },
     [CONNECTED](state) { state.connected = true; },
     [CONNECTING_FAILED](state, error) { state.connected = false; state.error = error; },
+    
     [OBS_CHANGESCENE](state) { },
+    [OBS_CHANGEDSCENE](state,scene) { state.currentScene = scene},
     [OBS_CHANGESCENE_SUCCESS](state) { },
     [OBS_CHANGESCENE_FAILED](state) { },
 
@@ -69,7 +75,8 @@ export default {
     namespaced: true,
     state: {
         connected: false,
-        error: ''
+        error: '',
+        currentScene:''
     },
     actions: actions,
     mutations: mutations

@@ -17,6 +17,8 @@ class ChannelPointsTrigger extends Trigger {
     }
 
     storeChange(value) {
+        if(!this.$store.state.global.channelPoints) return;
+                
         if(value.type == 'channel-points'){
             this.triggerEvent(value.reward, value);
         }

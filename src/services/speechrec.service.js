@@ -44,7 +44,7 @@ export class SpeechRecService extends EventEmitter {
                 
                 
                 this.emit("recognized",e.result.text);
-                console.log(e.result.text,Object.values(result.prediction.intents)[0].score);
+                //console.log(e.result.text,Object.values(result.prediction.intents)[0].score);
                 if (Object.values(result.prediction.intents)[0].score < 0.65) {
                     result.prediction.topIntent = "None"; //Ignore
                 }
@@ -59,7 +59,7 @@ export class SpeechRecService extends EventEmitter {
                             this.emit("unknown");
                             this.listening = false;
                             // console.log("I don't understand");
-                            console.log(result.query);
+                            //console.log(result.query);
                         }
                         break;
                     default:

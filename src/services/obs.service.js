@@ -95,7 +95,7 @@ class ObsService extends EventEmitter {
                     this.scenelist = eventData.scenes.map(s => { let obj = {}; obj[decamelize(s.name.replace(/[^a-zA-Z0-9]+/gi, ' '))] = s.name; return obj; });
                     break;
                 }
-                console.log('OBS-WSS-Response', eventData);
+                //console.log('OBS-WSS-Response', eventData);
                 break;
         }
 
