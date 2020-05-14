@@ -28,6 +28,7 @@ export class HueService {
         if(color['light-color']){
             color = color['light-color'];
         }
+        color = color.toLowerCase();
         if (color in colors) {
             await this.changeLightColor(color);
         } else switch (color.toLowerCase()) {
@@ -57,7 +58,10 @@ export class HueService {
                 break;
             case 'off':
                 break;
-            case 'off':
+            default:
+                if(/#[A-F0-9]{6}/gi.test(color)){
+                    this.changeLightColorRGB(color);
+                }
                 break;
         }
 
@@ -71,6 +75,13 @@ export class HueService {
         let R = parseInt(colors[color].substr(1, 2), 16);
         let G = parseInt(colors[color].substr(3, 2), 16);
         let B = parseInt(colors[color].substr(5, 2), 16);
+
+        return this.changeLightRGB(R, G, B, transitiontime);
+    }
+    changeLightColorRGB(RGB, transitiontime = 10) {
+        let R = parseInt(RGB.substr(1, 2), 16);
+        let G = parseInt(RGB.substr(3, 2), 16);
+        let B = parseInt(RGB.substr(5, 2), 16);
 
         return this.changeLightRGB(R, G, B, transitiontime);
     }
