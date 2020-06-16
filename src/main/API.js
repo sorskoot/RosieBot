@@ -19,6 +19,7 @@ export class API {
         http.createServer(
             (request, response) => this.handleApiRequest(request, response)
         ).listen(port);
+      
     }
 
     /**

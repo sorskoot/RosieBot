@@ -24,8 +24,6 @@ class TtsAction extends Action {
      * Initializes the vocoder
      */
     async initialize() {
-
-
         let carrier = await this.loadBuffer(this.ctx, path.join(__static, 'saw.wav'));
         this.vocoderInstance.init(this.ctx, carrier);
     }
@@ -42,7 +40,7 @@ class TtsAction extends Action {
                 message = message.replace(`{{${key}}}`, value);
             }
         }
-        message = message.replace('_',' ');
+        message = message.replace(/_/g,' ');
         this.loadBuffer(this.ctx,
             `https://api.streamelements.com/kappa/v2/speech?voice=${this.voice}&text=${message}`)
             .then(d => this.vocoderInstance.vocode(d));

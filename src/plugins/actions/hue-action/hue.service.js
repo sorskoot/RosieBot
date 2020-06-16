@@ -130,7 +130,7 @@ export class HueService {
         return this.callLight(state, lightId);
     }
 
-    changeLightBri(bri, transitiontime = 10, lightId = this.light) {
+    changeLightBri(bri, transitiontime = 1, lightId = this.light) {
         const state = {
             bri: bri,
             transitiontime: transitiontime

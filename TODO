@@ -1,4 +1,5 @@
 Todo:
+    ☐ Add DEBUG mode to disable/fake features when debugging.
     ☐ Create a Bugger / DeBugger emote
     ☐ Be able to play soundeffects when commands are inside messages
     ☐ Getting code documentation everywhere!
@@ -10,31 +11,37 @@ Todo:
     ☐ Integrate with Discord --> send message when going live
     ☐ add blacklist for other 'evil' bots using https://api.twitchinsights.net/v1/bots/all
     ☐ store settings like !Beer, !project  on azure and retreive them when started
-    ☐ if !project is not set, just use current stream title.
-    ☐ do something with https://www.npmjs.com/package/obs-websocket-js
+    ✘ if !project is not set, just use current stream title. @cancelled(20-06-05 14:08)
+    ✔ do something with https://www.npmjs.com/package/obs-websocket-js @done(20-06-05 14:08)
     ☐ Create a game in chat (hangman, gamble, Roulette (adding points gamble like roulette)
     ☐ Add environment parameters for the light ids
     ☐ Modify the cycling for social media links so that it constantly shows 1
-    ☐ Add latest follower, sub, donation etc to cycling text
-    ☐ Automatically add stream markers on events like raids
+    ✔ Add latest follower, sub, donation etc to cycling text @done(20-06-05 14:09)
+    ✔ Automatically add stream markers on events like raids @done(20-06-05 14:09)
     ☐ The combination ! and ? should ignore the ?
     ☐ Store speechrec results as transcript of the stream.
+    ☐ make UI Smaller so more can fit on screen easily
 
 BUGS:
     ☐ Alerts playing during intro start audio, and don't stop the music.
     ☐ Alerts starting while a alerts plays needs to work.
+    ☐ Not all subs show up list on overlay
+    ☐ currect music volume after events
 
 TTS:
-    ☐ when shouting out names, replace underscores with spaces
-        Add quotes from:
-            ☐ HAL 9000
-            ☐ Master Control Program
-            ☐ V.I.K.I
+    ✔ when shouting out names, replace underscores with spaces\ @done(20-06-05 14:15)
+    Add quotes from:
+        ☐ HAL 9000
+        ☐ Master Control Program
+        ☐ V.I.K.I
     ☐ TTS message with donations, bits, subs
     ☐ Queue messages and play in order
     ☐ Test and fix memory leak when stopping at vocode end
     Add TTS to:
         ☐ Muted Command
+
+STT:
+    ☐ Have rosie do VSCode commands on Speech
 
 Commands:
     ☐ !addToToDoList "Add Konami Code in the official website" (fetii1)
@@ -106,7 +113,7 @@ New Architecture:
         ☐ Shoutout
         ☐ TwitchEvents 'native'
         ☐ Vote
-        ☐ On scene switch
+        ✔ On scene switch @done(20-05-27 12:18)
             ~ for example to stop the music when the opening starts
 
     Actions:
@@ -118,7 +125,6 @@ New Architecture:
         ☐ AnimationAction
             => Sequences of actions with time
             -> could be the delay action in combination with multiaction
-
 
     To convert from old to new:
         overlays:
