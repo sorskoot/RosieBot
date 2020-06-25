@@ -20,7 +20,7 @@ class ObsAction extends Action {
      */
     execute(intent, params) {
         console.log(intent, params);
-        if (typeof action === "string") {
+        if (typeof intent === "string") {
             let message = intent;
             if (params && !!params.length) {
                 let entries = Object.entries(params[0]);
