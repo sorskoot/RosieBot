@@ -43,6 +43,13 @@ const actions = {
                         name: e.name
                     });
                 });
+                streamlabsService.on('host', (e) => {
+                    commit(TWITCH_EVENT, {
+                        type: e.type,
+                        name: e.name,
+                        viewers: e.viewers
+                    });
+                });
                 streamlabsService.on('raid', (e) => {
                     commit(TWITCH_EVENT, {
                         type: e.type,

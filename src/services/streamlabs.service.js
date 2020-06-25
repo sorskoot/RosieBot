@@ -32,6 +32,11 @@ class StreamlabsService extends EventEmitter {
             return;
         }
 
+        /*
+            other eventData.type:
+                - alertPlaying
+        */
+
         if (!eventData.for && eventData.type === 'donation') {
             this.emit('donation', {});
         }
@@ -42,6 +47,13 @@ class StreamlabsService extends EventEmitter {
                     this.emit('follow', {
                         type: 'follow',
                         name: eventData.message[0].name
+                    });
+                    break;
+                case 'host':
+                    this.emit('host', {
+                        type: 'host',
+                        name: eventData.message[0].name,
+                        viewers: eventData.message[0].viewers
                     });
                     break;
                 case 'sub':

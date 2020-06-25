@@ -3,7 +3,7 @@ Todo:
     ☐ Create a Bugger / DeBugger emote
     ☐ Be able to play soundeffects when commands are inside messages
     ☐ Getting code documentation everywhere!
-    ☐ Play youtube Video on stream (donations or something).
+    ✔ Play youtube Video on stream (donations or something). @done(20-06-25 17:20)
     ☐ request information about the codebase working on, like lines of code or current issue
     ☐ Do something with hardware/IoT/Arduino
     ☐ Trigger stuff in the stream, in browser windows in OBS
@@ -21,12 +21,18 @@ Todo:
     ☐ The combination ! and ? should ignore the ?
     ☐ Store speechrec results as transcript of the stream.
     ☐ make UI Smaller so more can fit on screen easily
+    ☐ @today Redo sounds to add unlimited souds
+    ☐ Add !stop to stop all events.
+    ☐ Add analytics for sound effec use and such
+            
 
 BUGS:
-    ☐ Alerts playing during intro start audio, and don't stop the music.
+    ✔ Alerts playing during intro start audio, and don't stop the music. @done(20-06-25 17:18)
     ☐ Alerts starting while a alerts plays needs to work.
     ☐ Not all subs show up list on overlay
-    ☐ currect music volume after events
+    ✔ currect music volume after events @done(20-06-25 17:18)
+    ☐ Fix QnA
+        ~ Failed on => "what theme is this?"
 
 TTS:
     ✔ when shouting out names, replace underscores with spaces\ @done(20-06-05 14:15)
@@ -36,6 +42,7 @@ TTS:
         ☐ V.I.K.I
     ☐ TTS message with donations, bits, subs
     ☐ Queue messages and play in order
+        ~ everything that comes in needs to be queued.
     ☐ Test and fix memory leak when stopping at vocode end
     Add TTS to:
         ☐ Muted Command
@@ -72,7 +79,7 @@ loyalty system:
             (or change the effect and make it a secret bonus sound effect)
 
 Sfx:
-    ☐ !delight sfx (https://www.youtube.com/watch?v=tUqvPJ3cbUQ) 
+    ✘ !delight sfx (https://www.youtube.com/watch?v=tUqvPJ3cbUQ) @cancelled(20-06-25 17:27)
     ☐ Add more ~ https://www.youtube.com/watch?v=-1E10Tbsw68
     ☐ sfx back to the future
 
@@ -94,7 +101,8 @@ New Architecture:
             ☐ Add a toggle for all triggers to disabled them if needed
 
     plugins:
-        ☐ dynamically load plugins from disk
+        ☐ @critical dynamically load plugins from disk
+        ☐ add a store for plugins
 
         triggers and actions
         Stuff plugins can do;
@@ -150,7 +158,7 @@ New Architecture:
             ☐ @high uptime
             ☐ !addToToDoList
     Bugs:
-        ☐ when opening app (TMI) => "Uncaught TypeError: request is not a function"
+        ✔ when opening app (TMI) => "Uncaught TypeError: request is not a function" @done(20-06-25 17:23)
 
 Archive:
   ✔ Create Hangman @done(19-09-16 23:20) @project(Todo)
