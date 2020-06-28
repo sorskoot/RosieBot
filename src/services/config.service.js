@@ -9,7 +9,7 @@ class ConfigService {
      * Loads all the configuration from disk (local appdata)
      * @returns Returns a promise containing the config.
      */
-    loadConfig() {
+    loadConfig() {        
         return new Promise((res, rej) => {
             try {
                 res(config.all());

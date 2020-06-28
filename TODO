@@ -95,6 +95,7 @@ New Architecture:
     ☐ default config installed when running for the first time.
     ~ https://twitch.c0dr.nl:9384/webhook/tts-send/Welcome to the channel!
 
+    ☐ Improve for loops to `for(const event of events)` where possible.
 
     core:
         Config:

@@ -13,7 +13,7 @@
     "electron:serve": "vue-cli-service electron:serve",
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps",
-    "start": "vue-cli-service electron:serve"
+    "start": "vue-cli-service electron:serve --modern"
   },
   "main": "background.js",
   "protocols": {
@@ -23,6 +23,7 @@
     ]
   },
   "dependencies": {
+    "@azure/cognitiveservices-luis-runtime": "5.0.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/vue-fontawesome": "^0.1.9",
@@ -38,15 +39,15 @@
     "express": "^4.17.1",
     "g": "^2.0.1",
     "microsoft-cognitiveservices-speech-sdk": "^1.11.0",
-    "@azure/cognitiveservices-luis-runtime": "5.0.0",
-    "ms-rest-azure": "3.0.0",
     "moment": "^2.24.0",
+    "ms-rest-azure": "3.0.0",
     "node-sass-middleware": "^0.11.0",
     "node-static": "^0.7.11",
     "pug": "^2.0.4",
     "request": "^2.88.0",
     "require": "^2.4.20",
     "socket.io": "^2.3.0",
+    "tmp": "^0.2.1",
     "tmi.js": "^1.5.0",
     "tuyapi": "^5.2.1",
     "uws": "^100.0.1",
