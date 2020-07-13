@@ -41,4 +41,6 @@ command | description
 !attention | !fbi | !typing | !wholelotta |
 !yourewelcome | !bob | !vbip | !hacktheplanet |
 !kickassalgo | !stupid | !codehard | !familyshow |
+!glitch | !akira | !dontdothat | !mycorona |
+!biden | !math |
 
