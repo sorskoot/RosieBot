@@ -25,6 +25,11 @@ export class Trigger extends Plugin {
             });
     }
 
+    triggerEventContext(context, eventName, ...params) {
+        setTimeout(() => {
+            this.$store.dispatch('triggerAction/trigger', { uuid: this.uuid, eventName, params, context });
+        });
+    }
     triggerEvent(eventName, ...params) {
         setTimeout(() => {
             this.$store.dispatch('triggerAction/trigger', { uuid: this.uuid, eventName, params });

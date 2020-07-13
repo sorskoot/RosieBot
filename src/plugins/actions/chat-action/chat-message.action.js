@@ -16,7 +16,7 @@ class ChatMessageAction extends Action {
      * Executes the action. Dispatched the message to be send to Twitch Chat
      * @param {string} message The message to send to chat
      */
-    execute(message, params) {
+    execute(message, params, context) {
         if (params && !!params.length) {
             let entries = Object.entries(params[0]);
             for (let i = 0; i < entries.length; i++) {

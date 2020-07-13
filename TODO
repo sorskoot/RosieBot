@@ -21,7 +21,7 @@ Todo:
     ☐ The combination ! and ? should ignore the ?
     ☐ Store speechrec results as transcript of the stream.
     ☐ make UI Smaller so more can fit on screen easily
-    ☐ @today Redo sounds to add unlimited souds
+    ✔ @today Redo sounds to add unlimited souds @done(20-07-02 22:14)
     ☐ Add !stop to stop all events.
     ☐ Add analytics for sound effec use and such
             
@@ -31,13 +31,14 @@ BUGS:
     ☐ Alerts starting while a alerts plays needs to work.
     ☐ Not all subs show up list on overlay
     ✔ currect music volume after events @done(20-06-25 17:18)
-    ☐ Fix QnA
-        ~ Failed on => "what theme is this?"
+    ✔ Fix QnA @done(20-07-02 22:13)
+        ✔ ~ Failed on => "what theme is this?" @done(20-07-02 22:13)
 
 TTS:
     ✔ when shouting out names, replace underscores with spaces\ @done(20-06-05 14:15)
     Add quotes from:
         ☐ HAL 9000
+            ~Hey Rosie, open the pod bay doors... I'm sorry sorskoot, I'm afraid I can't do that. 
         ☐ Master Control Program
         ☐ V.I.K.I
     ☐ TTS message with donations, bits, subs
@@ -145,11 +146,11 @@ New Architecture:
             ☐ @low command
             ☐ followage
             !light:
-                ☐ hype
+                ✔ hype @done(20-07-02 22:36)
             ☐ lurk
                 ~ difficulty is that right now an action has no knowledge of the context 
                   and doesn't know WHO typed the command.
-            ☐ muted
+            ✔ muted @done(20-07-02 22:46)
             ☐ @critical project
                 ~ probably needs to have `VariableAction` implemented as well
             ☐ so

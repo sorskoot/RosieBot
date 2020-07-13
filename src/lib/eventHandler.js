@@ -86,7 +86,11 @@ class EventHandler {
                 console.error(`Action (${action}) not found`);
             }
             else {
-                actionToCall.execute(...newValue.params);
+                if (newValue.context) {
+
+                } else {
+                    actionToCall.execute(...newValue.params);
+                }
             }
         } else {
             actionToCall = this.actions.find(x => x.uuid === Object.getOwnPropertyNames(action)[0]);
@@ -94,7 +98,7 @@ class EventHandler {
                 console.error(`Action (${action}) not found`);
             }
             else {
-                actionToCall.execute(action[actionToCall.uuid], newValue.params);
+                actionToCall.execute(action[actionToCall.uuid], newValue.params, newValue.context);
             }
         }
     }

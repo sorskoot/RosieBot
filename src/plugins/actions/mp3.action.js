@@ -17,6 +17,7 @@ class MP3Action extends Action {
             state => state.config.config['core.rosie.action.mp3'],
             newValue => {
                 this.folder = newValue.folder;
+                this.volume = newValue.volume;
             });
     }
     /**
@@ -25,6 +26,7 @@ class MP3Action extends Action {
      */
     execute(file) {
         const a = new Audio(`file://${this.folder}/${file}`);
+        a.volume = this.volume;
         a.play();
     }
 

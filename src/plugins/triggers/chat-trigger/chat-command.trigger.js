@@ -55,10 +55,10 @@ class ChatCommandTrigger extends Trigger {
      * Called when a chat message is received and raises a trigger event 
      * @param {string} value 
      */
-    storeChange({message}) {
+    storeChange(context) {
         if(!this.$store.state.global.active) return;
-        if (!!~this.commands.indexOf(message.split(' ')[0].toLowerCase().trim())) {
-            this.triggerEvent(...message.split(/\s/gi));
+        if (!!~this.commands.indexOf(context.message.split(' ')[0].toLowerCase().trim())) {
+            this.triggerEventContext(context, ...context.message.split(/\s/gi));
         }
     }
 }
