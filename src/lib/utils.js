@@ -30,3 +30,21 @@ export function escapeRegExp(string) {
 export function replaceAll(str, find, replace) {
     return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
 }
+
+/**
+ * Checks if a string is JSON.
+ * Only returns true if the JSON parses to an Object or an Array
+ * @param {string} str the string to check if it is JSON
+ * @returns {boolean}
+ */
+export function isJSON(str){
+    if (typeof str !== 'string') return false;
+    try {
+        const result = JSON.parse(str);
+        const type = Object.prototype.toString.call(result);
+        return type === '[object Object]' 
+            || type === '[object Array]';
+    } catch (err) {
+        return false;
+    }
+}

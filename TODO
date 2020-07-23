@@ -3,7 +3,6 @@ Todo:
     ☐ Create a Bugger / DeBugger emote
     ☐ Be able to play soundeffects when commands are inside messages
     ☐ Getting code documentation everywhere!
-    ✔ Play youtube Video on stream (donations or something). @done(20-06-25 17:20)
     ☐ request information about the codebase working on, like lines of code or current issue
     ☐ Do something with hardware/IoT/Arduino
     ☐ Trigger stuff in the stream, in browser windows in OBS
@@ -11,42 +10,63 @@ Todo:
     ☐ Integrate with Discord --> send message when going live
     ☐ add blacklist for other 'evil' bots using https://api.twitchinsights.net/v1/bots/all
     ☐ store settings like !Beer, !project  on azure and retreive them when started
-    ✘ if !project is not set, just use current stream title. @cancelled(20-06-05 14:08)
-    ✔ do something with https://www.npmjs.com/package/obs-websocket-js @done(20-06-05 14:08)
     ☐ Create a game in chat (hangman, gamble, Roulette (adding points gamble like roulette)
     ☐ Add environment parameters for the light ids
     ☐ Modify the cycling for social media links so that it constantly shows 1
-    ✔ Add latest follower, sub, donation etc to cycling text @done(20-06-05 14:09)
-    ✔ Automatically add stream markers on events like raids @done(20-06-05 14:09)
     ☐ The combination ! and ? should ignore the ?
     ☐ Store speechrec results as transcript of the stream.
     ☐ make UI Smaller so more can fit on screen easily
-    ✔ @today Redo sounds to add unlimited souds @done(20-07-02 22:14)
     ☐ Add !stop to stop all events.
     ☐ Add analytics for sound effec use and such
+    ☐ move keys and such to keys.json
+    ☐ Work on improving speech recognition
             
-
 BUGS:
-    ✔ Alerts playing during intro start audio, and don't stop the music. @done(20-06-25 17:18)
     ☐ Alerts starting while a alerts plays needs to work.
     ☐ Not all subs show up list on overlay
-    ✔ currect music volume after events @done(20-06-25 17:18)
-    ✔ Fix QnA @done(20-07-02 22:13)
-        ✔ ~ Failed on => "what theme is this?" @done(20-07-02 22:13)
 
 TTS:
-    ✔ when shouting out names, replace underscores with spaces\ @done(20-06-05 14:15)
     Add quotes from:
         ☐ HAL 9000
             ~Hey Rosie, open the pod bay doors... I'm sorry sorskoot, I'm afraid I can't do that. 
         ☐ Master Control Program
         ☐ V.I.K.I
     ☐ TTS message with donations, bits, subs
-    ☐ Queue messages and play in order
+    ☐ @critical Queue messages and play in order
         ~ everything that comes in needs to be queued.
     ☐ Test and fix memory leak when stopping at vocode end
     Add TTS to:
         ☐ Muted Command
+
+Bot Framework:
+    ☐ When using 'dark red' or 'light blue' remove spaces
+    ☐ When speaking, replace names of team members with prenounceable versions
+    ☐ Test if Rosie can interrupt and react to event happening like raids etc.
+        ~ We send events from bot to app, but does this work the other way around
+    ☐ Do we only need to do something after 'hey Rosie'?
+    ideas:
+        ☐ can you explain the theme?
+        ☐ is {StreamerX} live?
+        ☐ what is {StreamerX} streaming about?
+        ☐ who can we raid? - should give a suggestion
+        ☐ can you look up X? - to do an internet search
+        ☐ stop the music - etc
+        ☐ are there any open github issues?
+        ☐ What is the temperature in my room?
+        ☐ How long are we streaming? 
+        ☐ please timeout {X}
+        ☐ can you remind me to do {X} in {time}?
+        ☐ can you shoutout {StreamerX}?
+        ☐ when is the next stream?
+        ☐ Add a steam marker
+        ☐ Can you tell a joke?
+        ☐ what time is it?
+        ☐ Change the scene to {X}
+        ☐ Can you share a link to {SocialMedia}?
+        ☐ Can you make a twitter post?
+        ☐ can you say hi?
+        ☐ Can you explain what WebXR is?
+        ☐ Handle raid/sub/host etc
 
 STT:
     ☐ Have rosie do VSCode commands on Speech
@@ -80,7 +100,6 @@ loyalty system:
             (or change the effect and make it a secret bonus sound effect)
 
 Sfx:
-    ✘ !delight sfx (https://www.youtube.com/watch?v=tUqvPJ3cbUQ) @cancelled(20-06-25 17:27)
     ☐ Add more ~ https://www.youtube.com/watch?v=-1E10Tbsw68
     ☐ sfx back to the future
 
@@ -123,8 +142,6 @@ New Architecture:
         ☐ Shoutout
         ☐ TwitchEvents 'native'
         ☐ Vote
-        ✔ On scene switch @done(20-05-27 12:18)
-            ~ for example to stop the music when the opening starts
 
     Actions:
         ☐ @high VariableAction 
@@ -145,12 +162,9 @@ New Architecture:
             ☐ @low blame
             ☐ @low command
             ☐ followage
-            !light:
-                ✔ hype @done(20-07-02 22:36)
             ☐ lurk
                 ~ difficulty is that right now an action has no knowledge of the context 
                   and doesn't know WHO typed the command.
-            ✔ muted @done(20-07-02 22:46)
             ☐ @critical project
                 ~ probably needs to have `VariableAction` implemented as well
             ☐ so
@@ -159,10 +173,26 @@ New Architecture:
             ☐ theme
             ☐ @high uptime
             ☐ !addToToDoList
-    Bugs:
-        ✔ when opening app (TMI) => "Uncaught TypeError: request is not a function" @done(20-06-25 17:23)
 
 Archive:
+  ✔ update the list of sound fx @done(20-07-16 22:57) @project(Todo)
+  ✔ Play youtube Video on stream (donations or something). @done(20-06-25 17:20) @project(Todo)
+  ✘ if !project is not set, just use current stream title. @cancelled(20-06-05 14:08) @project(Todo)
+  ✔ do something with https://www.npmjs.com/package/obs-websocket-js @done(20-06-05 14:08) @project(Todo)
+  ✔ Add latest follower, sub, donation etc to cycling text @done(20-06-05 14:09) @project(Todo)
+  ✔ Automatically add stream markers on events like raids @done(20-06-05 14:09) @project(Todo)
+  ✔ Redo sounds to add unlimited souds @done(20-07-02 22:14) @project(Todo)
+  ✔ Alerts playing during intro start audio, and don't stop the music. @done(20-06-25 17:18) @project(BUGS)
+  ✔ currect music volume after events @done(20-06-25 17:18) @project(BUGS)
+  ✔ Fix QnA @done(20-07-02 22:13) @project(BUGS)
+  ✔ ~ Failed on => "what theme is this?" @done(20-07-02 22:13) @project(BUGS)
+  ✔ when shouting out names, replace underscores with spaces\ @done(20-06-05 14:15) @project(TTS)
+  ✘ !delight sfx (https://www.youtube.com/watch?v=tUqvPJ3cbUQ) @cancelled(20-06-25 17:27) @project(Sfx)
+  ✔ On scene switch @done(20-05-27 12:18) @project(New Architecture.Triggers)
+    ~ for example to stop the music when the opening starts
+  ✔ hype @done(20-07-02 22:36) @project(New Architecture.To convert from old to new.chat commands.!light)
+  ✔ muted @done(20-07-02 22:46) @project(New Architecture.To convert from old to new.chat commands)
+  ✔ when opening app (TMI) => "Uncaught TypeError: request is not a function" @done(20-06-25 17:23) @project(New Architecture.Bugs)
   ✔ Create Hangman @done(19-09-16 23:20) @project(Todo)
   ✔ Make Rosie respond to voice commands, like 'Hey Rosie!' @done(20-04-17 12:23) @project(Todo)
   ✔ Play sound effect on C# (C Sharp, see sharp) @done(20-04-17 12:23) @project(Todo)

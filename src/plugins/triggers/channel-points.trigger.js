@@ -16,9 +16,7 @@ class ChannelPointsTrigger extends Trigger {
         return state.twitch.event;
     }
 
-    storeChange(value) {
-        if(!this.$store.state.global.channelPoints) return;
-                
+    storeChange(value) {        
         if(value.type == 'channel-points'){
             this.triggerEvent(value.reward, value);
         }

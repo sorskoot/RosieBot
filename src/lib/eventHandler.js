@@ -87,7 +87,7 @@ class EventHandler {
             }
             else {
                 if (newValue.context) {
-
+                    actionToCall.execute(...newValue.params);
                 } else {
                     actionToCall.execute(...newValue.params);
                 }

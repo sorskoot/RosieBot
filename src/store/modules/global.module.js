@@ -20,7 +20,7 @@ export default {
     namespaced: true,
     state: {
         active:true,
-        channelPoints:false
+        channelPoints:true
     },
     actions: actions,
     mutations: mutations

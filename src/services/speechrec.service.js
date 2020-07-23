@@ -5,6 +5,7 @@ import {
     ResultReason
 } from "microsoft-cognitiveservices-speech-sdk";
 import EventEmitter from 'events';
+import {BotService} from "./bot.service";
 /**
 * The config
 * @typedef {object} {SpeechRecConfig} s r c
@@ -23,10 +24,31 @@ export class SpeechRecService extends EventEmitter {
     constructor(config) {
         super();
         this.config = config;
+        
     }
 
 
     setupRecognizer() {
+        this.bot = new BotService(this.config);
+        
+        this.bot.on("message-received",m=>{
+            //this.emit("recognized",m);
+          
+            this.emit("execute",
+            {
+              intent: 'Say',
+              message:m
+            });
+        })
+
+        this.bot.on("event-received",m=>{
+            this.emit("execute",
+            {
+              intent: m.event,
+              value: m.value
+            });
+        })     
+
         this.speechConfig =
             SpeechConfig.fromSubscription(
                 this.config.subscriptionkey,
@@ -37,51 +59,52 @@ export class SpeechRecService extends EventEmitter {
         
         this.recognizer.recognized = async (s, e) => {
             if (e.result.reason === ResultReason.RecognizedSpeech) {
-                let result = await fetch(`${this.config.luisendpoint}/luis/prediction/v3.0/apps/${this.config.luisappid}/slots/PRODUCTION/predict?query=${encodeURI(e.result.text)}`,
-                    {
-                        headers: { "Ocp-Apim-Subscription-Key": this.config.luissubscriptionkey }
-                    }).then(r => r.json());
-                
-                
-                this.emit("recognized",e.result.text);
-                //console.log(e.result.text,Object.values(result.prediction.intents)[0].score);
-                if (Object.values(result.prediction.intents)[0].score < 0.65) {
-                    result.prediction.topIntent = "None"; //Ignore
-                }
+                //  let result = await fetch(`${this.config.luisendpoint}/luis/prediction/v3.0/apps/${this.config.luisappid}/slots/PRODUCTION/predict?query=${encodeURI(e.result.text)}`,
+                //      {
+                //          headers: { "Ocp-Apim-Subscription-Key": this.config.luissubscriptionkey }
+                //      }).then(r => r.json());                
+                //      console.log(result);
+                this.bot.send(e.result.text);
+//                this.emit("recognized",e.result.text);
+                // //console.log(e.result.text,Object.values(result.prediction.intents)[0].score);
+                // if (Object.values(result.prediction.intents)[0].score < 0.65) {
+                //     result.prediction.topIntent = "None"; //Ignore
+                // }
 
-                switch (result.prediction.topIntent) {
-                    case "Wake up":
-                        this.emit("wakeup");
-                        this.listening = true;
-                        break;
-                    case "None":
-                        if (this.listening) {
-                            this.emit("unknown");
-                            this.listening = false;
-                            // console.log("I don't understand");
-                            //console.log(result.query);
-                        }
-                        break;
-                    default:
-                        if (this.listening) {
-                            this.listening = false;
-                            // analyse, could be not good enough
-                            // then trigger action based on intent, 
-                            // with parameters entities and values of those                            
-                            if (Object.keys(result.prediction.entities).length === 0) {
-                                console.log(result);
-                                this.emit("unknown");
-                            } else {
-
-                                this.emit("execute",
-                                    {
-                                        intent: result.prediction.topIntent,
-                                        entities: result.prediction.entities
-                                    });
-                            }
-                        }
-                        break;
-                }
+                // switch (result.prediction.topIntent) {
+                //     case "Wake up":
+                //         this.emit("wakeup");
+                //         this.listening = true;
+                        
+                //         break;
+                //     case "None":
+                //         if (this.listening) {
+                //             this.emit("unknown");
+                //             this.listening = false;
+                //             // console.log("I don't understand");
+                //             //console.log(result.query);
+                //         }
+                //         break;
+                //     default:
+                //         if (this.listening) {
+                //             this.listening = false;
+                //             // analyse, could be not good enough
+                //             // then trigger action based on intent, 
+                //             // with parameters entities and values of those                            
+                //             if (Object.keys(result.prediction.entities).length === 0) {
+                //                 console.log(result);
+                //                 this.emit("unknown");
+                //             } else {
+                //                 console.log(result)
+                //                 this.emit("execute",
+                //                     {
+                //                         intent: result.prediction.topIntent,
+                //                         entities: result.prediction.entities
+                //                     });
+                //             }
+                //         }
+                //         break;
+                // }
 
             }
         }
@@ -92,7 +115,7 @@ export class SpeechRecService extends EventEmitter {
 
     }
     startRecognizing(callback) {
-
+        this.bot.sendActivity("Initialization","here we go");
         console.log('listening')
 
         this.recognizer.startContinuousRecognitionAsync(cb => {
