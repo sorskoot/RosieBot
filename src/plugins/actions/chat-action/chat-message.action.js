@@ -18,7 +18,13 @@ class ChatMessageAction extends Action {
      */
     execute(message, params, context) {
         if (params && !!params.length) {
-            let entries = Object.entries(params[0]);
+            let entries;
+            if(typeof(params[0])==="string"){
+                params = [{value:params[0]}]
+            }
+            
+                entries = Object.entries(params[0]);
+            
             for (let i = 0; i < entries.length; i++) {
                 const [key, value] = entries[i];
                 message = replaceAll(message,`{{${key}}}`,value);

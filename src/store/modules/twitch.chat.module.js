@@ -42,11 +42,13 @@ const actions = {
      */
     message({ commit }, { context, msg, self }) {
         // remove check for 'bot_rosie' when the old version goes offline
-        if (self || context['display-name'] === 'bot_rosie') { return };
+        if (msg[0] != '!') {
+            if (self || context['display-name'] === 'bot_rosie') { return };
+        }
         commit(TWITCH_IRC_MESSAGE,
             {
                 user: context['display-name'],
-                color: context.color?context.color:"#FF00FF",
+                color: context.color ? context.color : "#FF00FF",
                 message: msg,
                 emotes: context.emotes,
                 badges: context.badges,
@@ -75,7 +77,7 @@ const mutations = {
         state.message = message
         state.message.timestamp = +new Date();
     },
-    [TWITCH_IRC_SEND_MESSAGE](state) {state.isSendingMessage = true;},
+    [TWITCH_IRC_SEND_MESSAGE](state) { state.isSendingMessage = true; },
     [TWITCH_IRC_SEND_MESSAGE_SUCCESS](state) { state.isSendingMessage = false; },
     [TWITCH_IRC_SEND_MESSAGE_FAILURE](state) { state.isSendingMessage = false; }
 }
@@ -84,13 +86,13 @@ export default {
     namespaced: true,
     state: {
         isConnected: false,
-        isSendingMessage:false,
+        isSendingMessage: false,
         message: {
             user: '',
             message: '',
             emotes: [],
             badges: [],
-            timestamp : 0
+            timestamp: 0
         }
     },
     getters: getters,

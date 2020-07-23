@@ -19,12 +19,11 @@ export class BotService extends EventEmitter {
         });
         this.directLine.activity$.subscribe(this.onEvent.bind(this));
 
-        //this.sendStatus('initialize')
     }
 
     sendStatus(event) {
         this.directLine.postActivity({
-            from: { id: 'Rosie-Client', name: 'Sorskoot' }, // required (from.name is optional)
+            from: { id: 'Rosie-Client' },
             type: 'event',
             text: event,
             locale: "en-EN"
@@ -36,13 +35,13 @@ export class BotService extends EventEmitter {
 
     sendActivity(type, text) {
         this.directLine.postActivity({
-            from: { id: 'Rosie-Client', name: 'Sorskoot' }, // required (from.name is optional)     
+            from: { id: 'Rosie-Client' },             
             type: type,
             text: text,
             locale: "en-EN"
         }).subscribe(
             id => {
-                //   console.log("Posted activity, assigned ID ", id)
+               
             },
             error => console.log("Error posting activity", error)
         );
@@ -50,13 +49,12 @@ export class BotService extends EventEmitter {
 
     send(message) {
         this.directLine.postActivity({
-            from: { id: 'Rosie-Client', name: 'Sorskoot' }, // required (from.name is optional)     
+            from: { id: 'Rosie-Client' }, 
             type: 'message',
             text: message,
             locale: "en-EN"
         }).subscribe(
             id => {
-                //   console.log("Posted activity, assigned ID ", id)
             },
             error => console.log("Error posting activity", error)
         );
@@ -65,7 +63,6 @@ export class BotService extends EventEmitter {
     onEvent(activity) {
 
         if (activity.from.id === "Rosie-Client") {
-            //console.log(`from self: ${activity.text}`);
             this.emit("message-from-self-received", activity.text);
             return;
         }
@@ -74,20 +71,14 @@ export class BotService extends EventEmitter {
             case "message":
                 if (isJSON(activity.text)) {
                     /** @type {BotEvent} */
-                    //console.log(`activity from bot: ${activity.text}`);
                     const botEvent = JSON.parse(activity.text);
-                    // console.log("received event ", botEvent);
                     this.emit("event-received", botEvent);
                 } else {
-                    //console.log(`from bot: ${activity.text}`);
-                    //   console.log("received message ", activity.text);
                     this.emit("message-received", activity.text);
                 }
                 break;
-            //case "event":              
-            //  break;
-            //case "typing":
-            //break;
+            case "event":                          
+            case "typing":            
             default:
                 console.log(activity);
                 break;

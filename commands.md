@@ -42,5 +42,6 @@ command | description
 !yourewelcome | !bob | !vbip | !hacktheplanet |
 !kickassalgo | !stupid | !codehard | !familyshow |
 !glitch | !akira | !dontdothat | !mycorona |
-!biden | !math |
+!biden | !math | !dirtybit | !yourmove |
+!lookgood | !kickass2 | !important | !livelong
 
