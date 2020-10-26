@@ -24,6 +24,9 @@ class PlayerRemoteAction extends Action {
                 args = args.replace(`{{${key}}}`, value);
             }
         }
+        if(args['music-action']){
+            args = args['music-action']
+        }
         this.$store.dispatch("socket/emit", {
             event: "player",
             args: args
