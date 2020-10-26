@@ -25,7 +25,25 @@ export class HueService {
     }
 
     async setColor(color) {
-        if(color['light-color']){
+        if (color['light-state']) {
+            switch (color['light-state']) {
+                case 'off':
+                    await Promise.all(
+                        [this.changeLightOff(10),
+                        this.changeLightOff(10, 16)]);
+                    break;
+                case 'on':
+                    await Promise.all(
+                        [
+                        this.changeLightOn(1),
+                        this.changeLightOn(1, 16),
+                        this.changeLightBri(MAX_BRIGHTNESS),
+                        this.changeLightBri(MAX_BRIGHTNESS, 1, 16)]);
+                    break;
+            }
+            return;
+        }
+        if (color['light-color']) {
             color = color['light-color'];
         }
         color = color.toLowerCase();
@@ -36,30 +54,28 @@ export class HueService {
                 await this.copMode();
                 break;
             case 'hype':
-                    await this.hype('purple');
-                    break;
+                await this.hype('purple');
+                break;
             case 'greenhype':
-                    await this.hype('green');
-                    break;
+                await this.hype('green');
+                break;
             case 'yellowhype':
-                    await this.hype('yellow');
-                    break;
+                await this.hype('yellow');
+                break;
             case 'redhype':
-                    await this.hype('red');
-                    break;
+                await this.hype('red');
+                break;
             case 'bluehype':
-                    await this.hype('blue');
-                    break;
+                await this.hype('blue');
+                break;
             case 'reset':
                 await Promise.all(
                     [this.changeLightBri(MAX_BRIGHTNESS),
                     this.changeLightBri(MAX_BRIGHTNESS, 1, 16),
                     this.changeLightColor(DEFAULT_COLOR)]);
                 break;
-            case 'off':
-                break;
             default:
-                if(/#[A-F0-9]{6}/gi.test(color)){
+                if (/#[A-F0-9]{6}/gi.test(color)) {
                     this.changeLightColorRGB(color);
                 }
                 break;
@@ -155,12 +171,12 @@ export class HueService {
     hype(color) {
         let sequence = new Sequencer();
         sequence
-            .addStep(() => this.changeLightColor(color, 1),0)
+            .addStep(() => this.changeLightColor(color, 1), 0)
             .addStep(() => this.changeLightBri(20, 1, 16), 100);
         for (let i = 0; i < 20; i++) {
             sequence
-                .addStep(() => this.changeLightBri(1, 3), 250 + i * 500)    
-                .addStep(() => this.changeLightBri(MAX_BRIGHTNESS, 3), 500 + i * 500);    
+                .addStep(() => this.changeLightBri(1, 3), 250 + i * 500)
+                .addStep(() => this.changeLightBri(MAX_BRIGHTNESS, 3), 500 + i * 500);
         }
         return sequence.addStep(() => this.changeLightColor("purple", 1), 10500)
             .addStep(() => this.changeLightBri(MAX_BRIGHTNESS, 1), 10500)

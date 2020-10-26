@@ -63,25 +63,36 @@ class TtsAction extends Action {
      * @param {string} message 
      */
     execute(message, params) {
+        let style = VoiceStyle.Chat;        
         if (params && !!params.length && !!params[0]) {
             let entries = Object.entries(params[0]);
             for (let i = 0; i < entries.length; i++) {
                 const [key, value] = entries[i];
-                message = message.replace(`{{${key}}}`, value);
+                if(key === 'sentiment'){
+                    switch(value.toLowerCase()){
+                        case 'positive':
+                        case 'neutral':
+                            style = VoiceStyle.Chat; 
+                            break;
+                        case 'negative':
+                            style = VoiceStyle.Cheerful;
+                            message = "A 'please' would've been nice!"
+                            break;
+                    }
+                    
+                }else{
+                    message = message.replace(`{{${key}}}`, value);
+                }
             }
-        }
-        
-
+        }      
         this.synthesizeSpeech(decodeURI(message));
-
-
     }
 
     /**
      * 
      * @param {string} message The message to be spoken
      */
-    synthesizeSpeech(message) {
+    synthesizeSpeech(message, style = VoiceStyle.Chat) {
         const p = phonetics;
         if(p.some(ph=>message.toLowerCase().includes(ph.value))){
             p.forEach(ph=>{
@@ -95,7 +106,7 @@ class TtsAction extends Action {
             `    xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">`,
             `  <voice name="en-US-AriaNeural">`,            
             `    <prosody pitch="-10%" rate="0.8">`,
-            `      <mstts:express-as style="${VoiceStyle.Chat}">`,
+            `      <mstts:express-as style="${style}">`,
             `        ${message}`,
             `      </mstts:express-as>`,
             `    </prosody>`,

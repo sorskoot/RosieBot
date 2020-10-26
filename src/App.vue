@@ -26,8 +26,9 @@ export default {
 <style lang="scss">
 body {
   background-color: hsl(280, 8%, 14%);
-  
+  zoom: .7;
 }
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

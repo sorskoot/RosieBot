@@ -2,7 +2,8 @@ import {
     SpeechConfig,
     AudioConfig,
     SpeechRecognizer,
-    ResultReason
+    ResultReason,
+    ProfanityOption
 } from "microsoft-cognitiveservices-speech-sdk";
 import EventEmitter from 'events';
 /**
@@ -31,9 +32,10 @@ export class SpeechRecService extends EventEmitter {
             SpeechConfig.fromSubscription(
                 this.config.subscriptionkey,
                 this.config.serviceRegion);
+        this.speechConfig.setProfanity(ProfanityOption.Raw);
+        
         this.recognizer =
             new SpeechRecognizer(this.speechConfig);
-        
         
         this.recognizer.recognized = async (s, e) => {
             if (e.result.reason === ResultReason.RecognizedSpeech) {
@@ -53,7 +55,8 @@ export class SpeechRecService extends EventEmitter {
                     case "Wake up":
                         this.emit("execute",
                         {
-                          intent: 'Wakeup'
+                          intent: 'Wakeup',
+                          sentiment: result.prediction.sentiment.label                          
                         });
                         this.listening = true;
                         break;
@@ -62,7 +65,7 @@ export class SpeechRecService extends EventEmitter {
                             this.emit("unknown");
                             this.listening = false;
                             // console.log("I don't understand");
-                            //console.log(result.query);
+                            console.log(result);
                         }
                         break;
                     default:
@@ -76,11 +79,11 @@ export class SpeechRecService extends EventEmitter {
                                 console.log(result);
                                 this.emit("unknown");
                             } else {
-
                                 this.emit("execute",
                                     {
                                         intent: result.prediction.topIntent,
-                                        entities: result.prediction.entities
+                                        entities: result.prediction.entities,
+                                        sentiment: result.prediction.sentiment.label
                                     });
                             }
                         }

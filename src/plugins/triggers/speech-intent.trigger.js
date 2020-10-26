@@ -1,3 +1,4 @@
+import { ObjectDisposedError } from 'microsoft-cognitiveservices-speech-sdk/distrib/lib/src/common/Error';
 import { Trigger } from '../../lib';
 
 /**
@@ -36,7 +37,7 @@ class SpeechIntentTrigger extends Trigger {
                 } else {
                     obj[Object.keys(prediction.entities)[0]] = prediction.entities[Object.keys(prediction.entities)[0]][0];
                 }
-
+                obj.sentiment = prediction.sentiment;
                 this.triggerEvent(prediction.intent, obj);
 
             }
