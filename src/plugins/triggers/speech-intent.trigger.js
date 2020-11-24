@@ -28,7 +28,7 @@ class SpeechIntentTrigger extends Trigger {
     storeChange(prediction) {
         if (prediction.intent && prediction.intent !== '') {          
 
-            if (!prediction.entities) {
+            if (!prediction.entities || !Object.entries(prediction.entities).length) {
                 this.triggerEvent(prediction.intent);
             } else {
                 let obj = {};

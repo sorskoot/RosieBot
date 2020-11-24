@@ -19,6 +19,7 @@ export default {
     await this.$store.dispatch("speechrec/start");
     await this.$store.dispatch("obs/connect");
     await this.$store.dispatch("rosie/changeState",'started');
+    await this.$store.dispatch("webcam/initialize");
   }
 };
 </script>

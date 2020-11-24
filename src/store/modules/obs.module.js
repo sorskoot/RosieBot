@@ -35,7 +35,7 @@ const actions = {
 
     },
     async changescene({ commit, state }, scene) {
-        commit(OBS_CHANGESCENE);
+        commit(OBS_CHANGESCENE, scene);
         if (state.connected) {
             await obsService.setScene(scene);
             commit(OBS_CHANGESCENE_SUCCESS);
@@ -59,7 +59,10 @@ const mutations = {
     [CONNECTING_FAILED](state, error) { state.connected = false; state.error = error; },
     
     [OBS_CHANGESCENE](state) { },
-    [OBS_CHANGEDSCENE](state,scene) { state.currentScene = scene},
+    [OBS_CHANGEDSCENE](state,scene) { 
+        state.previousScene = state.currentScene;
+        state.currentScene = scene;
+    },
     [OBS_CHANGESCENE_SUCCESS](state) { },
     [OBS_CHANGESCENE_FAILED](state) { },
 
@@ -76,7 +79,8 @@ export default {
     state: {
         connected: false,
         error: '',
-        currentScene:''
+        currentScene:'',
+        previousScene:''
     },
     actions: actions,
     mutations: mutations

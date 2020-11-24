@@ -32,30 +32,22 @@ class ObsService extends EventEmitter {
             } catch (e) {
                 rej(e);
             }
-        }).then(() => {
-            // setTimeout(() => {
-            //     this.socket.send(JSON.stringify(
-            //         {
-            //             'message-id': `Initial-GetSceneList`,
-            //             'request-type': 'GetSceneList'
-            //         }
-            //     ));
-            // }, 2000);
-        });
+        })
     }
 
     setScene(name) {
         let scene = this.scenelist.find(d => d[name.toLowerCase()]);
         if (scene) {
-            this.socket.send(JSON.stringify(
-                {
-                    'message-id': `id-${+new Date()}`,
-                    'request-type': 'SetCurrentScene',
-                    'scene-name': scene[name.toLowerCase()]
-                }
-            ));
+            name = scene[name.toLowerCase()];
         }
 
+        this.socket.send(JSON.stringify(
+            {
+                'message-id': `id-${+new Date()}`,
+                'request-type': 'SetCurrentScene',
+                'scene-name': name
+            }
+        ));
     }
     setText(target, text) {
         this.socket.send(JSON.stringify(

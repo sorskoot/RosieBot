@@ -33,19 +33,19 @@ export class SpeechRecService extends EventEmitter {
                 this.config.subscriptionkey,
                 this.config.serviceRegion);
         this.speechConfig.setProfanity(ProfanityOption.Raw);
-        
+
         this.recognizer =
             new SpeechRecognizer(this.speechConfig);
-        
+
         this.recognizer.recognized = async (s, e) => {
             if (e.result.reason === ResultReason.RecognizedSpeech) {
                 let result = await fetch(`${this.config.luisendpoint}/luis/prediction/v3.0/apps/${this.config.luisappid}/slots/PRODUCTION/predict?query=${encodeURI(e.result.text)}`,
                     {
                         headers: { "Ocp-Apim-Subscription-Key": this.config.luissubscriptionkey }
                     }).then(r => r.json());
-                
-                
-                this.emit("recognized",e.result.text);
+
+
+                this.emit("recognized", e.result.text);
                 //console.log(e.result.text,Object.values(result.prediction.intents)[0].score);
                 if (Object.values(result.prediction.intents)[0].score < 0.65) {
                     result.prediction.topIntent = "None"; //Ignore
@@ -54,10 +54,10 @@ export class SpeechRecService extends EventEmitter {
                 switch (result.prediction.topIntent) {
                     case "Wake up":
                         this.emit("execute",
-                        {
-                          intent: 'Wakeup',
-                          sentiment: result.prediction.sentiment.label                          
-                        });
+                            {
+                                intent: 'Wakeup',
+                                sentiment: result.prediction.sentiment.label
+                            });
                         this.listening = true;
                         break;
                     case "None":
@@ -75,17 +75,17 @@ export class SpeechRecService extends EventEmitter {
                             // analyse, could be not good enough
                             // then trigger action based on intent, 
                             // with parameters entities and values of those                            
-                            if (Object.keys(result.prediction.entities).length === 0) {
-                                console.log(result);
-                                this.emit("unknown");
-                            } else {
-                                this.emit("execute",
-                                    {
-                                        intent: result.prediction.topIntent,
-                                        entities: result.prediction.entities,
-                                        sentiment: result.prediction.sentiment.label
-                                    });
-                            }
+                            // if (Object.keys(result.prediction.entities).length === 0) {
+                            //     console.log(result);
+                            //     this.emit("unknown");
+                            // } else {
+                            this.emit("execute",
+                                {
+                                    intent: result.prediction.topIntent,
+                                    entities: result.prediction.entities,
+                                    sentiment: result.prediction.sentiment.label
+                                });
+                            //}
                         }
                         break;
                 }
@@ -115,7 +115,7 @@ export class SpeechRecService extends EventEmitter {
 
   this.bot.on("message-received",m=>{
             //this.emit("recognized",m);
-          
+
             this.emit("execute",
             {
               intent: 'Say',
@@ -129,6 +129,6 @@ export class SpeechRecService extends EventEmitter {
               intent: m.event,
               value: m.value
             });
-        })     
+        })
 
         */

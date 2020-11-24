@@ -42,7 +42,7 @@ Bot Framework:
     ☐ When speaking, replace names of team members with prenounceable versions
     ☐ Test if Rosie can interrupt and react to event happening like raids etc.
         ~ We send events from bot to app, but does this work the other way around
-    ☐ Do we only need to do something after 'hey Rosie'?
+    ✔ Do we only need to do something after 'hey Rosie'? @done(20-11-04 23:16)
     ideas:
         ☐ can you explain the theme?
         ☐ is {StreamerX} live?
@@ -66,6 +66,9 @@ Bot Framework:
         ☐ can you say hi?
         ☐ Can you explain what WebXR is?
         ☐ Handle raid/sub/host etc
+    ☐ search the web
+      if the topIntent = "none" but there is a "web.search" intent, ask to look it up
+      "Do you want me to look it up?"      
 
 STT:
     ☐ Have rosie do VSCode commands on Speech
