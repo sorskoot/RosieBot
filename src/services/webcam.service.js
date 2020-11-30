@@ -23,7 +23,7 @@ export class WebCamService extends EventEmitter {
     // Load the image model and setup the webcam
     async init() {
         /** @type {number} The number of frames that have to be predicted in a row before emitting an event */
-        this.predictionThreshold = 5;
+        this.predictionThreshold = 10;
         const modelURL = path.join(__static, '/model.json');
         const metadataURL = path.join(__static, '/metadata.json');
 
@@ -78,8 +78,8 @@ export class WebCamService extends EventEmitter {
         let newPrediction;
         if (pred["No Headset"] > pred.Quest && pred["No Headset"] > .9) {
             newPrediction = "No Headset";
-        }
-        if (pred["No Headset"] < pred.Quest && pred.Quest > .9) {
+        }else
+            if (pred["No Headset"] < pred.Quest && pred.Quest > .9) {
             newPrediction = "Quest";
         }
 
