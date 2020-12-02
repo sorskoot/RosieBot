@@ -1,0 +1,138 @@
+@import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css);
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+   background-color: transparent !important;
+  /*background-image: linear-gradient(to bottom, #2a2139 75%, #34294f);*/
+  background-size: auto 100vh;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+body {
+    text-shadow: 0 0 1px #000, 0 0 2px #000;
+    font-family: 'Fira Code', monospace;;
+    font-size: {font_size};
+    line-height: 1.5em;
+    color: {text_color};
+  background-color: #292032 !important;
+  background-image: linear-gradient(to bottom, #2a2139, #34294f);
+  background-size: auto 100vh;
+  background-position: top;
+  background-repeat: no-repeat
+}
+
+ #log>div {
+    animation: fadeIn .3s ease forwards, fadeOut 0.5s ease {message_hide_delay} forwards;
+} 
+
+.colon {
+    display: none;
+}
+
+#log {
+    display: table;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0 10px 10px;
+    width: 100%;
+    table-layout: fixed;
+  
+}
+
+#log>div {
+    display: table-row;
+}
+
+#log>div.deleted {
+    visibility: hidden;
+}
+
+#log .emote {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    padding: 0.4em 0.2em;
+    position: relative;
+}
+
+#log .emote img {
+    display: inline-block;
+    height: 1em;
+    opacity: 0;
+}
+
+#log .message,#log .meta {
+    vertical-align: top;
+    display: table-cell;
+    padding-bottom: 0.1em;
+}
+
+#log .meta {
+    width: 35%;    
+    padding-right: 0.5em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#log .message {
+    word-wrap: break-word;
+    width: 65%;
+  font-size:0.9em;
+}
+
+.badge {
+    display: inline-block;
+    /*margin-right: 0.2em;*/
+    position: relative;
+    height: 1em;
+    vertical-align: middle;
+    top: -0.1em;
+}
+
+.name {
+    margin-left: 0.2em;
+    font-size: 0.75em;
+}
+
+.pink {
+  color: #fc88d1 !important;
+  text-shadow: 0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3;
+}
+
+.purple {
+  color: #b29dc0 !important;
+  text-shadow: 0 0 2px #001716, 0 0 3px #b872f975, 0 0 5px #b872f975, 0 0 8px #b872f975;
+}
+
+.orange {
+  color: #ffccc7 !important;
+    text-shadow: 0 0 2px #001716, 0 0 3px #f97e7275, 0 0 5px #f97e7275, 0 0 8px #f97e7275;
+}
+
+.blue {
+  color: #fdfdfd !important;
+  text-shadow: 0 0 2px #001716, 0 0 3px #03edf975, 0 0 5px #03edf975, 0 0 8px #03edf975;
+}
+
+.red { 
+  color: #fff5f6 !important;
+  text-shadow: 0 0 2px #000, 0 0 10px #fc1f2c75, 0 0 5px #fc1f2c75, 0 0 25px #fc1f2c75;
+}
+
+.green {
+  color: #72f1b8 !important;
+  text-shadow: 0 0 2px #100c0f, 0 0 10px #257c5575, 0 0 35px #21272475;
+}
+
+.yellow {
+  color: #f4eee4 !important;
+  text-shadow: 0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575;
+}

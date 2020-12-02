@@ -6,8 +6,8 @@ var canvas = document.querySelector('.snow'),
     flakes = [];
 
 function Flake(x, y) {
-  var maxWeight = 5,
-      maxSpeed = 13;
+  var maxWeight = 3,
+      maxSpeed = 3;
   
   this.x = x;
   this.y = y;
@@ -16,7 +16,7 @@ function Flake(x, y) {
   this.aStep = 0.01;
 
   
-  this.weight = randomBetween(2, maxWeight);
+  this.weight = randomBetween(.2, maxWeight);
   this.alpha = (this.weight / maxWeight);
   this.speed = (this.weight / maxWeight) * maxSpeed;
   
@@ -63,7 +63,8 @@ function loop() {
   // clear canvas
   ctx.save();
   ctx.setTransform(1, 0, 0, 1, 0, 0);
-  ctx.clearRect(0, 0, windowW, windowH);
+  ctx.fillStyle = "green";
+  ctx.fillRect(0, 0, windowW, windowH);
   ctx.restore();
   
   // loop of hell
