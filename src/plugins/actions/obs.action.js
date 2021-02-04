@@ -39,10 +39,12 @@ class ObsAction extends Action {
             if (intent.action) {
                 switch (intent.action) {
                     case 'switch':
-                        this.$store.dispatch('obs/changescene', intent.scene);                        
+                        if (!~intent.exception.findIndex(d=>d===this.$store.state.obs.currentScene)) {
+                            this.$store.dispatch('obs/changescene', intent.scene);
+                        }
                         break;
                     case 'previous':
-                        if(this.$store.state.obs.previousScene){
+                        if (this.$store.state.obs.previousScene) {
                             this.$store.dispatch('obs/changescene', this.$store.state.obs.previousScene);
                         }
                         break;

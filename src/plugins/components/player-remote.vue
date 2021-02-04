@@ -22,46 +22,38 @@ export default {
   },
   methods: {
     onReload: function() {
-      this.$store.dispatch("socket/emit", {
-        event: "player",
-        args: "reload"
-      });
+      this.$store.dispatch("spotify/start");
+      //this.$store.dispatch("spotify/repeat");      
     },
     onPlay: function() {
-      this.$store.dispatch("socket/emit", {
-        event: "player",
-        args: "play"
-      });
+      this.$store.dispatch("spotify/play");
     },
     onPause: function() {
-      this.$store.dispatch("socket/emit", {
-        event: "player",
-        args: "pause"
-      });
+      this.$store.dispatch("spotify/pause");
     },
     onNext: function() {
-      this.$store.dispatch("socket/emit", {
-        event: "player",
-        args: "next"
-      });
+      // this.$store.dispatch("socket/emit", {
+      //   event: "player",
+      //   args: "next"
+      // });
     },
     onLow: function() {
-      this.$store.dispatch("socket/emit", {
-        event: "player",
-        args: { volume: 5 }
-      });
+      // this.$store.dispatch("socket/emit", {
+      //   event: "player",
+      //   args: { volume: 5 }
+      // });
     },
     onMed: function() {
-      this.$store.dispatch("socket/emit", {
-        event: "player",
-        args: { volume: 25 }
-      });
+      // this.$store.dispatch("socket/emit", {
+      //   event: "player",
+      //   args: { volume: 25 }
+      // });
     },
     onHigh: function() {
-      this.$store.dispatch("socket/emit", {
-        event: "player",
-        args: { volume: 100 }
-      });
+      // this.$store.dispatch("socket/emit", {
+      //   event: "player",
+      //   args: { volume: 100 }
+      // });
     }
   }
 };

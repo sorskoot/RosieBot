@@ -1,7 +1,7 @@
 import converter from '@q42philips/hue-color-converter';
 import { colors } from './colors';
 
-const DEFAULT_COLOR = "purple";
+const DEFAULT_COLOR = "red";
 const MAX_BRIGHTNESS = 254;
 /**
  * Options for the install of Vue plugins

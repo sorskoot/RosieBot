@@ -37,7 +37,18 @@ const template = [
                     }
                 }
             },
-
+            {
+                role: 'config',
+                label: 'Authorize Spotify…',
+                click: async () => {
+                    const { spotifyOauth } = require('./main/SpotifyOauth')
+                    try {
+                        let code = await spotifyOauth.handle();
+                    } catch (e) {
+                        console.log(e);
+                    }
+                }
+            },
         ]
     },
     // { role: 'editMenu' }

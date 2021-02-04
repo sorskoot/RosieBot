@@ -20,6 +20,7 @@ export default {
     await this.$store.dispatch("obs/connect");
     await this.$store.dispatch("rosie/changeState",'started');
     await this.$store.dispatch("webcam/initialize");
+    await this.$store.dispatch("spotify/initialize");
   }
 };
 </script>
