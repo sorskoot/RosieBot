@@ -50,7 +50,7 @@
     "pug": "^2.0.4",
     "request": "^2.88.0",
     "require": "^2.4.20",
-    "socket.io": "^2.3.0",
+    "socket.io": "^2.4.0",
     "spotify-web-api-js": "^1.5.1",
     "tmi.js": "git+https://github.com/tmijs/tmi.js.git",
     "tmp": "^0.2.1",
