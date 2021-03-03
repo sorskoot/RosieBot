@@ -47,7 +47,7 @@
     "ms-rest-azure": "3.0.0",
     "node-sass-middleware": "^0.11.0",
     "node-static": "^0.7.11",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "request": "^2.88.0",
     "require": "^2.4.20",
     "socket.io": "^2.3.0",
