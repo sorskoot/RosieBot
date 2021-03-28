@@ -25,6 +25,7 @@ export class HueService {
     }
 
     async setColor(color) {
+        return;
         if (color['light-state']) {
             switch (color['light-state']) {
                 case 'off':

@@ -36,7 +36,7 @@ const actions = {
         });
 
         streamlabsService.connect(rootState.config.config.streamlabs)
-            .then(value => {
+            .then(value => {                
                 streamlabsService.on('follow', (e) => {
                     commit(TWITCH_EVENT, {
                         type: e.type,

@@ -34,8 +34,9 @@ export class SpeechRecService extends EventEmitter {
                 this.config.serviceRegion);
         this.speechConfig.setProfanity(ProfanityOption.Raw);
 
+        var audioConfig = AudioConfig.fromDefaultMicrophoneInput()
         this.recognizer =
-            new SpeechRecognizer(this.speechConfig);
+            new SpeechRecognizer(this.speechConfig, audioConfig);
 
         this.recognizer.recognized = async (s, e) => {
             if (e.result.reason === ResultReason.RecognizedSpeech) {

@@ -19,8 +19,8 @@ const actions = {
             })
         }
     },    
-    start({ commit }) {
-        spotifyService.start("spotify:playlist:76DR3PNoHa9OupODuzdMfN").then(() => {
+    start({ commit, rootState  }) {
+        spotifyService.start(rootState.config.config.spotify.playlist).then(() => {
             commit(SPOTIFY_PLAYING);
         })
     },
