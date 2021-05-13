@@ -15,10 +15,28 @@ class StreamlabsService extends EventEmitter {
         this.options = options;
         return new Promise((res, rej) => {
             try {
+                //this.socket = new WebSocket()
                 this.socket =
                     io(`https://sockets.streamlabs.com?token=${options.socket_token}`,
-                        { transports: ['websocket'] });
+                        {
+                            transports: ["websocket"],
+                            autoConnect: true
+                        }
+                    );
+                this.socket.on("connect", () => {
+                    console.log(this.socket.id); // x8WIv7-mJelg7on_ALbx
+                });
+
+                this.socket.on("disconnect", () => {
+                    console.log(this.socket.id); // undefined
+                });
+                this.socket.on("connect_error", (err) => {
+                    console.log(err);
+                });
                 this.socket.on('event', (e) => this.onEvent(e));
+                this.socket.on('error', e => rej);
+                this.socket.connect();
+                // client-side
                 res(this);
             } catch (e) {
                 rej(e);

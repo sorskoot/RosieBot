@@ -15,7 +15,6 @@ import { WebProxy } from './main/WebProxy';
 import { fileRequest } from './main/FileRequest';
 import { cheerio } from 'cheerio';
 import { request } from 'request';
-import { cors }from'cors';
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 app.allowRendererProcessReuse = true;
