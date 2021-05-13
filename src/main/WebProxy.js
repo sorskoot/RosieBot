@@ -24,8 +24,9 @@ export class WebProxy {
      */
     handleProxyRequest(url) {
         return new Promise((res) => {
-            get(url, (error, response, body) => {
+            get(url, (error, response, body) => {                
                 if (!error && response.statusCode == 200) {
+                    
                     res(body);
                 } else {
                     res({error});

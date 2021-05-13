@@ -26,19 +26,22 @@ class SpeechIntentTrigger extends Trigger {
      * @param {twitchEvent} value 
      */
     storeChange(prediction) {
-        if (prediction.intent && prediction.intent !== '') {          
-
-            if (!prediction.entities || !Object.entries(prediction.entities).length) {
+        if (prediction.intent && prediction.intent !== '') {
+            if (!prediction.text && (!prediction.entities || !Object.entries(prediction.entities).length)) {
                 this.triggerEvent(prediction.intent);
             } else {
                 let obj = {};
-                if (Array.isArray(prediction.entities[Object.keys(prediction.entities)[0]][0])) {
-                    obj[Object.keys(prediction.entities)[0]] = prediction.entities[Object.keys(prediction.entities)[0]][0][0];
+                if (prediction.text) {
+                    this.triggerEvent(prediction.intent, prediction.text);
                 } else {
-                    obj[Object.keys(prediction.entities)[0]] = prediction.entities[Object.keys(prediction.entities)[0]][0];
+                    if (Array.isArray(prediction.entities[Object.keys(prediction.entities)[0]][0])) {
+                        obj[Object.keys(prediction.entities)[0]] = prediction.entities[Object.keys(prediction.entities)[0]][0][0];
+                    } else {
+                        obj[Object.keys(prediction.entities)[0]] = prediction.entities[Object.keys(prediction.entities)[0]][0];
+                    }
+                    obj.sentiment = prediction.sentiment;
+                    this.triggerEvent(prediction.intent, obj);
                 }
-                obj.sentiment = prediction.sentiment;
-                this.triggerEvent(prediction.intent, obj);
 
             }
         }

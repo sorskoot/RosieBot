@@ -1,4 +1,4 @@
-const config = require('electron-json-config');
+import config  from 'electron-json-config';
 
 /**
  * Service for working with the configuration
@@ -12,7 +12,9 @@ class ConfigService {
     loadConfig() {        
         return new Promise((res, rej) => {
             try {
+                
                 res(config.all());
+
             } catch (err) {
                 rej(err);
             }

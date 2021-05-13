@@ -36,11 +36,11 @@
 
 export function vocoder() {
 
-    var modulatorGainValue = 1.25;//1.2;
-    var noiseGainValue = 0.2;//.23;
+    var modulatorGainValue = 1;//1.25;
+    var noiseGainValue = 0.4;//.23;
     var carrierSampleGainValue = 1;//0.4;//.5;
     var oscillatorGainValue = .6;
-    var dryGainValue = 0.5;
+    var dryGainValue = .8;//.5
     const oscillatorWaveType = 'sawtooth';
 
     var audioContext = null;

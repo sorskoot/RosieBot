@@ -1,4 +1,4 @@
-import twitchService from '../../services/twitch.service';
+import {TwitchClass} from '../../services/twitch.service';
 import twitchPubSubService from '../../services/twitchPubSub.service';
 import streamlabsService from '../../services/streamlabs.service';
 
@@ -19,10 +19,12 @@ export const ADD_MARKER = 'Add marker';
 export const ADD_MARKER_SUCCESS = '✅ Add marker Success';
 export const ADD_MARKER_FAIL = '❌ Add marker Fail';
 
+let twitchService;
+
 const actions = {
     connect({ commit, rootState }) {
         commit(TWITCH_CONNECT);
-
+        if(!twitchService)twitchService = new TwitchClass();
         twitchPubSubService.connect().then(tps => {
             twitchPubSubService.on('channel-points', e => {
                 commit(TWITCH_EVENT, {
@@ -86,6 +88,7 @@ const actions = {
 
     getStreamData({ commit }, username) {
         commit(GET_STREAM_DATA);
+        if(!twitchService)twitchService = new TwitchClass();
         twitchService.getStreamData(username)
             .then(
                 data => commit(GET_STREAM_DATA_SUCCESS, data),

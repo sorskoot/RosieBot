@@ -10,8 +10,8 @@ export const sockets = {
      * @param {BrowserWindow} win The browser window to communicate with over IPC
      */
     start: function (port, win) {
-        let io = socketio(port, { serveClient: false });
-
+        let io = socketio(port, { serveClient: false, origin:"http://localhost:7531/" });
+        
         let sockets = [];
         io.on('connection', socket => {
             sockets.push(socket);

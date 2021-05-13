@@ -1,4 +1,4 @@
-const config = require('electron-json-config');
+import config from 'electron-json-config';
 
 const { app, Menu } = require('electron')
 

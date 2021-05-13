@@ -1,7 +1,7 @@
 import Store from 'electron-store';
 import moment from 'moment';
 
-class TwitchClass {
+export class TwitchClass {
 
     constructor() {
         let store = new Store();
@@ -73,4 +73,4 @@ class TwitchClass {
     }
 }
 
-export default new TwitchClass();
+

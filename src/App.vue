@@ -12,15 +12,25 @@
 export default {
   created: async function() {
     await this.$store.dispatch("config/loadConfig");
+    console.log("config module started")
     await this.$store.dispatch("socket/open");
+    console.log("Socket module started")
     await this.$store.dispatch("twitch/connect");
+    console.log("Twitch module started")
     await this.$store.dispatch("twitchChat/connect");
+    console.log("TwitchChat module started")
     await this.$store.dispatch("api/open");
+    console.log("API module started")
     await this.$store.dispatch("speechrec/start");
+    console.log("SpeechRec module started")
     await this.$store.dispatch("obs/connect");
+    console.log("OBS module started")
     await this.$store.dispatch("rosie/changeState",'started');
+    console.log("Rosie module started")
     await this.$store.dispatch("webcam/initialize");
-    await this.$store.dispatch("spotify/initialize");
+    console.log("WebCam module started")
+  //  await this.$store.dispatch("spotify/initialize");
+  //  console.log("Spotify module started")
   }
 };
 </script>

@@ -3,9 +3,11 @@ import {
     AudioConfig,
     SpeechRecognizer,
     ResultReason,
-    ProfanityOption
+    ProfanityOption,
+    KeywordRecognitionModel
 } from "microsoft-cognitiveservices-speech-sdk";
 import EventEmitter from 'events';
+import { OpenAIService } from "./openai.service";
 /**
 * The config
 * @typedef {object} {SpeechRecConfig} s r c
@@ -34,39 +36,79 @@ export class SpeechRecService extends EventEmitter {
                 this.config.serviceRegion);
         this.speechConfig.setProfanity(ProfanityOption.Raw);
 
-        var audioConfig = AudioConfig.fromDefaultMicrophoneInput()
+        var audioConfig = AudioConfig.fromDefaultMicrophoneInput();
         this.recognizer =
             new SpeechRecognizer(this.speechConfig, audioConfig);
 
         this.recognizer.recognized = async (s, e) => {
+            console.log(`-{ recognized }- ${e.result.text}`);
             if (e.result.reason === ResultReason.RecognizedSpeech) {
-                let result = await fetch(`${this.config.luisendpoint}/luis/prediction/v3.0/apps/${this.config.luisappid}/slots/PRODUCTION/predict?query=${encodeURI(e.result.text)}`,
+                if (/never\s?mind\W/gi.test(e.result.text) ||
+                    /thank\s?you\W/gi.test(e.result.text) ||
+                    /that['i\ss]+all\W/gi.test(e.result.text)) {
+                    this.openAI = new OpenAIService(this.config);
+                    this.listening = false;
+                    this.conversation = false;
+                    this.emit("execute",
                     {
-                        headers: { "Ocp-Apim-Subscription-Key": this.config.luissubscriptionkey }
-                    }).then(r => r.json());
-
-
-                this.emit("recognized", e.result.text);
-                //console.log(e.result.text,Object.values(result.prediction.intents)[0].score);
-                if (Object.values(result.prediction.intents)[0].score < 0.65) {
-                    result.prediction.topIntent = "None"; //Ignore
+                        intent: 'say',
+                        text: "OK",
+                        sentiment: 'positive'
+                    });
+                    return;
                 }
-
-                switch (result.prediction.topIntent) {
+                let topIntent = "None";
+                let label = "neutral";
+                let result = null;
+                if (/hey\s?rosie\W/gi.test(e.result.text) ||
+                    /hi\s?rosie\W/gi.test(e.result.text)){
+                        this.emit("recognized", e.result.text);
+                        topIntent = "Wake up";
+                        label = "positive";
+                    }
+                else if (!this.conversation) {
+                    console.log('-{ no conversation }-');
+                    result = await fetch(`${this.config.luisendpoint}/luis/prediction/v3.0/apps/${this.config.luisappid}/slots/PRODUCTION/predict?query=${encodeURI(e.result.text)}`,
+                        {
+                            headers: { "Ocp-Apim-Subscription-Key": this.config.luissubscriptionkey }
+                        }).then(r => r.json());
+                    this.emit("recognized", e.result.text);
+                    //console.log(e.result.text,Obsject.values(result.prediction.intents)[0].score);
+                    if (Object.values(result.prediction.intents)[0].score < 0.65) {
+                        result.prediction.topIntent = "None"; //Ignore
+                    }       
+                    topIntent = result.prediction.topIntent;             
+                    label = result.prediction.sentiment.label;
+                }
+                switch (topIntent) {
                     case "Wake up":
+                        console.log('-{ wake up }-');
                         this.emit("execute",
                             {
                                 intent: 'Wakeup',
-                                sentiment: result.prediction.sentiment.label
+                                sentiment: label
                             });
                         this.listening = true;
                         break;
                     case "None":
+                        console.log('-{ None }-');
                         if (this.listening) {
-                            this.emit("unknown");
-                            this.listening = false;
-                            // console.log("I don't understand");
-                            console.log(result);
+                            console.log('-{ listening }-');
+                            if (!this.openAI) {
+                                this.openAI = new OpenAIService(this.config);
+                            }
+                            let response = await this.openAI.request(e.result.text);
+                            this.conversation = true;
+                            this.emit("execute",
+                                {
+                                    intent: 'say',
+                                    text: response,
+                                    sentiment: 'positive'
+                                });
+                            // this.emit("unknown");
+                            // this.listening = false;
+                            // // console.log("I don't understand");
+                            // console.log(result);
                         }
                         break;
                     default:

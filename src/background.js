@@ -15,6 +15,7 @@ import { WebProxy } from './main/WebProxy';
 import { fileRequest } from './main/FileRequest';
 import { cheerio } from 'cheerio';
 import { request } from 'request';
+import { cors }from'cors';
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 app.allowRendererProcessReuse = true;
@@ -27,6 +28,9 @@ let win, webproxy;
 protocol.registerSchemesAsPrivileged([{
     scheme: 'app',
     privileges: { 
+        allowServiceWorkers:true,
+        corsEnabled:true,
+        stream:true,
         supportFetchAPI:true,
         secure: true, standard: true,bypassCSP:true }
     
@@ -37,15 +41,17 @@ function createWindow() {
     win = new BrowserWindow({
         width: 1280, height: 900,
         webPreferences: {
+            enableRemoteModule:true,
             nodeIntegration: true,
-            webSecurity: false
+            webSecurity: false,            
+            contextIsolation: false,            
         },
 
     })
     if (process.env.WEBPACK_DEV_SERVER_URL) {
         // Load the url of the dev server if in development mode
         win.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
-        //if (!process.env.IS_TEST) win.webContents.openDevTools()
+        if (!process.env.IS_TEST) win.webContents.openDevTools()
     } else {
         createProtocol('app')
         // Load the index.html when not in development
@@ -87,7 +93,7 @@ app.on('ready', async () => {
         // If you are not using Windows 10 dark mode, you may uncomment these lines
         // In addition, if the linked issue is closed, you can upgrade electron and uncomment these lines
         try {
-            await installVueDevtools()
+           // await installVueDevtools()
         } catch (e) {
             console.error('Vue Devtools failed to install:', e.toString())
         }

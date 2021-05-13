@@ -3,7 +3,7 @@ import fs from 'fs';
 
 export const fileRequest = {
     start: function (port = 7535) {
-        let io = socketio(port, { serveClient: false });
+        let io = socketio(port, { serveClient: false, origin:"http://localhost:7531/" });
         io.on('connection', socket => {
             let currentSocket = socket;
             socket.on("request-file", path => {
