@@ -46,9 +46,8 @@ export class OpenAIService{
         let json = await response.json();
         //sometimes responses contains things like <giggle>
         let text = json.choices[0].text.replace(/(<.*>\s*)/gi, '');
+        console.log(`GPT3 response: ${text}`);
         this.message.conversations[m-1].rosie = text;
-        
-        console.log(this.message.conversations);
         return text;
     }
 

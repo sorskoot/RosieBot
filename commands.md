@@ -43,5 +43,6 @@ command | description
 !kickassalgo | !stupid | !codehard | !familyshow |
 !glitch | !akira | !dontdothat | !mycorona |
 !biden | !math | !dirtybit | !yourmove |
-!lookgood | !kickass2 | !important | !livelong
+!lookgood | !kickass2 | !important | !livelong |
+!jeff | !nekminute | !ar | 
 

@@ -41,9 +41,10 @@ export class SpeechRecService extends EventEmitter {
             new SpeechRecognizer(this.speechConfig, audioConfig);
 
         this.recognizer.recognized = async (s, e) => {
-            console.log(`-{ recognized }- ${e.result.text}`);
+            //console.log(`-{ recognized }- ${e.result.text}`);
             if (e.result.reason === ResultReason.RecognizedSpeech) {
-                if (/never\s?mind\W/gi.test(e.result.text) ||
+                if (this.conversation &&                    
+                    /never\s?mind\W/gi.test(e.result.text) ||
                     /thank\s?you\W/gi.test(e.result.text) ||
                     /that['i\ss]+all\W/gi.test(e.result.text)) {
                     this.openAI = new OpenAIService(this.config);
@@ -67,22 +68,29 @@ export class SpeechRecService extends EventEmitter {
                         label = "positive";
                     }
                 else if (!this.conversation) {
-                    console.log('-{ no conversation }-');
+                    // console.log('-{ no conversation }-');
                     result = await fetch(`${this.config.luisendpoint}/luis/prediction/v3.0/apps/${this.config.luisappid}/slots/PRODUCTION/predict?query=${encodeURI(e.result.text)}`,
                         {
                             headers: { "Ocp-Apim-Subscription-Key": this.config.luissubscriptionkey }
                         }).then(r => r.json());
                     this.emit("recognized", e.result.text);
-                    //console.log(e.result.text,Obsject.values(result.prediction.intents)[0].score);
-                    if (Object.values(result.prediction.intents)[0].score < 0.65) {
-                        result.prediction.topIntent = "None"; //Ignore
-                    }       
-                    topIntent = result.prediction.topIntent;             
-                    label = result.prediction.sentiment.label;
+
+                    if(!result.prediction || !result.prediction.intents){
+                        console.log(`something is wrong:`);
+                        console.dir(result);
+                    }
+                    else {
+                        if (Object.values(result.prediction.intents)[0].score < 0.65) {
+                            result.prediction.topIntent = "None"; //Ignore
+                        
+                        }    
+                        topIntent = result.prediction.topIntent;             
+                        label = result.prediction.sentiment.label;
+                    }                       
                 }
                 switch (topIntent) {
                     case "Wake up":
-                        console.log('-{ wake up }-');
+                        //console.log('-{ wake up }-');
                         this.emit("execute",
                             {
                                 intent: 'Wakeup',
@@ -91,14 +99,15 @@ export class SpeechRecService extends EventEmitter {
                         this.listening = true;
                         break;
                     case "None":
-                        console.log('-{ None }-');
+                        //console.log('-{ None }-');
                         if (this.listening) {
-                            console.log('-{ listening }-');
+                            //console.log('-{ listening }-');
                             if (!this.openAI) {
                                 this.openAI = new OpenAIService(this.config);
                             }
                             let response = await this.openAI.request(e.result.text);
                             this.conversation = true;
+                            this.emit("conversation_started");
                             this.emit("execute",
                                 {
                                     intent: 'say',
@@ -114,7 +123,7 @@ export class SpeechRecService extends EventEmitter {
                     default:
                         if (this.listening) {
                             this.listening = false;
-                            console.log(result.prediction);
+                            //console.log(result.prediction);
                             // analyse, could be not good enough
                             // then trigger action based on intent, 
                             // with parameters entities and values of those                            

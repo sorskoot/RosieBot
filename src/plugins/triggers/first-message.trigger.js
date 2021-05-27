@@ -57,6 +57,7 @@ class FirstMessageTrigger extends Trigger {
     }
 
     storeChange({ user }) {
+        return;
         if (!this.users.includes(user)) {
             return;
         }

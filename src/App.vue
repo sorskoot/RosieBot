@@ -27,8 +27,8 @@ export default {
     console.log("OBS module started")
     await this.$store.dispatch("rosie/changeState",'started');
     console.log("Rosie module started")
-    await this.$store.dispatch("webcam/initialize");
-    console.log("WebCam module started")
+    // await this.$store.dispatch("webcam/initialize");
+    // console.log("WebCam module started")
     await this.$store.dispatch("spotify/initialize");
     console.log("Spotify module started")
   }

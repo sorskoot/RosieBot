@@ -6,6 +6,7 @@ const SPEECHINTENT_RECEIVED = '✅ Got Speech Intent';
 const SPEECHINTENT_UNKNOWN = '❔ Unknown Speech Intent';
 const SPEECHINTENT_FAILURE = '❌ Failed getting Speech Intent';
 const SPEECH_RECOGNIZED = '✅ Speech recognized';
+const SPEECH_CONVERSATION_STARTED = '✅ Conversation Started';
 
 let speechRecService;
 
@@ -26,6 +27,10 @@ const actions = {
             speechRecService.on("recognized", text => {
                 commit(SPEECH_RECOGNIZED, text);
             })
+            speechRecService.on("conversation_started",() => {
+                commit(SPEECH_CONVERSATION_STARTED, +new Date());
+            });
+
             speechRecService.setupRecognizer();
             speechRecService.startRecognizing();
             commit(SPEECHINTENT_START_RECOGNIZING);
@@ -41,7 +46,8 @@ const mutations = {
     [SPEECHINTENT_RECEIVED](state, data) { state.prediction = data; state.wakeup = false; },
     [SPEECHINTENT_UNKNOWN](state) { state.prediction = { intent: "None" }; state.wakeup = false; },
     [SPEECHINTENT_FAILURE](state, error) { state.wakeup = false; },
-    [SPEECH_RECOGNIZED](state, text) { state.recognized = text; }
+    [SPEECH_RECOGNIZED](state, text) { state.recognized = text; },
+    [SPEECH_CONVERSATION_STARTED](state, time) { state.converationStarted = time; }
 }
 
 /**
@@ -56,8 +62,8 @@ export default {
         prediction: {
             intent: '',
             entities: {},
-        }
-
+        },
+        converationStarted:0
     },
     actions: actions,
     mutations: mutations
