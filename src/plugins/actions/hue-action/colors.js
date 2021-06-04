@@ -16,6 +16,7 @@ export const colors = {
     "chartreuse": "#7fff00",
     "chocolate": "#d2691e",
     "coral": "#ff7f50",
+    "coconut":"#9d5f38",
     "cornflowerblue": "#6495ed",
     "cornsilk": "#fff8dc",
     "crimson": "#dc143c",

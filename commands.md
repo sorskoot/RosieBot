@@ -44,5 +44,6 @@ command | description
 !glitch | !akira | !dontdothat | !mycorona |
 !biden | !math | !dirtybit | !yourmove |
 !lookgood | !kickass2 | !important | !livelong |
-!jeff | !nekminute | !ar | 
+!jeff | !nekminute | !ar | !squirrel |
+!stutter | !turtles 
 
